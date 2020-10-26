@@ -2,17 +2,18 @@
 
 import { 
     Container,
+    Navigation,
     Link
 } from './styles';
 
 function Header() {
     return (
         <Container>
-            <nav>
+            <Navigation>
                 <Link to='/'>Home</Link>
                 <Link to='/about'>About</Link>
                 <Link to='/portifolio'>Portifólio</Link>
-            </nav>
+            </Navigation>
         </Container>
     );
 };

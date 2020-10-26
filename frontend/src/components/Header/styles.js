@@ -7,7 +7,10 @@ export const Container = styled.div`
     justify-content: center;
     width: 100vw;
     height: 6rem;
-    position: fixed;
+`;
+
+export const Navigation = styled.nav`
+    display: flex;
 `;
 
 export const Link = styled(ReactRouterLink)`
