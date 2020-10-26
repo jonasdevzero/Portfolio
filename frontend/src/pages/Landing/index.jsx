@@ -1,11 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Header } from '../../components';
 
 import {
     Container,
-    Content
+    Content,
+    Inner,
+    Title,
+    Subtitle,
+    Text,
+    Button,
+    Social
 } from './styles';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 function Landing() {
     return (
@@ -13,10 +22,22 @@ function Landing() {
             <Header />
 
             <Content>
-                <div>
-                    <h1>Hi.</h1>
-                    <h2>My name is Jonas</h2>
-                </div>
+                <Inner>
+                    <Subtitle>Hello</Subtitle>
+                    <Title>I´m Jonas</Title>
+                    <Text>A self-taught of web programming</Text>
+
+                    <Button>Know more</Button>
+
+                    <Social>
+                        <Link to='/'>
+                            <LinkedInIcon />
+                        </Link>
+                        <Link to='/'>
+                            <GitHubIcon />
+                        </Link>
+                    </Social>
+                </Inner>
             </Content>
         </Container>
     );
