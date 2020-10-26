@@ -30,12 +30,12 @@ function Landing() {
                     <Button>Know more</Button>
 
                     <Social>
-                        <Link to='/'>
+                        <a href="https://www.linkedin.com/in/jonas-de-oliveira-0561961ab/" rel="noopener noreferrer" target="_blank">
                             <LinkedInIcon />
-                        </Link>
-                        <Link to='/'>
+                        </a>
+                        <a href="https://github.com/jonasdevzero" rel="noopener noreferrer" target="_blank">
                             <GitHubIcon />
-                        </Link>
+                        </a>
                     </Social>
                 </Inner>
             </Content>
