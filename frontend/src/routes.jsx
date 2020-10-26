@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import { Landing, About, Portifolio } from './pages';
+import { Landing, About, Skills, Portifolio } from './pages';
 
 function Routes() {
     return (
@@ -8,6 +8,7 @@ function Routes() {
             <Switch>
                 <Route exact path='/' component={Landing} />
                 <Route path='/about' component={About} />
+                <Route path='/skills' component={Skills} />
                 <Route path='/portifolio' component={Portifolio} />
             </Switch>
         </Router>
