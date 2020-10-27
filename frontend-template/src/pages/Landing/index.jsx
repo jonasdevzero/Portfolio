@@ -23,7 +23,7 @@ function Landing() {
             <Content>
                 <Inner>
                     <Subtitle>Hello</Subtitle>
-                    <Title>I´m Jonas</Title>
+                    <Title>I'm Jonas</Title>
                     <Text>A self-taught of web programming</Text>
 
                     <Button>Know more</Button>
