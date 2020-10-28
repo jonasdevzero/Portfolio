@@ -20,7 +20,7 @@ export const Content = styled.main`
     margin-bottom: 6rem;
 `;
 
-export const Inner = styled.div`
+export const Inner = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,8 +61,9 @@ export const Text = styled.p`
 export const Button = styled.button`
     height: 5rem;
     width: 15rem;
-    background-color: #000;
+    background-color: #191818;
     color: #FFF;
+    transition: background-color .3s ease; 
 
     border: none;
     border-radius: .4rem;
@@ -73,6 +74,10 @@ export const Button = styled.button`
     font-weight: 600;
 
     margin-top: 2rem;
+
+    &:hover {
+        background-color: #000;
+    };
 
     @media (max-width: 400px) {
         height: 4.5rem;
@@ -94,6 +99,11 @@ export const Social = styled.div`
     .MuiSvgIcon-root {
         font-size: 3.5rem !important;
         margin: 0 1rem;
-        color: #000;
+        color: #191818;
+        transition: color .3s ease;
+
+        &:hover {
+            color: #000;
+        };
     };
 `;

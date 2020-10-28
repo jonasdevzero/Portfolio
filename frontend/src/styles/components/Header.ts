@@ -29,7 +29,12 @@ export const Navigation = styled.nav`
         font-weight: 500;
         text-decoration: none;
         margin: 0 2rem;
-        color: #000;
+        color: #191818;
+        transition: color .3s ease;
+
+        &:hover {
+            color: #000;
+        };
 
         @media (max-width: 400px) {
             font-size: 1.6rem;
@@ -50,7 +55,7 @@ export const Dropside = styled.div`
     width: 100vw;
     height: 100vh;
     z-index: 11;
-    background-color: #000;
+    background-color: #191818;
 
     margin-top: auto;
     padding: 6rem 0;
@@ -64,7 +69,9 @@ export const Dropside = styled.div`
 export const DropsideButton = styled.button`
     color: #FFF;
     font-size: 1.6rem;
-    padding: 1rem 2rem;
+    font-weight: 600;
+    margin: 1rem 2rem;
+    padding: .5rem;
     text-align: start;
 
     background-color: transparent;

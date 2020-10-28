@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import Header from '../components/Header'
+import { Header } from '../components'
 
 import {
   Container,
@@ -19,7 +19,9 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Portfolio</title>
+        <meta name='robots' content='index/follow' />
+        <meta name='description' content='portfolio of a web developer' />
+        <title>Jonas - Home</title>
       </Head>
 
       <Container>

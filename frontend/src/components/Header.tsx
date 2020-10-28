@@ -28,7 +28,7 @@ function Header() {
         setShowDropside(false)
         setTimeout(() => {
             router.push(url)
-        }, 400)
+        }, 430)
     };
 
     return (

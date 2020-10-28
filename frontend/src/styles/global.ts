@@ -10,8 +10,8 @@ export default createGlobalStyle`
         font-size: 62.5%;
     };
     body {
-        color: #000;
-        background-color: #FFF;
+        color: #191818;
+        background-color: #EEE;
         font-family: 'Roboto', sans-serif;
     };
     #root {
