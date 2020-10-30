@@ -26,7 +26,7 @@ export const Inner = styled.section`
     height: 100%;
 `;
 
-export const Card = styled.div`
+export const AboutContainer = styled.div`
     display: flex;
     align-items: center;
     flex: 1;
@@ -35,7 +35,6 @@ export const Card = styled.div`
 
     @media (max-width: 900px) {
         flex-direction: column;
-        padding-top: 1rem;
     };
 `;
 
@@ -107,14 +106,28 @@ export const SubTitle = styled.h2`
 `;
 
 export const Text = styled.p`
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 500;
     letter-spacing: .1rem;
+    line-height: 2.3rem;
 
     margin-bottom: 1rem;
 
     @media (max-width: 930px) {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    };
+`;
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    width: 100%;
+    margin-top: 2.5rem;
+
+    @media (max-width: 900px) {
+        align-items: center;
+        justify-content: center;
+
+        margin: 2.5rem 0;
     };
 `;
 
@@ -125,7 +138,6 @@ export const Button = styled.button`
     color: #FFF;
     transition: background-color .3s ease; 
 
-    margin: 2.5rem 0;
     border: none;
     border-radius: .4rem;
     outline: none;
