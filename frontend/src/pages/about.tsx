@@ -43,9 +43,9 @@ function About() {
                                 <Title>Jonas de Oliveira</Title>
 
                                 <Text>
-                                    I am 17 years old and I love programming and I discovered this passion after 
-                                    seeing a little of this wonderful world that is programming and making my first hello 
-                                    world. I've been studying web programming for a few months, using javascript programming 
+                                    I am 17 years old and I love programming and I discovered this passion after
+                                    seeing a little of this wonderful world that is programming and making my first hello
+                                    world. I've been studying web programming for a few months, using javascript programming
                                     language on the frontend with Reactjs and the backend with nodejs.
                                 </Text>
 

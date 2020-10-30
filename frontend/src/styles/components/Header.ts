@@ -4,19 +4,6 @@ interface ShowDropsideProps {
     show: boolean;
 };
 
-export const Container = styled.header`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 6rem;
-    position: fixed;
-
-    @media (max-width: 400px) {
-        z-index: 10;
-    }
-`;
-
 export const Navigation = styled.nav`
     display: flex;
 
@@ -26,7 +13,7 @@ export const Navigation = styled.nav`
 
     a {
         font-size: 1.6rem;
-        font-weight: 500;
+        font-weight: 700;
         text-decoration: none;
         margin: 0 2rem;
         color: #191818;
@@ -88,6 +75,7 @@ export const Button = styled.button`
     position: absolute;
     top: 2rem;
     right: 3rem;
+    transition: color .5s ease;
 
     .MuiSvgIcon-root {
         color: ${({ show }: ShowDropsideProps) => show ? '#fff' : '#000'};
@@ -97,4 +85,35 @@ export const Button = styled.button`
         display: block;
         z-index: 12;
     };
+`;
+
+export const Container = styled.header`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 6rem;
+    position: fixed;
+    transition: background-color .5s ease;
+
+    &.scroll {
+        background-color: #0008;
+        color: #FFF;
+
+        ${Navigation} {
+            a {
+                color: #FFF;
+            };
+        };
+
+        ${Button} {
+            .MuiSvgIcon-root {
+                color: #FFF;
+            };
+        };
+    };
+
+    @media (max-width: 400px) {
+        z-index: 10;
+    }
 `;

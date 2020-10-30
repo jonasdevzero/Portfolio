@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
@@ -12,27 +12,38 @@ import {
 import MenuIcon from '@material-ui/icons/Menu'
 
 function Header() {
-    const [showDropside, setShowDropside] = useState(false);
+    const [showDropside, setShowDropside] = useState(false)
+    const [scroll, setScroll] = useState(false)
     const router = useRouter()
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 0) {
+                setScroll(true)
+                return
+            } 
+            setScroll(false)
+        })
+    }, [])
 
     function toggleDropside() {
         if (showDropside) {
             setShowDropside(false)
             return
-        };
+        }
 
         setShowDropside(true)
-    };
+    }
 
     function goTo(url: string) {
         setShowDropside(false)
         setTimeout(() => {
             router.push(url)
         }, 430)
-    };
+    }
 
     return (
-        <Container>
+        <Container className={scroll ? 'scroll' : ''}>
             <Navigation>
                 <Link href='/'>Home</Link>
                 <Link href='/about'>About</Link>
