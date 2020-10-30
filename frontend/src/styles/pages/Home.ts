@@ -52,6 +52,7 @@ export const Text = styled.p`
     font-weight: 500;
     margin: 3rem 2rem 1.5rem 2rem;
     text-align: center;
+    color: #000;
 
     @media (max-width: 400px) {
         font-size: 1.6rem;

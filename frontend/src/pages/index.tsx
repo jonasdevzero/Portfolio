@@ -34,7 +34,7 @@ export default function Home() {
           <Inner>
             <Subtitle>Hello,</Subtitle>
             <Title>I'm Jonas</Title>
-            <Text>A self-taught of web programming</Text>
+            <Text>A self-taught studenty of web programming</Text>
 
             <Button onClick={() => router.push('/about')}>Know more</Button>
 
