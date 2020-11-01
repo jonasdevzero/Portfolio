@@ -6,6 +6,8 @@ export const Container = styled.div`
     align-items: center;
 
     height: 100%;
+    background: url('/profile.jpg') no-repeat right;
+    background-size: contain;
 
     overflow: hidden;
 `;

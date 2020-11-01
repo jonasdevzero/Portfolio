@@ -25,7 +25,6 @@ export const Inner = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-
+    
     height: calc(100vh - 12rem);
 `;
