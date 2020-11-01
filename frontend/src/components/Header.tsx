@@ -17,7 +17,7 @@ function Header() {
     const router = useRouter()
 
     useEffect(() => {
-        window.addEventListener('scroll', () => {
+        document.addEventListener('scroll', () => {
             if (window.scrollY > 0) {
                 setScroll(true)
                 return
@@ -47,18 +47,18 @@ function Header() {
             <Navigation>
                 <Link href='/'>Home</Link>
                 <Link href='/about'>About</Link>
-                <Link href='/skills'>Skills</Link>
                 <Link href='/portfolio'>Portfolio</Link>
+                <Link href='/contac'>Contac</Link>
             </Navigation>
 
             <Dropside show={showDropside}>
                 <DropsideButton onClick={() => goTo('/')}>Home</DropsideButton>
                 <DropsideButton onClick={() => goTo('/about')}>About</DropsideButton>
-                <DropsideButton onClick={() => goTo('/skills')}>Skills</DropsideButton>
                 <DropsideButton onClick={() => goTo('/portfolio')}>Portfolio</DropsideButton>
+                <DropsideButton onClick={() => goTo('/contac')}>Contact</DropsideButton>
             </Dropside>
 
-            <Button onClick={toggleDropside} show={showDropside}>
+            <Button onClick={toggleDropside}>
                 <MenuIcon fontSize='large' />
             </Button>
         </Container>

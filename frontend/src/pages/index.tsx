@@ -32,11 +32,11 @@ export default function Home() {
 
         <Content>
           <Inner>
-            <Subtitle>Hello,</Subtitle>
-            <Title>I'm Jonas</Title>
-            <Text>A self-taught studenty of web programming</Text>
+              <Subtitle>Hello,</Subtitle>
+              <Title>I'm Jonas</Title>
+              <Text>A self-taught of web programming</Text>
 
-            <Button onClick={() => router.push('/about')}>Know more</Button>
+              <Button onClick={() => router.push('/about')}>Know more</Button>
 
             <Social>
               <a href="https://www.linkedin.com/in/jonas-de-oliveira-0561961ab/" rel="noopener noreferrer" target="_blank">

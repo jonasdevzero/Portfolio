@@ -12,16 +12,12 @@ export const Navigation = styled.nav`
     }
 
     a {
-        font-size: 1.6rem;
-        font-weight: 700;
+        font-size: 1.5rem;
+        font-weight: 500;
         text-decoration: none;
         margin: 0 2rem;
-        color: #191818;
+        color: #FFF;
         transition: color .3s ease;
-
-        &:hover {
-            color: #000;
-        };
 
         @media (max-width: 400px) {
             font-size: 1.6rem;
@@ -78,7 +74,7 @@ export const Button = styled.button`
     transition: color .5s ease;
 
     .MuiSvgIcon-root {
-        color: ${({ show }: ShowDropsideProps) => show ? '#fff' : '#000'};
+        color: #FFF;
     };
 
     @media (max-width: 400px) {
@@ -97,7 +93,7 @@ export const Container = styled.header`
     transition: background-color .5s ease;
 
     &.scroll {
-        background-color: #0008;
+        background-color: rgba(255, 255, 255, .7);
         color: #FFF;
 
         ${Navigation} {
@@ -108,7 +104,7 @@ export const Container = styled.header`
 
         ${Button} {
             .MuiSvgIcon-root {
-                color: #FFF;
+                color: #000;
             };
         };
     };

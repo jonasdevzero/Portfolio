@@ -23,17 +23,26 @@ export const Content = styled.main`
 export const Inner = styled.section`
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     position: relative;
 
     height: calc(100vh - 12rem);
+    width: 100%;
+    max-width: 90rem;
+    margin: auto;
+
+    @media (max-width: 900px) {
+        align-items: center;
+    };
 `;
 
 export const Title = styled.h1`
-    font-size: 5.6rem;
+    font-size: 8rem;
     font-weight: 700;
-    text-align: center;
+
+    @media (max-width: 900px) {
+        text-align: center;
+    };
 
     @media (max-width: 400px) {
         font-size: 4.6rem;
@@ -42,17 +51,18 @@ export const Title = styled.h1`
 
 export const Subtitle = styled.h2`
     font-size: 2.4rem;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 2.8rem;
 `;
 
 export const Text = styled.p`
     font-size: 2rem;
     letter-spacing: .2rem;
-    font-weight: 500;
-    margin: 3rem 2rem 1.5rem 2rem;
-    text-align: center;
-    color: #000;
+    font-weight: 400;
+
+    @media (max-width: 900px) {
+        text-align: center;
+    };
 
     @media (max-width: 400px) {
         font-size: 1.6rem;
@@ -60,11 +70,10 @@ export const Text = styled.p`
 `;
 
 export const Button = styled.button`
-    height: 5rem;
-    width: 15rem;
-    background-color: #191818;
-    color: #FFF;
-    transition: background-color .3s ease; 
+    height: 4rem;
+    width: 12rem;
+    background-color: #FFF;
+    color: #000;
 
     border: none;
     border-radius: .4rem;
@@ -72,20 +81,9 @@ export const Button = styled.button`
     cursor: pointer;
 
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 700;
 
-    margin-top: 2rem;
-
-    &:hover {
-        background-color: #000;
-    };
-
-    @media (max-width: 400px) {
-        height: 4.5rem;
-        width: 12rem;
-
-        font-size: 1.2rem;
-    };
+    margin-top: 3rem;
 `;
 
 export const Social = styled.div`
@@ -94,17 +92,14 @@ export const Social = styled.div`
     justify-content: center;
     position: absolute;
     bottom: 0;
+    left: 50%;
+    right: 50%;
 
     margin-top: 2rem;
 
     .MuiSvgIcon-root {
         font-size: 3.5rem !important;
         margin: 0 1rem;
-        color: #191818;
-        transition: color .3s ease;
-
-        &:hover {
-            color: #000;
-        };
+        color: #FFF;
     };
 `;
