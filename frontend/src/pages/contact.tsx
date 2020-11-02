@@ -16,7 +16,7 @@ function skills() {
             </Head>
 
             <Container>
-                <Header />
+                <Header local='contact' />
 
                 <Content>
                     <Inner>
