@@ -39,7 +39,7 @@ export default function Home() {
             </Link>
 
             <Social>
-              <a href="https://www.linkedin.com/in/jonas-de-oliveira-0561961ab/" rel="noopener noreferrer" target="_blank">
+              <a href="https://www.linkedin.com/in/jonasdevzero" rel="noopener noreferrer" target="_blank">
                 <LinkedInIcon />
               </a>
               <a href="https://github.com/jonasdevzero" rel="noopener noreferrer" target="_blank">

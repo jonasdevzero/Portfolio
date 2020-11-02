@@ -17,7 +17,7 @@ function Portfolio() {
             </Head>
 
             <Container>
-                <Header />
+                <Header local='portfolio' />
 
                 <Content>
                     <Inner>

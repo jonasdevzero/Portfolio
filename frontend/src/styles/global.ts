@@ -18,4 +18,18 @@ export default createGlobalStyle`
         width: 100vw;
         height: 100%;
     };
+
+    ::-webkit-scrollbar {
+        width: 1rem;
+    };
+    ::-webkit-scrollbar-track {
+        border-left: solid .1rem #303030;
+    };
+    ::-webkit-scrollbar-thumb {
+        background-color: #191818;
+        border-left: solid .1rem #303030;
+    };
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #101010;
+    };
 `;

@@ -143,17 +143,17 @@ export const Container = styled.header`
     width: 100vw;
     height: 6rem;
     position: fixed;
-    transition: background-color .5s ease;
+    transition: background-color .4s ease-in-out;
 
     &.scroll {
-        background-color: rgba(255, 255, 255, .7);
+        background-color: rgba(255, 255, 255, .9);
         color: #000;
 
         ${Navigation} {
             a {
                 color: #000;
             };
-            .animation {
+            .header-animation {
                 background-color: #000;
             };
         };
