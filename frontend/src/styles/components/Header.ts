@@ -6,24 +6,52 @@ interface ShowDropsideProps {
 
 export const Navigation = styled.nav`
     display: flex;
+    position: relative;
 
-    @media (max-width: 400px) {
+    .header-animation {
+        width: 10rem;
+        height: .2rem;
+        bottom: .2rem;
+        position: absolute;
+
+        transition: left .4s ease;
+
+        background-color: #FFF;
+    };
+
+    @media (max-width: 500px) {
         display: none;
     }
+`;
 
-    a {
-        font-size: 1.5rem;
-        font-weight: 500;
-        text-decoration: none;
-        margin: 0 2rem;
-        color: #FFF;
-        transition: color .3s ease;
+export const StyledLink = styled.a`
+    width: 10rem;
+    padding: 1rem 2rem;
 
-        @media (max-width: 400px) {
-            font-size: 1.6rem;
-            margin: 1.5rem 1rem;
-            color: #fff;
-        };
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;     
+    cursor: pointer;
+
+    &.home~.header-animation, &:nth-child(1):hover~.header-animation {
+        left: 0;
+    };
+    &.about~.header-animation, &:nth-child(2):hover~.header-animation {
+        left: 10rem;
+    };
+    &.portfolio~.header-animation, &:nth-child(3):hover~.header-animation {
+        left: 20rem;
+    };
+    &.contact~.header-animation, &:nth-child(4):hover~.header-animation {
+        left: 30rem;
+    };
+
+    @media (max-width: 500px) {
+        font-size: 1.6rem;
+        margin: 1.5rem 1rem;
+        color: #fff;
     };
 `;
 
@@ -33,33 +61,56 @@ export const Dropside = styled.div`
     position: relative;
     top: 0;
     right: ${({ show }: ShowDropsideProps) => show ? '0' : '-100%'};
-    transition: right .5s ease;
+    transition: right .5s ease-in-out;
 
     width: 100vw;
     height: 100vh;
     z-index: 11;
-    background-color: #191818;
+    background-color: #000;
 
     margin-top: auto;
     padding: 6rem 0;
 
-    @media (max-width: 400px) {
+    .dropside-animation {
+        width: .2rem;
+        height: 6.3rem;
+        left: 0;
+        position: absolute;
+
+        transition: top .3s ease-in;
+
+        background-color: #FFF;
+    };
+
+    @media (max-width: 500px) {
         display: flex;
         flex-direction: column;
     };
 `;
 
 export const DropsideButton = styled.button`
-    color: #FFF;
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin: 1rem 2rem;
-    padding: .5rem;
-    text-align: start;
-
     background-color: transparent;
+    color: #FFF;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: start;
+    text-decoration: none;
+    padding: 2rem 2.5rem;
     border: none;
     outline: none;
+
+    &.home~.dropside-animation, &:nth-child(1):hover~.dropside-animation {
+        top: 6.3rem;
+    };
+    &.about~.dropside-animation, &:nth-child(2):hover~.dropside-animation {
+        top: 12.6rem;
+    };
+    &.portfolio~.dropside-animation, &:nth-child(3):hover~.dropside-animation {
+        top: 18.9rem;
+    };
+    &.contact~.dropside-animation, &:nth-child(4):hover~.dropside-animation {
+        top: 25.2rem;
+    };
 `;
 
 export const Button = styled.button`
@@ -74,11 +125,13 @@ export const Button = styled.button`
     transition: color .5s ease;
 
     .MuiSvgIcon-root {
-        color: #FFF;
+        font-size: 3rem !important;
+        color: ${({ show }: ShowDropsideProps) => show ? '#FFF !important' : '#FFF'};
     };
 
-    @media (max-width: 400px) {
-        display: block;
+    @media (max-width: 500px) {
+        display: flex;
+        align-items: center;
         z-index: 12;
     };
 `;
@@ -94,11 +147,14 @@ export const Container = styled.header`
 
     &.scroll {
         background-color: rgba(255, 255, 255, .7);
-        color: #FFF;
+        color: #000;
 
         ${Navigation} {
             a {
-                color: #FFF;
+                color: #000;
+            };
+            .animation {
+                background-color: #000;
             };
         };
 
@@ -109,7 +165,7 @@ export const Container = styled.header`
         };
     };
 
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
         z-index: 10;
     }
 `;
