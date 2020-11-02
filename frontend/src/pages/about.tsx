@@ -1,28 +1,26 @@
 import React from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 import { Header } from '../components'
 
 import {
     Container,
-    Content,
+    Main,
     Inner,
-    AboutContainer,
+    Content,
     ImageContainer,
     Image,
     Info,
     Title,
     Text,
     ButtonContainer,
-    Button
+    StyledLink,
+    SkilsContainer
 } from '../styles/pages/About'
-
 import profile from '../assets/img1.jpg'
 
 function About() {
-    const router = useRouter()
-
     return (
         <div>
             <Head>
@@ -30,11 +28,11 @@ function About() {
             </Head>
 
             <Container>
-                <Header />
+                <Header local='about' />
 
-                <Content>
+                <Main>
                     <Inner>
-                        <AboutContainer>
+                        <Content>
                             <ImageContainer>
                                 <Image src={profile} />
                             </ImageContainer>
@@ -50,12 +48,21 @@ function About() {
                                 </Text>
 
                                 <ButtonContainer>
-                                    <Button onClick={() => router.push('/skills')}>See my skills</Button>
+                                    <Link href='/portfolio'>
+                                        <StyledLink>
+                                            See my protfolio
+                                        </StyledLink>
+                                    </Link>
                                 </ButtonContainer>
                             </Info>
-                        </AboutContainer>
+                        </Content>
+                        <Content>
+                            <SkilsContainer>
+                                <h1>Skills</h1>
+                            </SkilsContainer>
+                        </Content>
                     </Inner>
-                </Content>
+                </Main>
             </Container>
         </div>
     )

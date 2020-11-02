@@ -8,16 +8,15 @@ export const Container = styled.div`
     height: 100vh;
 `;
 
-export const Content = styled.main`
+export const Main = styled.main`
     display: flex;
     flex-direction: column;
     flex: 1;
 
-    width: 100vw;
     margin-top: 6rem;
 `;
 
-export const Inner = styled.section`
+export const Inner = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,15 +25,24 @@ export const Inner = styled.section`
     height: 100%;
 `;
 
-export const AboutContainer = styled.div`
+export const Content = styled.section`
+    height: 100vh;
+    margin-top: 6rem;
+
     display: flex;
     align-items: center;
     flex: 1;
-    
-    width: 100%;
+
+    & + & {
+        margin-top: 6rem !important;
+    };
 
     @media (max-width: 900px) {
         flex-direction: column;
+    };
+
+    @media (max-width: 500px) {
+        margin-top: 0;
     };
 `;
 
@@ -108,8 +116,8 @@ export const SubTitle = styled.h2`
 export const Text = styled.p`
     font-size: 1.8rem;
     font-weight: 500;
-    letter-spacing: .1rem;
     line-height: 2.3rem;
+    text-align: justify;
 
     margin-bottom: 1rem;
 
@@ -131,29 +139,39 @@ export const ButtonContainer = styled.div`
     };
 `;
 
-export const Button = styled.button`
-    height: 5rem;
-    width: 15rem;
-    background-color: #191818;
+export const StyledLink = styled.a`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.5rem;
+    width: 12.5rem;
+    background-color: #000;
     color: #FFF;
-    transition: background-color .3s ease; 
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    transition: all .3s ease-in-out;
 
-    border: none;
+    border: solid .1rem #FFF;
     border-radius: .4rem;
     outline: none;
     cursor: pointer;
 
-    font-size: 1.4rem;
-    font-weight: 600;
-
     &:hover {
-        background-color: #000;
+        color: rgba(255, 255, 255, .7);
+        border-color: rgba(255, 255, 255, .7);
     };
 
-    @media (max-width: 400px) {
-        height: 4.5rem;
-        width: 12rem;
-
-        font-size: 1.2rem;
+    @media (max-width: 1000px) {
+        margin-left: 0;
     };
+`;
+
+export const SkilsContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    height: 100vh;
 `;
