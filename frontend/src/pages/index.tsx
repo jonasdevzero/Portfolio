@@ -4,9 +4,11 @@ import Link from 'next/link'
 import { Header } from '../components'
 
 import {
+  Wrapper,
   Container,
   Content,
   Inner,
+  Info,
   Title,
   Subtitle,
   Text,
@@ -18,7 +20,7 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 
 export default function Home() {
   return (
-    <div>
+    <Wrapper>
       <Head>
         <meta name='robots' content='index/follow' />
         <meta name='description' content='portfolio of a web developer' />
@@ -30,13 +32,15 @@ export default function Home() {
 
         <Content>
           <Inner>
-            <Subtitle>Hello,</Subtitle>
-            <Title>I'm Jonas</Title>
-            <Text>A self taught of web programming</Text>
+            <Info>
+              <Subtitle>Hello,</Subtitle>
+              <Title>I'm Jonas</Title>
+              <Text>A self taught of web programming</Text>
 
-            <Link href='/about'>
-              <StyledLink>Know more</StyledLink>
-            </Link>
+              <Link href='/about'>
+                <StyledLink>Know more</StyledLink>
+              </Link>
+            </Info>
 
             <Social>
               <a href="https://www.linkedin.com/in/jonasdevzero" rel="noopener noreferrer" target="_blank">
@@ -49,6 +53,6 @@ export default function Home() {
           </Inner>
         </Content>
       </Container>
-    </div>
+    </Wrapper>
   )
 }

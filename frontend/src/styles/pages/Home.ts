@@ -1,13 +1,25 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.div`
+    background: url('/profile.png') no-repeat;
+    background-size: contain;
+    background-position: 78%;
+
+    @media (max-width: 1000px) {
+        background-position: center;
+    };
+
+    @media (max-width: 620px) {
+        background-image: none;
+    };
+`;
+
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
 
     height: 100%;
-    /* background: url('/profile.jpg') no-repeat right; */
-    /* background-size: contain; */
 
     overflow: hidden;
 `;
@@ -38,9 +50,22 @@ export const Inner = styled.section`
     };
 `;
 
+export const Info = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+
+    @media (max-width: 1000px) {
+        width: 100%;
+    };
+`;
+
 export const Title = styled.h1`
     font-size: 8.5rem;
     font-weight: 700;
+    width: 100%;
 
     @media (max-width: 1000px) {
         text-align: center;
@@ -55,6 +80,12 @@ export const Subtitle = styled.h2`
     font-size: 2.4rem;
     font-weight: 500;
     line-height: 2.8rem;
+    width: 100%;
+
+    @media (max-width: 1000px) {
+        margin: 0;
+        text-align: center;
+    };
 `;
 
 export const Text = styled.p`
@@ -78,7 +109,6 @@ export const StyledLink = styled.a`
     height: 4.5rem;
     width: 12.5rem;
     margin-top: 3rem;
-    /* margin-left: 9.5rem; */
     background-color: #000;
     color: #FFF;
     text-decoration: none;
