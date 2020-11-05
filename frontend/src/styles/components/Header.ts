@@ -144,6 +144,7 @@ export const Container = styled.header`
     height: 6rem;
     position: fixed;
     transition: background-color .4s ease-in-out;
+    z-index: 1;
 
     &.scroll {
         background-color: rgba(255, 255, 255, .9);
