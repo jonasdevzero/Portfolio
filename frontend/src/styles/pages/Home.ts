@@ -106,24 +106,27 @@ export const StyledLink = styled.a`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 4.5rem;
-    width: 12.5rem;
+
+    padding: 1.5rem 3.5rem;
     margin-top: 3rem;
+    
     background-color: #000;
     color: #FFF;
     text-decoration: none;
     font-size: 1.4rem;
     font-weight: 700;
-    transition: all .3s ease-in-out;
 
-    border: solid .1rem #FFF;
+    transition: all .4s ease-in-out;
+
+    border: solid .1rem red;
     border-radius: .4rem;
+    
     outline: none;
     cursor: pointer;
 
     &:hover {
-        color: rgba(255, 255, 255, .7);
-        border-color: rgba(255, 255, 255, .7);
+        opacity: .6;
+        border-color: rgba(255, 0, 0, .9);
     };
 
     @media (max-width: 1000px) {

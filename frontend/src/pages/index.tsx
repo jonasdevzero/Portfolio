@@ -1,5 +1,7 @@
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import Aos from 'aos'
 
 import { Header } from '../components'
 
@@ -19,6 +21,10 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import GitHubIcon from '@material-ui/icons/GitHub'
 
 export default function Home() {
+  useEffect(() => {
+    Aos.init({ duration: 3000 })
+  }, [])
+
   return (
     <Wrapper>
       <Head>
@@ -30,9 +36,9 @@ export default function Home() {
       <Container>
         <Header local='home' />
 
-        <Content>
+        <Content data-aos='fade'>
           <Inner>
-            <Info>
+            <Info >
               <Subtitle>Hello,</Subtitle>
               <Title>I'm Jonas</Title>
               <Text>A self taught of web programming</Text>
