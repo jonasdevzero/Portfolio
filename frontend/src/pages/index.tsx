@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 import Aos from 'aos'
 
-import { Header } from '../components'
+import { Header, Button } from '../components'
 
 import {
   Wrapper,
@@ -14,7 +13,6 @@ import {
   Title,
   Subtitle,
   Text,
-  StyledLink,
   Social
 } from '../styles/pages/Home'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
@@ -43,9 +41,7 @@ export default function Home() {
               <Title>I'm Jonas</Title>
               <Text>A self taught of web programming</Text>
 
-              <Link href='/about'>
-                <StyledLink>Know more</StyledLink>
-              </Link>
+              <Button to='/about' marginTop='3rem'>Know more</Button>
             </Info>
 
             <Social>

@@ -102,38 +102,6 @@ export const Text = styled.p`
     };
 `;
 
-export const StyledLink = styled.a`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 1.5rem 3.5rem;
-    margin-top: 3rem;
-    
-    background-color: #000;
-    color: #FFF;
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: 700;
-
-    transition: all .4s ease-in-out;
-
-    border: solid .1rem red;
-    border-radius: .4rem;
-    
-    outline: none;
-    cursor: pointer;
-
-    &:hover {
-        opacity: .6;
-        border-color: rgba(255, 0, 0, .9);
-    };
-
-    @media (max-width: 1000px) {
-        margin-left: 0;
-    };
-`;
-
 export const Social = styled.div`
     display: flex;
     align-items: center;
