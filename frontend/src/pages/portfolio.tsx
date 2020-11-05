@@ -21,7 +21,7 @@ function Portfolio() {
 
                 <Content>
                     <Inner>
-                        <h1>Portfolio</h1>
+                        <h1>Portfolio, more soon...</h1>
                     </Inner>
                 </Content>
             </Container>

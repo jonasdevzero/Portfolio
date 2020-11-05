@@ -39,7 +39,7 @@ export default function Home() {
             <Info >
               <Subtitle>Hello,</Subtitle>
               <Title>I'm Jonas</Title>
-              <Text>A self taught of web programming</Text>
+              <Text>A self taught of web programming.</Text>
 
               <Button to='/about' marginTop='3rem'>Know more</Button>
             </Info>
