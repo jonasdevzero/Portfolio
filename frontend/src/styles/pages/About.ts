@@ -27,7 +27,6 @@ export const Inner = styled.div`
 
 export const Content = styled.section`
     width: 100%;
-    min-height: 80vh;
     margin-top: 6rem;
 
     display: flex;
@@ -119,6 +118,7 @@ export const Text = styled.p`
 
     @media (max-width: 930px) {
         font-size: 1.6rem;
+        max-width: none;
     };
 `;
 
@@ -135,40 +135,88 @@ export const ButtonContainer = styled.div`
     };
 `;
 
-export const StyledLink = styled.a`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 4.5rem;
-    width: 12.5rem;
-    background-color: #000;
-    color: #FFF;
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: 700;
-    transition: all .3s ease-in-out;
-
-    border: solid .1rem #FFF;
-    border-radius: .4rem;
-    outline: none;
-    cursor: pointer;
-
-    &:hover {
-        color: rgba(255, 255, 255, .7);
-        border-color: rgba(255, 255, 255, .7);
-    };
-
-    @media (max-width: 1000px) {
-        margin-left: 0;
-    };
-`;
-
 export const SkillsContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100%;
+    background-color: #191818;
+    padding: 0 5rem 3rem 5rem;
+    margin-bottom: 5rem;
+
+    & > h1 {
+        margin-top: 2.5rem;
+        margin-bottom: 3.5rem;
+        text-align: center;
+    };
+
+    @media (max-width: 1000px) {
+        padding: 0 2rem 0 2rem;
+        margin: 3rem;
+    };
+    @media (max-width: 360px) {
+        margin: 0;
+        margin-top: 3rem;
+        padding: 0 .5rem 0 .5rem;
+    };
 `;
 
 export const Skills = styled.div`
     display: flex;
+    flex: 1;
+
+    @media (max-width: 910px) {
+        flex-direction: column;
+    };
 `;
+
+export const SkillsType = styled.div`
+    flex: .5;
+    & + & {
+        border-left: solid .2rem #FFF; 
+    }; 
+
+    p {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        @media (max-width: 910px) {
+            margin: auto;
+        };
+    };
+
+    & > div {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 1rem;
+
+        @media (max-width: 910px) {
+            justify-content: center;
+            margin: 0;
+        };
+    };
+
+    @media (max-width: 910px) {
+        margin-bottom: 3rem;
+        border: none !important;
+    };
+`;
+
+export const SkillCard = styled.div`
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    padding: 1rem;
+    margin: .5rem;
+    background-color: #333;
+    border: solid .1rem transparent;
+    border-radius: .3rem;
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+
+    &:hover {
+        z-index: 1;
+        transform: translateY(-.5rem);
+        border-color: #FFF;
+    };
+`;
+
+// min-height: 750px; min-width: 910px --> need responsivity in circle porcentage
