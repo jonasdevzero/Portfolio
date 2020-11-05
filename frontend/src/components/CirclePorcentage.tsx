@@ -20,7 +20,7 @@ function PorcentageCircle({ porcentage, text, animate }: PorcentageProps) {
             </svg>
             <TextBox>
                 <h1>{text}</h1>
-                <h2>%{porcentage}</h2>
+                <h2>{porcentage}%</h2>
             </TextBox>
         </CircleContainer>
     )
