@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 
-import { Header } from '../components'
+import { Header, PorcentageCircle } from '../components'
 
 import {
     Container,
@@ -14,13 +13,24 @@ import {
     Info,
     Title,
     Text,
-    ButtonContainer,
-    StyledLink,
-    SkilsContainer
+
+    SkillsContainer,
+    Skills
 } from '../styles/pages/About'
-import profile from '../assets/img1.jpg'
 
 function About() {
+    const [porcentageAnimation, setPorcentageAnimation] = useState(false)
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= 120) {
+                setPorcentageAnimation(true)
+            } else {
+                setPorcentageAnimation(false)
+            }
+        })
+    }, [])
+
     return (
         <div>
             <Head>
@@ -32,34 +42,22 @@ function About() {
 
                 <Main>
                     <Inner>
+
                         <Content>
                             <ImageContainer>
-                                <Image src={profile} />
+                                <Image src='/developer.jpg' />
                             </ImageContainer>
 
                             <Info>
                                 <Title>Jonas de Oliveira</Title>
-
                                 <Text>
-                                    I am 17 years old and I love programming and I discovered this passion after
+                                    I am {(2003 - new Date().getFullYear()).toString().split('-')[1]} years 
+                                    old and I love programming and I discovered this passion after
                                     seeing a little of this wonderful world that is programming and making my first hello
                                     world. I've been studying web programming for a few months, using javascript programming
                                     language on the frontend with Reactjs and the backend with nodejs.
                                 </Text>
-
-                                <ButtonContainer>
-                                    <Link href='/portfolio'>
-                                        <StyledLink>
-                                            See my protfolio
-                                        </StyledLink>
-                                    </Link>
-                                </ButtonContainer>
                             </Info>
-                        </Content>
-                        <Content>
-                            <SkilsContainer>
-                                <h1>Skills</h1>
-                            </SkilsContainer>
                         </Content>
                     </Inner>
                 </Main>
