@@ -4,14 +4,14 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    height: 100vh;
 `;
 
 export const Main = styled.main`
     display: flex;
     flex-direction: column;
     flex: 1;
+    max-width: 100rem;
+    width: 100%;
 
     margin-top: 6rem;
 `;
@@ -26,16 +26,12 @@ export const Inner = styled.div`
 `;
 
 export const Content = styled.section`
-    height: 100vh;
+    width: 100%;
+    min-height: 80vh;
     margin-top: 6rem;
 
     display: flex;
-    align-items: center;
     flex: 1;
-
-    & + & {
-        margin-top: 6rem !important;
-    };
 
     @media (max-width: 900px) {
         flex-direction: column;
@@ -62,7 +58,7 @@ export const ImageContainer = styled.div`
 `;
 
 export const Image = styled.img`
-    height: 100%;
+    width: 40rem;
     object-fit: contain;
 
     @media (max-width: 900px) {
@@ -75,7 +71,6 @@ export const Image = styled.img`
 export const Info = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     flex: .6;
     
@@ -118,6 +113,7 @@ export const Text = styled.p`
     font-weight: 500;
     line-height: 2.3rem;
     text-align: justify;
+    max-width: 50rem;
 
     margin-bottom: 1rem;
 
@@ -167,11 +163,12 @@ export const StyledLink = styled.a`
     };
 `;
 
-export const SkilsContainer = styled.div`
+export const SkillsContainer = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
+    flex-direction: column;
+    width: 100%;
+`;
 
-    height: 100vh;
+export const Skills = styled.div`
+    display: flex;
 `;
