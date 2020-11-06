@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Aos from 'aos'
 
-import { Header, PorcentageCircle, Button } from '../components'
+import { 
+    Header, 
+    PorcentageCircle, 
+    Button,
+    LanguageSelect 
+} from '../components'
 
 import {
     Container,
@@ -26,7 +31,7 @@ function About() {
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
-            if (window.scrollY >= 110) {
+            if (window.scrollY >= 70) {
                 setPorcentageAnimation(true)
             } else {
                 setPorcentageAnimation(false)
@@ -120,6 +125,8 @@ function About() {
                         </Content>
                     </Inner>
                 </Main>
+
+                <LanguageSelect to='/sobre' />
             </Container>
         </div>
     )

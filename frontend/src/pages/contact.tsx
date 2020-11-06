@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { Header } from '../components'
+import { Header, LanguageSelect } from '../components'
 
 import {
     Container,
@@ -23,6 +23,8 @@ function skills() {
                         <h1>Contac, more soon...</h1>
                     </Inner>
                 </Content>
+
+                <LanguageSelect to='/contato' />
             </Container>
         </div>
     )

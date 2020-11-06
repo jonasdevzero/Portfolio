@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 
-import { Header } from '../components'
+import { Header, LanguageSelect } from '../components'
 
 import {
     Container,
@@ -24,6 +24,8 @@ function Portfolio() {
                         <h1>Portfolio, more soon...</h1>
                     </Inner>
                 </Content>
+
+                <LanguageSelect to='/portfolio' />
             </Container>
         </div>
     )

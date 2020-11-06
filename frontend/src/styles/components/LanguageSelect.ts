@@ -7,7 +7,7 @@ export const Container = styled.div`
     width: 7rem;
     height: 3rem;
 
-    position: absolute;
+    position: fixed;
     bottom: 2rem;
     right: 2rem;
 
@@ -30,7 +30,7 @@ export const DropUp = styled.div`
     align-items: center;
     justify-content: center;
 
-    position: absolute;
+    position: fixed;
     bottom: 5.5rem;
     right: 2rem;
 

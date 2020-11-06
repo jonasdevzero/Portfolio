@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Aos from 'aos'
 
-import { Header, Button } from '../components'
+import { Header, Button, LanguageSelect } from '../components'
 
 import {
   Wrapper,
@@ -20,7 +20,7 @@ import GitHubIcon from '@material-ui/icons/GitHub'
 
 export default function Home() {
   useEffect(() => {
-    Aos.init({ duration: 3000 })
+    Aos.init({ duration: 2000 })
   }, [])
 
   return (
@@ -54,6 +54,8 @@ export default function Home() {
             </Social>
           </Inner>
         </Content>
+
+        <LanguageSelect to='/' />
       </Container>
     </Wrapper>
   )
