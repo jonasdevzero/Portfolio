@@ -20,7 +20,7 @@ function skills() {
 
                 <Content>
                     <Inner>
-                        <h1>Contac, more soon...</h1>
+                        <h1>Contact, more soon...</h1>
                     </Inner>
                 </Content>
 

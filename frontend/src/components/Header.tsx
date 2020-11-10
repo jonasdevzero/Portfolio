@@ -60,7 +60,7 @@ function Header({ local }) {
                     <StyledLink className={local}>Portfolio</StyledLink>
                 </Link>
                 <Link href='/contact'>
-                    <StyledLink className={local}>Contac</StyledLink>
+                    <StyledLink className={local}>Contact</StyledLink>
                 </Link>
                 <div className='header-animation'></div>
             </Navigation>
