@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Aos from 'aos'
 
-import { 
-    Header, 
-    PorcentageCircle, 
+import {
+    Header,
     Button,
-    LanguageSelect 
+    LanguageSelect
 } from '../components'
 
 import {
@@ -22,27 +21,13 @@ import {
     ButtonContainer,
     SkillsContainer,
     Skills,
-    SkillsType,
-    SkillCard
+    SkillCard,
+    SkillImage
 } from '../styles/pages/About'
 
 function About() {
-    const [porcentageAnimation, setPorcentageAnimation] = useState(false)
-
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY >= 70) {
-                setPorcentageAnimation(true)
-            } else {
-                setPorcentageAnimation(false)
-            }
-        })
-
-        Aos.init({ duration: 1200 })
-    }, [])
-
     return (
-        <div>  
+        <div>
             <Head>
                 <title>Jonas - About</title>
             </Head>
@@ -61,14 +46,14 @@ function About() {
                             <Info>
                                 <Title>Jonas de Oliveira</Title>
                                 <Text>
-                                    I am {(2003 - new Date().getFullYear()).toString().split('-')[1]} years
-                                    old and I love programming and I discovered this passion after
-                                    seeing a little of this wonderful world that is programming and making my first hello
-                                    world. I've been studying web programming for a few months, using javascript programming
-                                    language on the frontend with Reactjs and the backend with nodejs.
+                                    I'm {(2003 - new Date().getFullYear()).toString().split('-')[1]} years
+                                    old and I love coding. I discovered this passion after seeing a
+                                    little bit of this wonderful programming world and making my first "hello world".
+                                    I've been studying web development for a few months using JavaScript and ReactJS on
+                                    the front end and Node.js on the back end.
                                 </Text>
 
-                                
+
                                 <ButtonContainer>
                                     <Button to='/portfolio'>
                                         My Projects
@@ -77,49 +62,103 @@ function About() {
                             </Info>
                         </Content>
 
-                        <Content data-aos='fade-up'>
+                        <Content data-aos='fade'>
                             <SkillsContainer>
-                                <Title>Skills</Title>
+                                <Title>Skills and Tools</Title>
 
                                 <Skills>
-                                    <SkillsType>
-                                        <Text>Frontend</Text>
-                                        <div>
-                                            <SkillCard>
-                                                <PorcentageCircle porcentage={89} text='JS' animate={porcentageAnimation} />
-                                            </SkillCard>
-                                            <SkillCard>
-                                                <PorcentageCircle porcentage={87} text='Html' animate={porcentageAnimation} />
-                                            </SkillCard>
-                                            <SkillCard>
-                                                <PorcentageCircle porcentage={84} text='Css' animate={porcentageAnimation} />
-                                            </SkillCard>
-                                            <SkillCard>
-                                                <PorcentageCircle porcentage={88} text='React' animate={porcentageAnimation} />
-                                            </SkillCard>
-                                        </div>
-                                    </SkillsType>
 
-                                    <SkillsType>
-                                        <Text>Backend</Text>
-                                        <div>
-                                            <SkillCard>
-                                                <PorcentageCircle porcentage={86} text='Node' animate={porcentageAnimation} />
-                                            </SkillCard>
-                                            <SkillCard>
-                                                <PorcentageCircle porcentage={84} text='Express' animate={porcentageAnimation} />
-                                            </SkillCard>
-                                            <SkillCard>
-                                                <PorcentageCircle porcentage={82} text='mongoDB' animate={porcentageAnimation} />
-                                            </SkillCard>
-                                            <SkillCard>
-                                                <PorcentageCircle porcentage={80} text='PSQL' animate={porcentageAnimation} />
-                                            </SkillCard>
-                                            <SkillCard>
-                                                <PorcentageCircle porcentage={78} text='Insomnia' animate={porcentageAnimation} />
-                                            </SkillCard>
-                                        </div>
-                                    </SkillsType>
+                                    <SkillCard>
+                                        <SkillImage
+                                            size='8rem'
+                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/js.svg"
+                                            alt="javascript"
+                                        />
+                                    </SkillCard>
+
+                                    <SkillCard>
+                                        <SkillImage
+                                            size='8rem'
+                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/typescript.svg"
+                                            alt="javascript"
+                                        />
+                                    </SkillCard>
+
+                                    <SkillCard>
+                                        <SkillImage
+                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/html.svg"
+                                            alt="html"
+                                        />
+                                    </SkillCard>
+
+                                    <SkillCard>
+                                        <SkillImage
+                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/css.svg"
+                                            alt="css"
+                                        />
+                                    </SkillCard>
+
+                                    <SkillCard>
+                                        <SkillImage
+                                            size='8rem'
+                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/react.svg"
+                                            alt="react js"
+                                        />
+                                    </SkillCard>
+
+                                    <SkillCard>
+                                        <SkillImage
+                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/node.svg"
+                                            alt="node.js"
+                                        />
+                                    </SkillCard>
+
+                                    <SkillCard>
+                                        <SkillImage
+                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/express.svg"
+                                            alt="express"
+                                        />
+                                    </SkillCard>
+
+                                    <SkillCard>
+                                        <SkillImage
+                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/mongodb.svg"
+                                            alt="mongo database"
+                                        />
+                                    </SkillCard>
+
+                                    <SkillCard>
+                                        <SkillImage
+                                            size='8rem'
+                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/postgresql.svg"
+                                            alt="postgresql"
+                                        />
+                                    </SkillCard>
+
+                                    <SkillCard>
+                                        <SkillImage
+                                            size='8rem'
+                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/vscode.svg"
+                                            alt="postgresql"
+                                        />
+                                    </SkillCard>
+
+                                    <SkillCard>
+                                        <SkillImage
+                                            size='8rem'
+                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/git.svg"
+                                            alt="postgresql"
+                                        />
+                                    </SkillCard>
+
+                                    <SkillCard>
+                                        <SkillImage
+                                            size='8rem'
+                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/github.svg"
+                                            alt="postgresql"
+                                        />
+                                    </SkillCard>
+
                                 </Skills>
                             </SkillsContainer>
                         </Content>

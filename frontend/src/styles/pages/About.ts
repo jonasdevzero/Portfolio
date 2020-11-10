@@ -28,6 +28,7 @@ export const Inner = styled.div`
 export const Content = styled.section`
     width: 100%;
     margin-top: 6rem;
+    margin-bottom: 6rem;
 
     display: flex;
     flex: 1;
@@ -161,40 +162,17 @@ export const SkillsContainer = styled.div`
 
 export const Skills = styled.div`
     display: flex;
+    flex-wrap: wrap;
     flex: 1;
+
+    margin: 0 1rem;
 
     @media (max-width: 910px) {
         flex-direction: column;
-    };
-`;
 
-export const SkillsType = styled.div`
-    flex: .5;
-    & + & {
-        border-left: solid .2rem #FFF; 
-    }; 
-
-    p {
-        text-align: center;
-        margin-bottom: 2rem;
-
-        @media (max-width: 910px) {
-            margin: auto;
-        };
-    };
-
-    & > div {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 1rem;
-
-        @media (max-width: 910px) {
-            justify-content: center;
-            margin: 0;
-        };
-    };
-
-    @media (max-width: 910px) {
+        justify-content: center;
+        
+        margin: 0;
         margin-bottom: 3rem;
         border: none !important;
     };
@@ -203,12 +181,18 @@ export const SkillsType = styled.div`
 export const SkillCard = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
     flex: 1;
+
+    max-width: 11rem;
+    height: 11rem;
     padding: 1rem;
     margin: .5rem;
+
     background-color: #333;
     border: solid .1rem transparent;
     border-radius: .3rem;
+
     cursor: pointer;
     transition: transform .3s ease-in-out;
 
@@ -218,5 +202,11 @@ export const SkillCard = styled.div`
         border-color: #FFF;
     };
 `;
+
+export const SkillImage = styled.img`
+    height: ${({ size }: { size?: string }) => size ? size : '9rem'};
+    object-fit: contain;
+`;
+
 
 // min-height: 750px; min-width: 910px --> need responsivity in circle porcentage
