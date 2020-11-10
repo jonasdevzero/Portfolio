@@ -7,6 +7,6 @@ mongoose.connect(DB_CONNECT, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
-});
+}).then(() => console.log('DB connected'))
 
 export default mongoose;
