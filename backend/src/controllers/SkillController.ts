@@ -7,9 +7,9 @@ export default {
             const skills = await Skill.find();
             return res.status(200).json({ skills });
         } catch (err) {
-            console.log('Error in { skills } - [index] -> ', err);
+            console.log('Error in { skill } - [index] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
-        }
+        };
     },
 
     async create(req: Request, res: Response) {
@@ -31,14 +31,14 @@ export default {
                 },
             });
         } catch (err) {
-            console.log('Error in { skills } - [create] -> ', err);
+            console.log('Error in { skill } - [create] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
-        }
+        };
     },
 
     async delete(req: Request, res: Response) {
         try {
-            await Skill.findByIdAndDelete(req.params.skill_id);
+            await Skill.findByIdAndDelete(req.params.id);
 
             return res.status(200).json({
                 message: {
@@ -47,8 +47,8 @@ export default {
                 },
             });
         } catch (err) {
-            console.log('Error in { skills } - [delete] -> ', err);
+            console.log('Error in { skill } - [delete] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
-        }
+        };
     },
 };
