@@ -1,4 +1,5 @@
 import mongoose from '../database/db';
+import { Document } from 'mongoose';
 
 const Technology = new mongoose.Schema({
     name: {
@@ -12,4 +13,9 @@ const Technology = new mongoose.Schema({
     },
 });
 
-export default mongoose.model('technology', Technology);
+interface ITechnology extends Document {
+    name: string;
+    project: mongoose.Schema.Types.ObjectId;
+};
+
+export default mongoose.model<ITechnology>('technology', Technology);

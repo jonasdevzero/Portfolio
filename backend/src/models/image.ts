@@ -1,4 +1,5 @@
 import mongoose from '../database/db';
+import { Document } from 'mongoose';
 
 const ImageSchema = new mongoose.Schema({
     url: {
@@ -12,5 +13,9 @@ const ImageSchema = new mongoose.Schema({
     },
 });
 
+interface IImage extends Document {
+    url: string;
+    project: mongoose.Schema.Types.ObjectId;
+};
 
-export default mongoose.model('image', ImageSchema)
+export default mongoose.model<IImage>('image', ImageSchema);
