@@ -1,4 +1,5 @@
 import mongoose from '../database/db';
+import { Document } from 'mongoose';
 
 const Project = new mongoose.Schema({
     name: {
@@ -32,6 +33,7 @@ const Project = new mongoose.Schema({
     images: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'image',
+        required: true,
     }],
     technologies: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -40,4 +42,22 @@ const Project = new mongoose.Schema({
     }],
 });
 
-export default mongoose.model('project', Project);
+interface IProject extends Document {
+    name: string
+    description: string
+    source_link: string
+    project_link: string
+    objective: string
+    difficulties: string
+    knowledge: string
+    images: Array<{
+        url: string
+        project: mongoose.Schema.Types.ObjectId;
+    }>,
+    technologies: Array<{
+        name: string
+        project: mongoose.Schema.Types.ObjectId;
+    }>,
+};
+
+export default mongoose.model<IProject>('project', Project);
