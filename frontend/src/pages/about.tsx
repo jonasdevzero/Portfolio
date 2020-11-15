@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
-import Aos from 'aos'
 
 import {
     Header,
@@ -20,10 +19,13 @@ import {
     Text,
     ButtonContainer,
     SkillsContainer,
+    SkillsDescription,
     Skills,
     SkillCard,
     SkillImage
 } from '../styles/pages/About'
+
+import skillsData from '../assets/skills.json'
 
 function About() {
     return (
@@ -62,106 +64,26 @@ function About() {
                             </Info>
                         </Content>
 
-                        <Content data-aos='fade'>
+                        <Content data-aos='slide-up'>
                             <SkillsContainer>
-                                <Title>Skills and Tools</Title>
+
+                                <SkillsDescription>
+                                    <Title>My Skills</Title>
+                                </SkillsDescription>
 
                                 <Skills>
-
-                                    <SkillCard>
-                                        <SkillImage
-                                            size='8rem'
-                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/js.svg"
-                                            alt="javascript"
-                                        />
-                                    </SkillCard>
-
-                                    <SkillCard>
-                                        <SkillImage
-                                            size='8rem'
-                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/typescript.svg"
-                                            alt="javascript"
-                                        />
-                                    </SkillCard>
-
-                                    <SkillCard>
-                                        <SkillImage
-                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/html.svg"
-                                            alt="html"
-                                        />
-                                    </SkillCard>
-
-                                    <SkillCard>
-                                        <SkillImage
-                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/css.svg"
-                                            alt="css"
-                                        />
-                                    </SkillCard>
-
-                                    <SkillCard>
-                                        <SkillImage
-                                            size='8rem'
-                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/react.svg"
-                                            alt="react js"
-                                        />
-                                    </SkillCard>
-
-                                    <SkillCard>
-                                        <SkillImage
-                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/node.svg"
-                                            alt="node.js"
-                                        />
-                                    </SkillCard>
-
-                                    <SkillCard>
-                                        <SkillImage
-                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/express.svg"
-                                            alt="express"
-                                        />
-                                    </SkillCard>
-
-                                    <SkillCard>
-                                        <SkillImage
-                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/mongodb.svg"
-                                            alt="mongo database"
-                                        />
-                                    </SkillCard>
-
-                                    <SkillCard>
-                                        <SkillImage
-                                            size='8rem'
-                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/postgresql.svg"
-                                            alt="postgresql"
-                                        />
-                                    </SkillCard>
-
-                                    <SkillCard>
-                                        <SkillImage
-                                            size='8rem'
-                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/vscode.svg"
-                                            alt="postgresql"
-                                        />
-                                    </SkillCard>
-
-                                    <SkillCard>
-                                        <SkillImage
-                                            size='8rem'
-                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/git.svg"
-                                            alt="postgresql"
-                                        />
-                                    </SkillCard>
-
-                                    <SkillCard>
-                                        <SkillImage
-                                            size='8rem'
-                                            src="https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/github.svg"
-                                            alt="postgresql"
-                                        />
-                                    </SkillCard>
-
+                                    {skillsData.skills.map(skill => (
+                                        <SkillCard key={skill.id}>
+                                            <SkillImage
+                                                src={skill.image_url}
+                                                alt={skill.name}
+                                            />
+                                        </SkillCard>
+                                    ))}
                                 </Skills>
                             </SkillsContainer>
                         </Content>
+
                     </Inner>
                 </Main>
 

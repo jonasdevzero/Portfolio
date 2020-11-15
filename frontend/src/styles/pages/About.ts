@@ -138,14 +138,11 @@ export const ButtonContainer = styled.div`
 
 export const SkillsContainer = styled.div`
     display: flex;
-    flex-direction: column;
     background-color: #191818;
-    padding: 0 5rem 3rem 5rem;
+    padding: 3rem 5rem;
     margin-bottom: 5rem;
 
     & > h1 {
-        margin-top: 2.5rem;
-        margin-bottom: 3.5rem;
         text-align: center;
     };
 
@@ -160,10 +157,22 @@ export const SkillsContainer = styled.div`
     };
 `;
 
+export const SkillsDescription = styled.div`
+    display: flex;
+    flex: .4;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        text-align: center;
+    };
+`;
+
 export const Skills = styled.div`
     display: flex;
+    flex: .6;
     flex-wrap: wrap;
-    flex: 1;
 
     margin: 0 1rem;
 
@@ -184,14 +193,14 @@ export const SkillCard = styled.div`
     align-items: center;
     flex: 1;
 
-    max-width: 11rem;
-    height: 11rem;
+    max-width: 7rem;
+    width: 100%;
+    height: 7rem;
     padding: 1rem;
     margin: .5rem;
 
     background-color: #333;
     border: solid .1rem transparent;
-    border-radius: .3rem;
 
     cursor: pointer;
     transition: transform .3s ease-in-out;
@@ -204,7 +213,7 @@ export const SkillCard = styled.div`
 `;
 
 export const SkillImage = styled.img`
-    height: ${({ size }: { size?: string }) => size ? size : '9rem'};
+    height: ${({ size }: { size?: string }) => size ? size : '5rem'};
     object-fit: contain;
 `;
 

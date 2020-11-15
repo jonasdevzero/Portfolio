@@ -62,6 +62,13 @@
             "description": "sql database",
             "image_url": "https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/postgresql.svg",
             "about_link": "https://www.postgresql.org/"
+        },
+        { 
+            "id": 10,
+            "name": "styled-components",
+            "description": "Visual primitives for the component age",
+            "image_url": "https://raw.githubusercontent.com/jonasdevzero/Media-Hub/master/icons/styled-components.svg",
+            "about_link": "https://styled-components.com/"
         }
     ],
     "tools": [
