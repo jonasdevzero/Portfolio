@@ -64,9 +64,8 @@ function About() {
                             </Info>
                         </Content>
 
-                        <Content data-aos='slide-up'>
+                        <Content data-aos='fade-up'>
                             <SkillsContainer>
-
                                 <SkillsDescription>
                                     <Title>My Skills</Title>
                                 </SkillsDescription>
@@ -84,6 +83,24 @@ function About() {
                             </SkillsContainer>
                         </Content>
 
+                        <Content data-aos='fade-up'>
+                            <SkillsContainer>
+                                <SkillsDescription>
+                                    <Title>Tools</Title>
+                                </SkillsDescription>
+
+                                <Skills>
+                                    {skillsData.tools.map(tool => (
+                                        <SkillCard key={tool.id}>
+                                            <SkillImage
+                                                src={tool.image_url}
+                                                alt={tool.name}
+                                            />
+                                        </SkillCard>
+                                    ))}
+                                </Skills>
+                            </SkillsContainer>
+                        </Content>
                     </Inner>
                 </Main>
 

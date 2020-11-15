@@ -28,7 +28,6 @@ export const Inner = styled.div`
 export const Content = styled.section`
     width: 100%;
     margin-top: 6rem;
-    margin-bottom: 6rem;
 
     display: flex;
     flex: 1;
@@ -138,17 +137,16 @@ export const ButtonContainer = styled.div`
 
 export const SkillsContainer = styled.div`
     display: flex;
+    width: 100%;
     background-color: #191818;
-    padding: 3rem 5rem;
+    padding: 5rem;
     margin-bottom: 5rem;
 
-    & > h1 {
-        text-align: center;
-    };
-
     @media (max-width: 1000px) {
-        padding: 0 2rem 0 2rem;
-        margin: 3rem;
+        padding: 3rem;
+    };
+    @media (max-width: 600px) {
+        flex-direction: column;
     };
     @media (max-width: 360px) {
         margin: 0;
@@ -177,10 +175,6 @@ export const Skills = styled.div`
     margin: 0 1rem;
 
     @media (max-width: 910px) {
-        flex-direction: column;
-
-        justify-content: center;
-        
         margin: 0;
         margin-bottom: 3rem;
         border: none !important;
@@ -209,6 +203,11 @@ export const SkillCard = styled.div`
         z-index: 1;
         transform: translateY(-.5rem);
         border-color: #FFF;
+    };
+
+    @media (max-width: 600px) {
+        width: auto;
+        max-width: none;
     };
 `;
 
