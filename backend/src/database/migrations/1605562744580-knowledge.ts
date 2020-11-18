@@ -15,6 +15,10 @@ export class knowledge1605562744580 implements MigrationInterface {
                     generationStrategy: 'increment',
                 },
                 {
+                    name: 'type',
+                    type: 'varchar',
+                },
+                {
                     name: 'name',
                     type: 'varchar',
                 },
