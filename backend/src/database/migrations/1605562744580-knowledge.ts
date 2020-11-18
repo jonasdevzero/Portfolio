@@ -34,11 +34,6 @@ export class knowledge1605562744580 implements MigrationInterface {
                     name: 'about_link',
                     type: 'text',
                 },
-                {
-                    name: 'created_at',
-                    type: 'varchar',
-                    default: Date.now(),
-                },
             ],
         }));
     };
