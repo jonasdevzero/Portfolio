@@ -30,6 +30,10 @@ export class projects1605749827603 implements MigrationInterface {
                     name: 'about_link',
                     type: 'text'
                 },
+                {
+                    name: 'banner_image',
+                    type: 'text'
+                }
             ],
         }));
     };
