@@ -18,6 +18,9 @@ export default class Project {
     @Column()
     about_link: string;
 
+    @Column()
+    banner_image: string;
+
     @OneToMany(_ => Image, image => image.project, {
         cascade: ['insert', 'update', 'remove'],
     })
