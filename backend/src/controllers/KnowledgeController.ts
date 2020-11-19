@@ -62,6 +62,8 @@ export default {
     },
 
     async update(req: Request, res: Response) {
+        if (!req.params.id) return res.status(400).json({ error: 'id missing' });
+
         try {
             const knowledgeRepository = getRepository(Knowledge);
 
@@ -76,6 +78,8 @@ export default {
     },
 
     async delete(req: Request, res: Response) {
+        if (!req.params.id) return res.status(400).json({ error: 'id missing' });
+        
         try {
             const { id } = req.params;
 
