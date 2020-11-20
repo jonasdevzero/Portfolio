@@ -19,4 +19,7 @@ export default class Knowledge {
 
     @Column()
     about_link: string;
-}
+
+    @Column()
+    language: string;
+};

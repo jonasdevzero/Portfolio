@@ -6,9 +6,13 @@ import * as Yup from 'yup';
 
 export default {
     async index(req: Request, res: Response) {
+        if (!req.params.lg) return res.status(400).json({ error: 'Language missing' });
+
         try {
+            const { lg } = req.query;
+
             const projectRepository = getRepository(Project);
-            const project = await projectRepository.find({ relations: ['images'] });
+            const project = await projectRepository.find({ relations: ['images'], where: { language: lg } });
 
             return res.status(200).json({ project });
         } catch (err) {
@@ -18,11 +22,14 @@ export default {
     },
 
     async show(req: Request, res: Response) {
+        if (!req.params.lg) return res.status(400).json({ error: 'Language missing' });
+
         try {
             const { id } = req.params;
+            const lg = req.query
 
             const projectRepository = getRepository(Project);
-            const project = await projectRepository.findOneOrFail(id, { relations: ['images'] })
+            const project = await projectRepository.findOneOrFail(id, { relations: ['images'], where: { language: lg } })
                 .catch(err => res.status(404).json({ error: 'Incorrect id' }));
 
             return res.status(200).json({ project });
@@ -80,7 +87,7 @@ export default {
                     const newImage = imageRepository.create({ project: { id: Number(id) }, path: image.path });
                     await imageRepository.save(newImage);
                 });                
-                
+
                 delete req.body.images;
             };
 

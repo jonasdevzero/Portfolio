@@ -21,6 +21,9 @@ export default class Project {
     @Column()
     banner_image: string;
 
+    @Column() 
+    language: string;
+
     @OneToMany(_ => Image, image => image.project, {
         cascade: ['insert', 'update', 'remove'],
     })

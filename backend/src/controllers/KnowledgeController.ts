@@ -5,9 +5,13 @@ import * as Yup from 'yup';
 
 export default {
     async index(req: Request, res: Response) {
+        if (!req.query.lg) return res.status(400).json({ error: 'Language missing' });
+        
         try {
+            const { lg } = req.query;
+
             const knowledgeRepository = getRepository(Knowledge);
-            const knowledge = await knowledgeRepository.find();
+            const knowledge = await knowledgeRepository.find({ language: String(lg) });
 
             return res.status(200).json({ knowledge });
         } catch (err) {
@@ -17,6 +21,8 @@ export default {
     },
 
     async show(req: Request, res: Response) {
+        if (!req.query.lg) return res.status(400).json({ error: 'Language missing' });
+
         try {
             const { id } = req.params;
 
@@ -40,6 +46,7 @@ export default {
                 description: Yup.string().required(),
                 image_url: Yup.string().required(),
                 about_link: Yup.string().required(),
+                language: Yup.string().required(),
             });
             await schema.validate(req.body, { abortEarly: false })
                 .catch(err => res.status(400).json({
