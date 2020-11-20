@@ -1,10 +1,10 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class knowledge1605562744580 implements MigrationInterface {
+export class createImages1605890025234 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(new Table({
-            name: 'knowledge',
+            name: 'images',
             columns: [
                 {
                     name: 'id',
@@ -15,31 +15,29 @@ export class knowledge1605562744580 implements MigrationInterface {
                     generationStrategy: 'increment',
                 },
                 {
-                    name: 'type',
-                    type: 'varchar',
-                },
-                {
-                    name: 'name',
-                    type: 'varchar',
-                },
-                {
-                    name: 'description',
+                    name: 'path',
                     type: 'text',
                 },
                 {
-                    name: 'image_url',
-                    type: 'text',
+                    name: 'project_id',
+                    type: 'integer',
                 },
+            ],
+            foreignKeys: [
                 {
-                    name: 'about_link',
-                    type: 'text',
+                    name: 'ProjectImages',
+                    columnNames: ['project_id'],
+                    referencedTableName: 'projects',
+                    referencedColumnNames: ['id'],
+                    onUpdate: 'CASCADE',
+                    onDelete: 'CASCADE',
                 },
             ],
         }));
     };
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('knowledge');
+        await queryRunner.dropTable('images');
     };
 
-};
+}

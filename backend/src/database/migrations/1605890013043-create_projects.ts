@@ -1,6 +1,6 @@
-import { MigrationInterface, QueryRunner, Table,  } from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class projects1605749827603 implements MigrationInterface {
+export class createProjects1605890013043 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(new Table({
@@ -33,7 +33,11 @@ export class projects1605749827603 implements MigrationInterface {
                 {
                     name: 'banner_image',
                     type: 'text'
-                }
+                },
+                {
+                    name: 'language',
+                    type: 'varchar',
+                },
             ],
         }));
     };
@@ -42,4 +46,4 @@ export class projects1605749827603 implements MigrationInterface {
         await queryRunner.dropTable('projects');
     };
 
-};
+}
