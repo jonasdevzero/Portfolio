@@ -3,19 +3,25 @@ import Project from '../models/Project';
 import Image from '../models/Image';
 import { getRepository } from 'typeorm';
 import * as Yup from 'yup';
+import ProjectView from '../views/projects_view';
 
 export default {
     async index(req: Request, res: Response) {
-        if (!req.params.lg) return res.status(400).json({ error: 'Language missing' });
-
         try {
-            const { lg } = req.query;
-            const language = String(lg) || 'eua';
+            const language = req.query.lg;
 
             const projectRepository = getRepository(Project);
-            const project = await projectRepository.find({ relations: ['images'], where: { language } });
+            
+            let project;
+            switch(language) {
+                case undefined: 
+                    project = await projectRepository.find({ relations: ['images'] });
+                    break;
+                default:
+                    project = await projectRepository.find({ relations: ['images'], where: { language } });
+            };
 
-            return res.status(200).json({ project });
+            return res.status(200).json({ project: ProjectView.renderMany(project) });
         } catch (err) {
             console.log('Error on (index) [project] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
@@ -27,10 +33,11 @@ export default {
             const { id } = req.params;
 
             const projectRepository = getRepository(Project);
-            const project = await projectRepository.findOneOrFail(id, { relations: ['images'] })
-                .catch(err => res.status(404).json({ error: 'Incorrect id' }));
+            const project = await projectRepository.findOneOrFail(id, { relations: ['images'] });
 
-            return res.status(200).json({ project });
+            if (!project) return res.status(404).json({ error: 'Incorrect id' });
+
+            return res.status(200).json({ project: ProjectView.render(project) });
         } catch (err) {
             console.log('Error on (show) [project] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
@@ -45,6 +52,7 @@ export default {
                 source_link: Yup.string().required(),
                 about_link: Yup.string().required(),
                 banner_image: Yup.string().required(),
+                language: Yup.string().required(),
                 images: Yup.array(Yup.object().shape({
                     path: Yup.string().required(),
                 })),
