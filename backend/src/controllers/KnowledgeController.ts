@@ -1,44 +1,42 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import Knowledge from '../models/Knowledge';
+import KnowledgeView from '../views/knowledge_view';
 import { getRepository } from 'typeorm';
 import * as Yup from 'yup';
 
 export default {
     async index(req: Request, res: Response) {
-        if (!req.query.lg) return res.status(400).json({ error: 'Language missing' });
-        
         try {
             const { lg } = req.query;
+            const language = String(lg) || 'eua' 
 
             const knowledgeRepository = getRepository(Knowledge);
-            const knowledge = await knowledgeRepository.find({ language: String(lg) });
+            const knowledge = await knowledgeRepository.find({ language });
 
-            return res.status(200).json({ knowledge });
+            return res.status(200).json({ knowledge: KnowledgeView.renderMany(knowledge) });
         } catch (err) {
             console.log('Error on (index) [knowledge] -> ', err);
-            return res.status(500).json({ err });
+            return res.status(500).json({ error: 'Internal Server Error' });
         };
     },
 
     async show(req: Request, res: Response) {
-        if (!req.query.lg) return res.status(400).json({ error: 'Language missing' });
-
         try {
             const { id } = req.params;
 
             const knowledgeRepository = getRepository(Knowledge);
+            const knowledge = await knowledgeRepository.findOne({ id: Number(id) });
 
-            const knowledge = await knowledgeRepository.findOne({ id: Number(id) })
-                .catch(err => res.status(404).json({ message: 'Incorrect id' }));
+            if (!knowledge) return res.status(404).json({ message: 'Incorrect id' });
 
-            return res.status(200).json({ knowledge });
+            return res.status(200).json({ knowledge: KnowledgeView.render(knowledge) });
         } catch (err) {
             console.log('Error on (show) [knowledge] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
         };
     },
 
-    async create(req: Request, res: Response) {
+    async create(req: Request, res: Response, next: NextFunction) {
         try {
             const schema = Yup.object().shape({
                 type: Yup.string().required(),
@@ -61,41 +59,38 @@ export default {
             const knowledge = knowledgeRepository.create(req.body);
             await knowledgeRepository.save(knowledge);
 
-            return res.status(201).json({ knowledge });
+            res.status(201);
+            next();
         } catch (err) {
             console.log('Error on (create) [knowledge] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
         }
     },
 
-    async update(req: Request, res: Response) {
+    async update(req: Request, res: Response, next: NextFunction) {
         if (!req.params.id) return res.status(400).json({ error: 'id missing' });
 
         try {
             const knowledgeRepository = getRepository(Knowledge);
-
             await knowledgeRepository.update(req.params.id, req.body);
-            const knowledge = await knowledgeRepository.find();
-
-            return res.status(200).json({ knowledge });
+            
+            next();
         } catch (err) {
             console.log('Error on (update) [knowledge] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
         };
     },
 
-    async delete(req: Request, res: Response) {
+    async delete(req: Request, res: Response, next: NextFunction) {
         if (!req.params.id) return res.status(400).json({ error: 'id missing' });
         
         try {
             const { id } = req.params;
 
             const knowledgeRepository = getRepository(Knowledge);
-
             await knowledgeRepository.delete(id);
-            const knowledge = await knowledgeRepository.find();
-
-            return res.status(200).json({ knowledge });
+            
+            next();
         } catch (err) {
             console.log('Error on (remove) [knowledge] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
