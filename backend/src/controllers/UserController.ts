@@ -43,30 +43,28 @@ export default {
     },
 
     async auth(req: Request, res: Response, next: NextFunction) {
-        if (!req.body.token) return res.status(401).json({ error: 'Access Denied' });
+        if (!req.headers.access_token) return res.status(401).json({ error: 'Access Denied' });
         
         try {
-            const { token } = req.body;
+            const { access_token } = req.headers;
 
-            const userVerified = jwt.verify(token, tokenSecret)
-            
-            if (req.query.user === 'true') {
+            const userVerified = jwt.verify(String(access_token), tokenSecret);
+
+            if (req.query.u === 'true') {
                 req.body.user = userVerified;
                 const { id } = req.body.user;
 
                 const userRepository = getRepository(User);
-                const user = await userRepository.findOne(id)
+                const user = await userRepository.findOne(id);
 
                 if (!user) return res.status(404).json({ error: 'User not found' });
 
-                delete req.body.user;
                 return res.status(200).json({ user: UserView.render(user) });
             };
 
             next();
         } catch (err) {
-            console.log('Error on (auth) [user] -> ', err);
-            return res.status(500).json({ error: 'Internal Server Error' });
+            return res.status(400).json({ error: 'Invalid Token' });
         };
     },
 
@@ -85,7 +83,7 @@ export default {
             const user = userRepository.create(req.body);
             await userRepository.save(user);
 
-            return res.status(201).json({ user: UserView.render(user[0]) });
+            return res.status(201).json({ user });
         } catch (err) {
             console.log('Error on (create) [user] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
