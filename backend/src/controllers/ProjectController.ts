@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import Project from '../models/Project';
 import Image from '../models/Image';
 import { getRepository } from 'typeorm';
@@ -10,9 +10,10 @@ export default {
 
         try {
             const { lg } = req.query;
+            const language = String(lg) || 'eua';
 
             const projectRepository = getRepository(Project);
-            const project = await projectRepository.find({ relations: ['images'], where: { language: lg } });
+            const project = await projectRepository.find({ relations: ['images'], where: { language } });
 
             return res.status(200).json({ project });
         } catch (err) {
@@ -22,14 +23,11 @@ export default {
     },
 
     async show(req: Request, res: Response) {
-        if (!req.params.lg) return res.status(400).json({ error: 'Language missing' });
-
         try {
             const { id } = req.params;
-            const lg = req.query
 
             const projectRepository = getRepository(Project);
-            const project = await projectRepository.findOneOrFail(id, { relations: ['images'], where: { language: lg } })
+            const project = await projectRepository.findOneOrFail(id, { relations: ['images'] })
                 .catch(err => res.status(404).json({ error: 'Incorrect id' }));
 
             return res.status(200).json({ project });
@@ -39,7 +37,7 @@ export default {
         }
     },
 
-    async create(req: Request, res: Response) {
+    async create(req: Request, res: Response, next: NextFunction) {
         try {
             const schema = Yup.object().shape({
                 name: Yup.string().required(),
@@ -64,14 +62,14 @@ export default {
             const project = projectRepository.create(req.body);
             await projectRepository.save(project);
 
-            return res.status(201).json({ project });
+            next();
         } catch (err) {
             console.log('Error on (create) [project] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
         };
     },
 
-    async update(req: Request, res: Response) {
+    async update(req: Request, res: Response, next: NextFunction) {
         if (!req.params.id) return res.status(400).json({ error: 'id missing' });
 
         try {
@@ -92,16 +90,16 @@ export default {
             };
 
             const projectRepository = getRepository(Project);
-            const project = await projectRepository.update(id, req.body);
+            await projectRepository.update(id, req.body);
 
-            return res.status(200).json({ project });
+            next();
         } catch (err) {
             console.log('Error on (update) [project] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
         }
     },
 
-    async delete(req: Request, res: Response) {
+    async delete(req: Request, res: Response, next: NextFunction) {
         if(!req.params.id) return res.status(400).json({ error: 'id missing' });
 
         try {
@@ -110,9 +108,8 @@ export default {
             const projectRepository = getRepository(Project);
 
             await projectRepository.delete({ id: Number(id) });
-            const project = await projectRepository.find({ relations: ['images'] });
-
-            return res.status(200).json({ project });
+            
+            next();
         } catch (err) {
             console.log('Error on (delete) [project] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
