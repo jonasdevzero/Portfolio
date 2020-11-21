@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
+import Aos from 'aos'
+import api from '../services/api'
 
 import {
     Header,
@@ -18,16 +20,44 @@ import {
     Title,
     Text,
     ButtonContainer,
+    SkillsWrapper,
     SkillsContainer,
     SkillsDescription,
     Skills,
     SkillCard,
-    SkillImage
-} from '../styles/pages/About'
+    SkillImage,
 
-import skillsData from '../assets/skills.json'
+    KnowledgeCard
+} from '../styles/pages/About'
+import CloseIcon from '@material-ui/icons/Close'
+
+interface IKnowledge {
+    id: number;
+    name: string;
+    description: string;
+    type: string;
+    image_url: string;
+    about_link: string;
+};
 
 function About() {
+    const [knowledge, setKnowledge] = useState<IKnowledge[]>()
+    const [showKnowledge, setShowKnowledge] = useState(false)
+    const [selectedKnowledge, setSelectedKnowledge] = useState<IKnowledge>()
+
+    useEffect(() => {
+        Aos.init({ duration: 1000 })
+      }, [])
+
+    useEffect(() => {
+        api.get('/knowledge?lg=en').then(({ data }) => setKnowledge(data.knowledge))
+    }, [])
+
+    function onClickKnowledge(show: boolean, knowledge?: IKnowledge) {
+        setShowKnowledge(show)
+        if (knowledge) setSelectedKnowledge(knowledge) 
+    }
+
     return (
         <div>
             <Head>
@@ -65,44 +95,64 @@ function About() {
                         </Content>
 
                         <Content data-aos='fade-up'>
-                            <SkillsContainer>
-                                <SkillsDescription>
-                                    <Title>My Skills</Title>
-                                </SkillsDescription>
+                            <SkillsWrapper>
 
-                                <Skills>
-                                    {skillsData.skills.map(skill => (
-                                        <SkillCard key={skill.id}>
-                                            <SkillImage
-                                                src={skill.image_url}
-                                                alt={skill.name}
-                                            />
-                                        </SkillCard>
-                                    ))}
-                                </Skills>
-                            </SkillsContainer>
-                        </Content>
+                                <SkillsContainer>
+                                    <SkillsDescription>
+                                        <Title>My Skills</Title>
+                                        <p>Here are my skills that i study and use the most</p>
+                                    </SkillsDescription>
 
-                        <Content data-aos='fade-up'>
-                            <SkillsContainer>
-                                <SkillsDescription>
-                                    <Title>Tools</Title>
-                                </SkillsDescription>
+                                    <Skills>
+                                        {knowledge?.map(knowledge => (
+                                            knowledge.type === 'technology' ?
+                                                (
+                                                    <SkillCard key={knowledge.id} onClick={() => onClickKnowledge(true, knowledge)}>
+                                                        <SkillImage
+                                                            src={knowledge.image_url}
+                                                            alt={knowledge.name}
+                                                        />
+                                                    </SkillCard>
+                                                ) : null
+                                        ))}
+                                    </Skills>
+                                </SkillsContainer>
 
-                                <Skills>
-                                    {skillsData.tools.map(tool => (
-                                        <SkillCard key={tool.id}>
-                                            <SkillImage
-                                                src={tool.image_url}
-                                                alt={tool.name}
-                                            />
-                                        </SkillCard>
-                                    ))}
-                                </Skills>
-                            </SkillsContainer>
+                                <SkillsContainer className="reverse">
+                                    <SkillsDescription>
+                                        <Title>Tools</Title>
+                                        <p>These are the tools that I use to develop</p>
+                                    </SkillsDescription>
+                                    <Skills>
+                                        {knowledge?.map(knowledge => (
+                                            knowledge.type === 'tool' ? (
+                                                <SkillCard key={knowledge.id} onClick={() => onClickKnowledge(true, knowledge)}>
+                                                    <SkillImage
+                                                        src={knowledge.image_url}
+                                                        alt={knowledge.name}
+                                                    />
+                                                </SkillCard>
+                                            ) : null
+                                        ))}
+                                    </Skills>
+                                </SkillsContainer>
+                            </SkillsWrapper>
                         </Content>
                     </Inner>
                 </Main>
+
+                <KnowledgeCard className={showKnowledge && 'show'}>
+                    <CloseIcon onClick={() => onClickKnowledge(false)} />
+
+                    <div>
+                        <img src={selectedKnowledge?.image_url} alt={selectedKnowledge?.name} />
+                        <h1>{selectedKnowledge?.name}</h1>
+                    </div>
+                    <p>{selectedKnowledge?.description}</p>
+                    <a href={selectedKnowledge?.about_link} rel="noopener noreferrer" target="_blank">
+                        Know more
+                    </a>
+                </KnowledgeCard>
 
                 <LanguageSelect to='/sobre' />
             </Container>
