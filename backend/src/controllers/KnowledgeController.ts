@@ -71,7 +71,7 @@ export default {
         } catch (err) {
             console.log('Error on (create) [knowledge] -> ', err);
             return res.status(500).json({ error: 'Internal Server Error' });
-        }
+        };
     },
 
     async update(req: Request, res: Response, next: NextFunction) {
