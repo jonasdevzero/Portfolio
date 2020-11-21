@@ -9,7 +9,6 @@ export default {
             about_link: knowledge.about_link,
             image_url: knowledge.image_url,
             type: knowledge.type,
-            lg: knowledge.language,
         };
     },
 

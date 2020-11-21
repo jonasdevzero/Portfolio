@@ -13,13 +13,14 @@ routes.post('/knowledge', UserController.auth, KnowledgeController.create, Knowl
 routes.put('/knowledge/:id', UserController.auth, KnowledgeController.update, KnowledgeController.index);
 routes.delete('/knowledge/:id', UserController.auth, KnowledgeController.delete, KnowledgeController.index);
 
-routes.get('/project', ProjectController.index);
-routes.get('/project/:id', ProjectController.show);
-routes.post('/project', UserController.auth, ProjectController.create, ProjectController.index);
-routes.put('/project/:id', UserController.auth, ProjectController.update, ProjectController.index);
-routes.delete('/project/:id', UserController.auth, ProjectController.delete, ProjectController.index);
+routes.get('/projects', ProjectController.index);
+routes.get('/projects/:id', ProjectController.show);
+routes.post('/projects', UserController.auth, ProjectController.create, ProjectController.index);
+routes.put('/projects/:id', UserController.auth, ProjectController.update, ProjectController.index);
+routes.delete('/projects/:id', UserController.auth, ProjectController.delete, ProjectController.index);
 
-routes.post('/user', UserController.login)
-routes.post('/user/create', UserController.create); // temporary
+routes.post('/users/login', UserController.login);
+routes.post('/users/auth', UserController.auth);
+routes.post('/users/create', UserController.create); // temporary
 
 export default routes;

@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 export default {
     async index(req: Request, res: Response) {
         try {
-            let language = req.query.lg;
+            const language = req.query.lg;
             
             const knowledgeRepository = getRepository(Knowledge);
 
@@ -17,8 +17,7 @@ export default {
                     knowledge = await knowledgeRepository.find();
                     break;
                 default:
-                    language = String(language);
-                    knowledge = await knowledgeRepository.find({ language });
+                    knowledge = await knowledgeRepository.find({ language: String(language) });
             };
 
             return res.status(200).json({ knowledge: KnowledgeView.renderMany(knowledge) });

@@ -10,7 +10,6 @@ export default {
             source_link: project.source_link,
             images: project.images,
             banner_image: project.banner_image,
-            lg: project.language,
         };
     },
 
