@@ -60,7 +60,7 @@ export const Dropside = styled.div`
 
     position: relative;
     top: 0;
-    right: ${({ show }: ShowDropsideProps) => show ? '0' : '-100%'};
+    right: ${({ show }: ShowDropsideProps) => show ? '0' : '-101%'};
     transition: right .5s ease-in-out;
 
     width: 100vw;
