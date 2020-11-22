@@ -13,19 +13,17 @@ import {
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
 
-function Header({ local }) {
+interface IHeader {
+    local?: string;
+}
+
+function Header({ local }: IHeader) {
     const [showDropside, setShowDropside] = useState(false)
     const [scroll, setScroll] = useState(false)
     const router = useRouter()
 
     useEffect(() => {
-        document.addEventListener('scroll', () => {
-            if (window.scrollY > 0) {
-                setScroll(true)
-                return
-            }
-            setScroll(false)
-        })
+        window.addEventListener('scroll', () => window.scrollY > 0 ? setScroll(true) : setScroll(false))
     }, [])
 
     function toggleDropside() {
@@ -66,26 +64,26 @@ function Header({ local }) {
             </Navigation>
 
             <Dropside show={showDropside}>
-                <DropsideButton 
-                    className={local} 
+                <DropsideButton
+                    className={local}
                     onClick={() => goTo('/')}
                 >
                     Home
                 </DropsideButton>
-                <DropsideButton 
-                    className={local} 
+                <DropsideButton
+                    className={local}
                     onClick={() => goTo('/about')}
                 >
                     About
                 </DropsideButton>
-                <DropsideButton 
-                    className={local} 
+                <DropsideButton
+                    className={local}
                     onClick={() => goTo('/portfolio')}
                 >
                     portfolio
                 </DropsideButton>
-                <DropsideButton 
-                    className={local} 
+                <DropsideButton
+                    className={local}
                     onClick={() => goTo('/contact')}
                 >
                     Contact
@@ -95,7 +93,7 @@ function Header({ local }) {
             </Dropside>
 
             <Button onClick={toggleDropside} show={showDropside}>
-                {showDropside ? 
+                {showDropside ?
                     <CloseIcon />
                     :
                     <MenuIcon />
