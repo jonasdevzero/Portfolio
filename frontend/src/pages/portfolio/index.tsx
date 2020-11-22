@@ -1,12 +1,12 @@
 import Head from 'next/head'
 
-import { Header, LanguageSelect } from '../components'
+import { Header, LanguageSelect } from '../../components'
 
 import {
   Container,
   Content,
   Inner
-} from '../styles/pages/Portfolio'
+} from '../../styles/pages/Portfolio'
 
 function Portfolio() {
   return (

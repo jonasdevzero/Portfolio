@@ -20,7 +20,7 @@ export default createGlobalStyle`
     };
 
     ::-webkit-scrollbar {
-        width: 1rem;
+        width: 1.3rem;
     };
     ::-webkit-scrollbar-track {
         border-left: solid .1rem #303030;
