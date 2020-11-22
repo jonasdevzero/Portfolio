@@ -15,19 +15,15 @@ import {
     Inner,
     Content,
     ImageContainer,
-    Image,
-    Info,
+    InfoContainer,
     Title,
     Text,
-    ButtonContainer,
-    SkillsWrapper,
-    SkillsContainer,
-    SkillsDescription,
-    Skills,
-    SkillCard,
-    SkillImage,
-
-    KnowledgeCard
+    KnowledgeContainer,
+    KnowledgeType,
+    KnowledgeDescription,
+    KnowledgeWrapper,
+    Knowledge,
+    KnowledgeDropUp,
 } from '../styles/pages/About'
 import CloseIcon from '@material-ui/icons/Close'
 
@@ -72,10 +68,10 @@ function About() {
 
                         <Content data-aos='fade-up'>
                             <ImageContainer>
-                                <Image src='/developer.jpg' />
+                                <img src='/developer.png' />
                             </ImageContainer>
 
-                            <Info>
+                            <InfoContainer>
                                 <Title>Jonas de Oliveira</Title>
                                 <Text>
                                     I'm {(2003 - new Date().getFullYear()).toString().split('-')[1]} years
@@ -86,73 +82,73 @@ function About() {
                                 </Text>
 
 
-                                <ButtonContainer>
+                                <div>
                                     <Button to='/portfolio'>
                                         My Projects
                                     </Button>
-                                </ButtonContainer>
-                            </Info>
+                                </div>
+                            </InfoContainer>
                         </Content>
 
                         <Content data-aos='fade-up'>
-                            <SkillsWrapper>
+                            <KnowledgeContainer>
 
-                                <SkillsContainer>
-                                    <SkillsDescription>
+                                <KnowledgeType>
+                                    <KnowledgeDescription>
                                         <Title>My Skills</Title>
-                                        <p>Here are my skills that i study and use the most</p>
-                                    </SkillsDescription>
+                                        <Text>Here are my skills that i study and use the most</Text>
+                                    </KnowledgeDescription>
 
-                                    <Skills>
+                                    <KnowledgeWrapper>
                                         {knowledge?.map(knowledge => (
                                             knowledge.type === 'technology' ?
                                                 (
-                                                    <SkillCard key={knowledge.id} onClick={() => onClickKnowledge(true, knowledge)}>
-                                                        <SkillImage
+                                                    <Knowledge key={knowledge.id} onClick={() => onClickKnowledge(true, knowledge)}>
+                                                        <img
                                                             src={knowledge.image_url}
                                                             alt={knowledge.name}
                                                         />
-                                                    </SkillCard>
+                                                    </Knowledge>
                                                 ) : null
                                         ))}
-                                    </Skills>
-                                </SkillsContainer>
+                                    </KnowledgeWrapper>
+                                </KnowledgeType>
 
-                                <SkillsContainer className="reverse">
-                                    <SkillsDescription>
+                                <KnowledgeType className="reverse">
+                                    <KnowledgeDescription>
                                         <Title>Tools</Title>
-                                        <p>These are the tools that I use to develop</p>
-                                    </SkillsDescription>
-                                    <Skills>
+                                        <Text>These are the tools that I use to develop</Text>
+                                    </KnowledgeDescription>
+                                    <KnowledgeWrapper>
                                         {knowledge?.map(knowledge => (
                                             knowledge.type === 'tool' ? (
-                                                <SkillCard key={knowledge.id} onClick={() => onClickKnowledge(true, knowledge)}>
-                                                    <SkillImage
+                                                <Knowledge key={knowledge.id} onClick={() => onClickKnowledge(true, knowledge)}>
+                                                    <img
                                                         src={knowledge.image_url}
                                                         alt={knowledge.name}
                                                     />
-                                                </SkillCard>
+                                                </Knowledge>
                                             ) : null
                                         ))}
-                                    </Skills>
-                                </SkillsContainer>
-                            </SkillsWrapper>
+                                    </KnowledgeWrapper>
+                                </KnowledgeType>
+                            </KnowledgeContainer>
                         </Content>
                     </Inner>
                 </Main>
 
-                <KnowledgeCard className={showKnowledge && 'show'}>
+                <KnowledgeDropUp className={showKnowledge && 'show'}>
                     <CloseIcon onClick={() => onClickKnowledge(false)} />
 
                     <div>
                         <img src={selectedKnowledge?.image_url} alt={selectedKnowledge?.name} />
-                        <h1>{selectedKnowledge?.name}</h1>
+                        <Title>{selectedKnowledge?.name}</Title>
                     </div>
-                    <p>{selectedKnowledge?.description}</p>
+                    <Text>{selectedKnowledge?.description}</Text>
                     <a href={selectedKnowledge?.about_link} rel="noopener noreferrer" target="_blank">
                         Know more
                     </a>
-                </KnowledgeCard>
+                </KnowledgeDropUp>
 
                 <LanguageSelect to='/sobre' />
             </Container>

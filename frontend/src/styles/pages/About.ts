@@ -44,40 +44,45 @@ export const Content = styled.section`
 export const ImageContainer = styled.div`
     display: flex;
     justify-content: flex-end;
-    flex: .4;
+    flex: .5;
     height: 40rem;
 
-    @media (max-width: 1080px) {
-        flex: .3;
+    img {
+        width: 100%;
+        object-fit: cover;
     };
 
     @media (max-width: 900px) {
         margin-bottom: 2rem;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: none;
+        };
     };
 `;
 
-export const Image = styled.img`
-    width: 40rem;
-    object-fit: contain;
-
-    @media (max-width: 900px) {
-        width: 100%;
-        height: auto;
-        object-fit: none;
-    };
-`;
-
-export const Info = styled.div`
+export const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex: .6;
+    flex: .5;
     
     height: 40rem;
     padding: 2rem;
 
-    @media (max-width: 1080px) {
-        flex: .7;
+    div {
+        display: flex;
+        width: 100%;
+        margin-top: 2.5rem;
+        
+        @media (max-width: 900px) {
+            align-items: center;
+            justify-content: center;
+
+            margin: 2.5rem 0;
+        };
     };
 
     @media (max-width: 900px) {
@@ -100,13 +105,6 @@ export const Title = styled.h1`
     };
 `;
 
-export const SubTitle = styled.h2`
-    font-size: 2rem;
-    font-weight: 500;
-
-    margin-left: 1rem;
-`;
-
 export const Text = styled.p`
     font-size: 1.8rem;
     font-weight: 500;
@@ -117,36 +115,26 @@ export const Text = styled.p`
     margin-bottom: 1rem;
 
     @media (max-width: 930px) {
-        font-size: 1.6rem;
         max-width: none;
     };
 `;
 
 export const ButtonContainer = styled.div`
-    display: flex;
-    width: 100%;
-    margin-top: 2.5rem;
-
-    @media (max-width: 900px) {
-        align-items: center;
-        justify-content: center;
-
-        margin: 2.5rem 0;
-    };
+    
 `;
 
-export const SkillsWrapper = styled.div`
+export const KnowledgeContainer = styled.div`
     display: flex;
     flex-direction: column;
 `;
 
-export const SkillsContainer = styled.div`
+export const KnowledgeType = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
     background-color: #191818;
     padding: 5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 
     &.reverse {
         flex-direction: row-reverse;
@@ -158,37 +146,33 @@ export const SkillsContainer = styled.div`
     @media (max-width: 600px) {
         flex-direction: column !important;
         margin-bottom: 0;
+        margin-top: .5rem;
     };
     @media (max-width: 360px) {
         padding: 0 .5rem 0 .5rem;
     };
 `;
 
-export const SkillsDescription = styled.div`
+export const KnowledgeDescription = styled.div`
     display: flex;
     flex: .4;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
-    h1 {
+    h1, p {
         text-align: center;
-    };
-
-    p {
-        font-size: 1.8rem;
         max-width: 25rem;
-        text-align: center;
     };
 
-    @media (max-width: 300px) {
+    @media (max-width: 360px) {
         h1 {
             margin-top: 4rem;
         };
     };
 `;
 
-export const Skills = styled.div`
+export const KnowledgeWrapper = styled.div`
     display: flex;
     flex: .6;
     flex-wrap: wrap;
@@ -203,7 +187,7 @@ export const Skills = styled.div`
     };
 `;
 
-export const SkillCard = styled.div`
+export const Knowledge = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,6 +204,11 @@ export const SkillCard = styled.div`
     cursor: pointer;
     transition: transform .3s ease-in-out;
 
+    img {
+        height: 5rem;
+        object-fit: contain;
+    }
+
     &:hover {
         z-index: 1;
         transform: translateY(-.5rem);
@@ -231,30 +220,24 @@ export const SkillCard = styled.div`
     };
 `;
 
-export const SkillImage = styled.img`
-    height: ${({ size }: { size?: string }) => size ? size : '5rem'};
-    object-fit: contain;
-`;
-
-export const KnowledgeCard = styled.div`
+export const KnowledgeDropUp = styled.div`
     position: fixed;
-    bottom: -42rem;
-    left: calc(50% - 14rem);
+    bottom: -46rem;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
 
-    width: 28rem;
-    height: 42rem;
+    width: 34rem;
+    height: 46rem;
     padding: 3rem;
 
     background-color: rgba(0, 0, 0, .85);
     transition: bottom .7s ease-in-out;
 
     &.show {
-        bottom: calc(50% - 21rem);
+        bottom: calc(50% - 23rem);
     };
 
     .MuiSvgIcon-root {
@@ -263,6 +246,11 @@ export const KnowledgeCard = styled.div`
         right: 1.5rem;
         font-size: 2.5rem;
         cursor: pointer;
+        transition: color .2s ease;
+
+        &:hover {
+            color: #555;
+        };
     };
 
     div {
@@ -277,16 +265,7 @@ export const KnowledgeCard = styled.div`
         height: 15rem;
     };
 
-    h1 {
-        
-        font-size: 4.5rem;
-        font-weight: 800;
-        text-align: center;
-    };
-
-    p {
-        font-size: 2rem;
-        font-weight: 500;
+    h1, p {
         text-align: center;
     };
 
@@ -296,6 +275,15 @@ export const KnowledgeCard = styled.div`
         font-weight: 500;
         color: #FFF;
         text-decoration: none;
+        transition: color .2s ease;
+
+        &:hover {
+            color: #555;
+        };
+    };
+
+    @media(max-width: 350px) {
+        width: 100%;
     };
 `;
 
