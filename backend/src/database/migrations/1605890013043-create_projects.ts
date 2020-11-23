@@ -23,16 +23,32 @@ export class createProjects1605890013043 implements MigrationInterface {
                     type: 'text',
                 },
                 {
-                    name: 'source_link',
+                    name: 'objective',
                     type: 'text',
                 },
                 {
-                    name: 'about_link',
+                    name: 'difficulties',
                     type: 'text'
                 },
                 {
-                    name: 'banner_image',
+                    name: 'acquirements',
                     type: 'text'
+                },
+                {
+                    name: 'code_link',
+                    type: 'text',
+                },
+                {
+                    name: 'website_link',
+                    type: 'text',
+                },
+                {
+                    name: 'banner_image',
+                    type: 'text',
+                },
+                {
+                    name: 'banner_gif',
+                    type: 'text',
                 },
                 {
                     name: 'language',

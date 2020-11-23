@@ -12,14 +12,26 @@ export default class Project {
     @Column()
     description: string;
 
-    @Column()
-    source_link: string;
+    @Column() 
+    objective: string;
 
     @Column()
-    about_link: string;
+    difficulties: string;
+
+    @Column()
+    acquirements: string;
+
+    @Column()
+    code_link: string;
+
+    @Column()
+    website_link: string;
 
     @Column()
     banner_image: string;
+
+    @Column()
+    banner_gif: string;
 
     @Column() 
     language: string;

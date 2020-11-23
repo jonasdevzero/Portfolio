@@ -49,9 +49,13 @@ export default {
             const schema = Yup.object().shape({
                 name: Yup.string().required(),
                 description: Yup.string().required(),
-                source_link: Yup.string().required(),
-                about_link: Yup.string().required(),
+                objective: Yup.string().required(),
+                difficulties: Yup.string().required(),
+                acquirements: Yup.string().required(),
+                code_link: Yup.string().required(),
+                website_link: Yup.string(),
                 banner_image: Yup.string().required(),
+                banner_gif: Yup.string().required(),
                 language: Yup.string().required(),
                 images: Yup.array(Yup.object().shape({
                     path: Yup.string().required(),
