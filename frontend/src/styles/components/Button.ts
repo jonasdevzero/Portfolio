@@ -21,6 +21,7 @@ export const StyledLink = styled.a`
     transition: all .4s ease-in-out;
 
     border: solid .1rem red;
+    border-radius: .2rem;
     
     outline: none;
     cursor: pointer;

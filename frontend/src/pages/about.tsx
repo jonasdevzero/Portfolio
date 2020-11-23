@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Aos from 'aos'
 import api from '../services/api'
 
-import { Header, Button, LanguageSelect } from '../components'
+import { Header, Button, LanguageSelect, Loading } from '../components'
 
 import {
   Container,
@@ -20,7 +20,6 @@ import {
   KnowledgeWrapper,
   Knowledge,
   KnowledgeDropUp,
-  LoadingContainer
 } from '../styles/pages/About'
 import CloseIcon from '@material-ui/icons/Close'
 
@@ -39,20 +38,16 @@ function About() {
   const [selectedKnowledge, setSelectedKnowledge] = useState<IKnowledge>()
 
   const [loading, setLoading] = useState(true)
-  const [fadeOut, setFadeOut] = useState(false)
 
   useEffect(() => {
     Aos.init({ duration: 800 })
     api.get('/knowledge?lg=en').then(({ data }) => {
       setKnowledge(data.knowledge)
-      loadingAnimation()
+      setLoading(false)
     })
   }, [])
 
-  function loadingAnimation() {
-    setFadeOut(true)
-    setTimeout(() => setLoading(false), 500)
-  }
+  
 
   function onClickKnowledge(show: boolean, knowledge?: IKnowledge) {
     setShowKnowledge(show)
@@ -77,14 +72,13 @@ function About() {
               <InfoContainer>
                 <Title>Jonas de Oliveira</Title>
                 <Text>
-                  I'm {(2003 - new Date().getFullYear()).toString().split('-')[1]}{' '}
-                      years old and I love coding. I discovered this passion after
-                      seeing a little bit of this wonderful programming world and
-                      making my first "hello world". I've been studying web
-                      development for a few months using JavaScript and ReactJS on
-                      the front end and Node.js on the back end.
-                    </Text>
-
+                    I'm {(2003 - new Date().getFullYear()).toString().split('-')[1]}{' '}
+                    years old and I love coding. I discovered this passion after
+                    seeing a little bit of this wonderful programming world and
+                    making my first "hello world". I've been studying web
+                    development for a few months using JavaScript and ReactJS on
+                    the front end and Node.js on the back end.
+                  </Text>
                 <div>
                   <Button to="/portfolio">My Projects</Button>
                 </div>
@@ -116,7 +110,6 @@ function About() {
                 </KnowledgeType>
 
                 <KnowledgeType className="reverse">
-
                   <KnowledgeDescription>
                     <Title>Tools</Title>
                     <Text>These are the tools that I use to develop</Text>
@@ -141,9 +134,7 @@ function About() {
           </Inner>
         </Main>
 
-        <LoadingContainer loading={loading.toString()} fadeOut={fadeOut.toString()}>
-          <img src="/icons/loading.svg" alt="loading" />
-        </LoadingContainer>
+        <Loading loading={loading} />
 
         <KnowledgeDropUp className={showKnowledge && 'show'}>
           <CloseIcon onClick={() => onClickKnowledge(false)} />
