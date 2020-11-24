@@ -5,21 +5,47 @@ import { getRepository } from 'typeorm';
 import * as Yup from 'yup';
 import ProjectView from '../views/projects_view';
 
+function pagination(data: Array<any>, limit: number, page: number) {
+    let pagesArray: Array<any[]> = []
+    let pageArray: any[] = []
+
+    data.forEach((d, i) => {
+        if (pageArray.length === Number(limit)) {
+            pagesArray.push(pageArray)
+            pageArray = []
+        }
+        if (i === data.length - 1 && pageArray.length < limit) {
+            pagesArray.push(pageArray)
+        }
+
+        pageArray.push(d)
+    })
+
+    return pagesArray[page - 1]
+}
+
 export default {
     async index(req: Request, res: Response) {
         try {
-            const language = req.query.lg;
+            const { language, limit, page } = req.query;
 
             const projectRepository = getRepository(Project);
-            
+
             let project;
-            switch(language) {
-                case undefined: 
+            switch (language) {
+                case undefined:
                     project = await projectRepository.find({ relations: ['images'] });
                     break;
                 default:
-                    project = await projectRepository.find({ relations: ['images'], where: { language } });
+                    project = await projectRepository.find({ relations: ['images'], where: { language } })
             };
+
+            if (limit && page) {
+                project = pagination(project, Number(limit), Number(page))
+
+                if (!project) return res.status(400).json({ error: 'This page not exists' })
+            }
+
 
             return res.status(200).json({ project: ProjectView.renderMany(project) });
         } catch (err) {
@@ -88,15 +114,15 @@ export default {
             const { id } = req.params;
 
             if (req.body.images) {
-                const images =  req.body.images;
+                const images = req.body.images;
                 const imageRepository = getRepository(Image);
 
-                await imageRepository.delete({ project: {  id: Number(id) } });
+                await imageRepository.delete({ project: { id: Number(id) } });
 
                 images.map(async (image: { path: string }) => {
                     const newImage = imageRepository.create({ project: { id: Number(id) }, path: image.path });
                     await imageRepository.save(newImage);
-                });                
+                });
 
                 delete req.body.images;
             };
@@ -112,7 +138,7 @@ export default {
     },
 
     async delete(req: Request, res: Response, next: NextFunction) {
-        if(!req.params.id) return res.status(400).json({ error: 'id missing' });
+        if (!req.params.id) return res.status(400).json({ error: 'id missing' });
 
         try {
             const { id } = req.params;
@@ -120,7 +146,7 @@ export default {
             const projectRepository = getRepository(Project);
 
             await projectRepository.delete({ id: Number(id) });
-            
+
             next();
         } catch (err) {
             console.log('Error on (delete) [project] -> ', err);
