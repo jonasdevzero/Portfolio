@@ -43,7 +43,9 @@ export default {
             if (limit && page) {
                 const info = {
                     count: project.length,
-                    pages: Math.ceil(project.length / Number(page))
+                    pages: Math.ceil(project.length / Number(limit)),
+                    limit,
+                    pageSelected: page
                 }  
                 project = pagination(project, Number(limit), Number(page))
 
