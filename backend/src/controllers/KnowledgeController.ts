@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 export default {
     async index(req: Request, res: Response) {
         try {
-            const language = req.query.lg;
+            const { language } = req.query;
             
             const knowledgeRepository = getRepository(Knowledge);
 

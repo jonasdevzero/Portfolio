@@ -41,9 +41,15 @@ export default {
             };
 
             if (limit && page) {
+                const info = {
+                    count: project.length,
+                    pages: Math.ceil(project.length / Number(page))
+                }  
                 project = pagination(project, Number(limit), Number(page))
 
                 if (!project) return res.status(400).json({ error: 'This page not exists' })
+
+                return res.status(200).json({ project: ProjectView.renderMany(project), info });
             }
 
 

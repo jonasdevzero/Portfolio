@@ -41,7 +41,7 @@ function About() {
 
   useEffect(() => {
     Aos.init({ duration: 800 })
-    api.get('/knowledge?lg=en').then(({ data }) => {
+    api.get('/knowledge?language=en').then(({ data }) => {
       setKnowledge(data.knowledge)
       setLoading(false)
     })
