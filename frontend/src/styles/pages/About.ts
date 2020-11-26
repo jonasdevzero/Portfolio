@@ -119,10 +119,6 @@ export const Text = styled.p`
     };
 `;
 
-export const ButtonContainer = styled.div`
-    
-`;
-
 export const KnowledgeContainer = styled.div`
     display: flex;
     flex-direction: column;

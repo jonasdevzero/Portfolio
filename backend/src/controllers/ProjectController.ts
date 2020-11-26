@@ -37,7 +37,7 @@ export default {
                     project = await projectRepository.find({ relations: ['images'] });
                     break;
                 default:
-                    project = await projectRepository.find({ relations: ['images'], where: { language } })
+                    project = await projectRepository.find({ relations: ['images'], where: { language }, order: { id: 'DESC' } })
             };
 
             if (limit && page) {
