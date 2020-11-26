@@ -10,13 +10,15 @@ import {
   Container,
   Main,
   Inner,
+  Pagination,
+  StyledLink,
+
   ProjectContainer,
-  ProjectInfo,
   Project,
   ProjectBanner,
-  Pagination,
-  StyledLink
+  ProjectDetails,
 } from '../../styles/pages/Portfolio'
+import ArrowForwardIcon from '@material-ui/icons/ArrowForwardIos'
 
 interface IProjects {
   id: number;
@@ -47,7 +49,7 @@ function Portfolio() {
   useEffect(() => {
     setLoading(true)
 
-    api.get(`/projects?language=en&limit=6&page=${page ? page : 1}`).then(({ data }) => {
+    api.get(`/projects?language=en&limit=5&page=${page ? page : 1}`).then(({ data }) => {
       setProjects(data.project)
 
       if (!pages.length) {
@@ -69,24 +71,40 @@ function Portfolio() {
 
         <Main>
           <Inner>
+
             <ProjectContainer>
-              {projects?.map((project, i) => (
-                <Link key={project.id} href={`/portfolio/projects/${project.id}`}>
-                  <Project >
-                    <ProjectBanner img={project.banner_image} gif={project.banner_gif} />
-                    <ProjectInfo>
+              {projects?.map(project => (
+                <Project key={project.id}>
+                  <Link href={`/portfolio/projects/${project.id}`}>
+                    <ProjectBanner image={project.banner_image} gif={project.banner_gif} />
+                  </Link>
+
+                  <ProjectDetails>
+                    <div>
                       <h1>{project.name}</h1>
-                      <h2>{project.description}</h2>
-                    </ProjectInfo>
-                  </Project>
-                </Link>
+                      <p>{project.description}</p>
+                    </div>
+
+                    <div>
+                      <a href={project.website_link} target='_blank' rel="noopener noreferrer">Website</a>
+                      <a href={project.code_link} target='_blank' rel="noopener noreferrer">Source Code</a>
+                    </div>
+
+                    <Link href={`/portfolio/projects/${project.id}`}>
+                      <ArrowForwardIcon fontSize='large' />
+                    </Link>
+                  </ProjectDetails>
+                </Project>
               ))}
             </ProjectContainer>
+
             <Pagination>
               {pages?.map((_, i) => (
-                <Link key={i} href={`/portfolio?page=${i + 1}`}>
-                  <StyledLink selected={page ? Number(page) === i + 1 : 1 === i + 1}>{i + 1}</StyledLink>
-                </Link>
+                pages?.length > 1 ? (
+                  <Link key={i} href={`/portfolio?page=${i + 1}`}>
+                    <StyledLink selected={page ? Number(page) === i + 1 : 1 === i + 1}>{i + 1}</StyledLink>
+                  </Link>
+                ) : null
               ))}
             </Pagination>
           </Inner>
@@ -96,7 +114,7 @@ function Portfolio() {
 
         <LanguageSelect to='/portfolio' />
       </Container>
-    </div>
+    </div >
   )
 }
 
