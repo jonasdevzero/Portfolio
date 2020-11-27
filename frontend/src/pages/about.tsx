@@ -66,7 +66,7 @@ function About() {
           <Inner>
             <Content data-aos="fade-up">
               <ImageContainer>
-                <img src="/developer.png" />
+                <img src="/images/developer.png" />
               </ImageContainer>
 
               <InfoContainer>

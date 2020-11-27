@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    background: url('/profile.png') no-repeat;
+    background: url('/images/profile.png') no-repeat;
     background-size: contain;
     background-position: 78%;
 

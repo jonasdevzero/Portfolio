@@ -9,6 +9,7 @@ export const StyledLink = styled.a`
     align-items: center;
     justify-content: center;
 
+    width: max-content;
     padding: 1.5rem 2.8rem;
     margin-top: ${({ marginTop }: StyledLinkProps) => marginTop ? marginTop : '0'};
     

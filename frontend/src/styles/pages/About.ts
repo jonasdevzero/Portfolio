@@ -106,8 +106,7 @@ export const Title = styled.h1`
 `;
 
 export const Text = styled.p`
-    font-size: 1.8rem;
-    font-weight: 500;
+    font-size: 1.7rem;
     line-height: 2.3rem;
     text-align: justify;
     max-width: 50rem;
