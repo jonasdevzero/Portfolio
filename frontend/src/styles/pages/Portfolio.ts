@@ -16,11 +16,12 @@ export const Main = styled.main`
     flex: 1;
 
     width: 100vw;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: #070707;
 `;
 
-export const Inner = styled.section`
+export const Inner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,45 +34,34 @@ export const Inner = styled.section`
 export const ProjectContainer = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    width: 100%;
-
-    @media (min-width: 1000px) {
-        align-items: center;
-    };
-    @media (max-width: 1000px) {
-        width: 60rem;
-    };
-    @media (max-width: 700px) {
-        align-items: center;
-        width: max-content;
-    };
+    width: 100vw;
 `;
 
 export const Project = styled.section`
     display: flex;
-    height: 29.2rem;
-    max-width: 100rem;
+    align-items: center;
+
+    max-width: 85rem;
     width: 100%;
+    height: 25rem;
 
-    margin-bottom: 3rem;
-    padding: 2rem;
-    border: solid .1rem #111;
+    background-color: #191818;
+    padding: 2.5rem;
+    border-radius: .4rem;
+    margin-bottom: 4rem;
 
-    @media (max-width: 1000px) {
+    @media (max-width: 900px) {
         flex-direction: column;
-        height: 60rem;
-    };
-    @media (max-width: 700px) {
-        height: 43rem;
-        padding: 2rem 0;
-        align-items: center;
-    };
-    @media (max-width: 400px) {
-        width: 27rem;
-        height: 36rem;
-        padding: 1rem 0;
-    };
+        width: max-content;
+        height: 45rem;
+        padding: 0;
+    }; 
+    @media (max-width: 360px) {
+        width: 100%;
+        height: 40rem;
+    }; 
 `;
 
 interface IPojectBanner {
@@ -79,88 +69,67 @@ interface IPojectBanner {
     gif: string;
 };
 export const ProjectBanner = styled.div<IPojectBanner>`
-    width: 44.8rem;
-    height: 25.2rem;
-
     background-image: url(${({ image }) => image});
-    background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
 
-    transition: background-image .3s ease-in-out;
+    width: 36rem;
+    height: 20.4rem;
+
     cursor: pointer;
 
     &:hover {
-        background-image: url(${({ gif }) => gif})
-    }
+        background-image: url(${({ gif }) => gif});
+    };
 
-    @media (max-width: 1000px) {
+    @media (max-width: 900px) {
+        border-radius: 0 0 .4rem .4rem;
+    };
+    @media (max-width: 360px) {
         width: 100%;
-        height: 31.5rem;
-    };
-
-    @media (max-width: 700px) {
-        width: 36rem;
-        height: 20.5rem;
-    };
-    @media (max-width: 400px) {
-        width: 25rem;
-        height: 14.3rem;
+        background-position-y: top;
     };
 `;
 
 export const ProjectDetails = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     justify-content: space-between;
-    flex: 1;
+
+    height: 20rem;
     padding: 2rem;
 
     h1 {
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
+        font-size: 3rem;
     };
     p {
-        font-size: 2rem;
-        font-weight: 500;
-        max-width: 35rem;
+        font-size: 1.6rem;
+        line-height: 3rem;
     };
     a {
-        font-size: 1.8rem;
-        font-weight: 500;
         color: #777;
+        font-size: 1.6rem;
         text-decoration: none;
-        margin-right: 2rem;
+        margin-right: 1rem;
         transition: color .3s ease;
 
         &:hover {
-            color: #333;
-        }
-    }
-
-    .MuiSvgIcon-root {
-        color: #FFF;
-        cursor: pointer;
-        transition: color .3s ease;
-
-        &:hover {
-            color: #777;
+            color: #444;
         };
     };
+    .MuiSvgIcon-root {
+        cursor: pointer;
+    };
 
-    @media (max-width: 700px) {
-        padding-bottom: 0;
-
-        h1 {
-            font-size: 3rem;
-        };
-        p {
-            font-size: 1.8rem;
-        };
-        a {
-            font-size: 1.6rem;
-        };
+    @media (max-width: 900px) {
+        width: 36rem;
+        flex: 1;
+        border-radius: 0 0 .4rem .4rem;
+    };
+    @media (max-width: 360px) {
+        width: 100%;
+        padding-top: 0;
     };
 `;
 

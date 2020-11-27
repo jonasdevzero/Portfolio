@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import api from '../../services/api'
+import Aos from 'aos'
 
 import { Header, LanguageSelect, Loading } from '../../components'
 
@@ -47,6 +48,7 @@ function Portfolio() {
   const [pages, setPages] = useState([])
 
   useEffect(() => {
+    Aos.init({ duration: 1000 })
     setLoading(true)
 
     api.get(`/projects?language=en&limit=5&page=${page ? page : 1}`).then(({ data }) => {
@@ -72,7 +74,7 @@ function Portfolio() {
         <Main>
           <Inner>
 
-            <ProjectContainer>
+            <ProjectContainer data-aos="fade-up">
               {projects?.map(project => (
                 <Project key={project.id}>
                   <Link href={`/portfolio/projects/${project.id}`}>
