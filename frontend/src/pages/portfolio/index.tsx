@@ -5,7 +5,7 @@ import Link from 'next/link'
 import api from '../../services/api'
 import Aos from 'aos'
 
-import { Header, LanguageSelect, Loading } from '../../components'
+import { Header, LanguageSelect, Loading, Button } from '../../components'
 
 import {
   Container,
@@ -14,10 +14,14 @@ import {
   Pagination,
   StyledLink,
 
+  InfoContainer,
+  InfoDetails,
+
   ProjectContainer,
   Project,
   ProjectBanner,
   ProjectDetails,
+  ProjectLinks,
 } from '../../styles/pages/Portfolio'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForwardIos'
 
@@ -48,7 +52,7 @@ function Portfolio() {
   const [pages, setPages] = useState([])
 
   useEffect(() => {
-    Aos.init({ duration: 1000 })
+    Aos.init({ duration: 800 })
     setLoading(true)
 
     api.get(`/projects?language=en&limit=5&page=${page ? page : 1}`).then(({ data }) => {
@@ -74,9 +78,25 @@ function Portfolio() {
         <Main>
           <Inner>
 
-            <ProjectContainer data-aos="fade-up">
+            <InfoContainer>
+              <img src="/images/coding.jpeg" alt="" />
+
+              <InfoDetails>
+                <h1>My Projects</h1>
+
+                <p>
+                  This page contains all my projects that I have already put on the web,
+                  some of them are clones of big companies, others are bootcamps projects
+                  and more I will soon post more projects of my own.
+                </p>
+
+                <Button to='/contact'>Contact me</Button>
+              </InfoDetails>
+            </InfoContainer>
+
+            <ProjectContainer>
               {projects?.map(project => (
-                <Project key={project.id}>
+                <Project key={project.id} data-aos="fade-up">
                   <Link href={`/portfolio/projects/${project.id}`}>
                     <ProjectBanner image={project.banner_image} gif={project.banner_gif} />
                   </Link>
@@ -87,14 +107,15 @@ function Portfolio() {
                       <p>{project.description}</p>
                     </div>
 
-                    <div>
-                      <a href={project.website_link} target='_blank' rel="noopener noreferrer">Website</a>
-                      <a href={project.code_link} target='_blank' rel="noopener noreferrer">Source Code</a>
-                    </div>
-
-                    <Link href={`/portfolio/projects/${project.id}`}>
-                      <ArrowForwardIcon fontSize='large' />
-                    </Link>
+                    <ProjectLinks>
+                      <div>
+                        <a href={project.website_link} target='_blank' rel="noopener noreferrer">Website</a>
+                        <a href={project.code_link} target='_blank' rel="noopener noreferrer">Source Code</a>
+                      </div>
+                      <Link href={`/portfolio/projects/${project.id}`}>
+                        <ArrowForwardIcon fontSize='large' />
+                      </Link>
+                    </ProjectLinks>
                   </ProjectDetails>
                 </Project>
               ))}
@@ -102,11 +123,9 @@ function Portfolio() {
 
             <Pagination>
               {pages?.map((_, i) => (
-                pages?.length > 1 ? (
-                  <Link key={i} href={`/portfolio?page=${i + 1}`}>
-                    <StyledLink selected={page ? Number(page) === i + 1 : 1 === i + 1}>{i + 1}</StyledLink>
-                  </Link>
-                ) : null
+                <Link key={i} href={`/portfolio?page=${i + 1}`}>
+                  <StyledLink selected={page ? Number(page) === i + 1 : 1 === i + 1}>{i + 1}</StyledLink>
+                </Link>
               ))}
             </Pagination>
           </Inner>

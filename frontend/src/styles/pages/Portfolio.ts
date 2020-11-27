@@ -18,7 +18,6 @@ export const Main = styled.main`
     width: 100vw;
     padding-top: 6rem;
     padding-bottom: 6rem;
-    background-color: #070707;
 `;
 
 export const Inner = styled.div`
@@ -28,7 +27,40 @@ export const Inner = styled.div`
     align-items: center;
 
     position: relative;
-    margin-top: 5rem;
+`;
+
+export const InfoContainer = styled.div`
+    width: 100vw;
+    height: calc(100vh - 12rem);
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 6rem;
+
+    img {
+        width: 50%;
+        object-fit: cover;
+    };
+`;
+
+export const InfoDetails = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    padding: 2rem;
+
+    h1 {
+        font-size: 3.8rem;
+        margin-bottom: 1rem;
+    };
+    p {
+        font-size: 1.7rem;
+        line-height: 2.3rem;
+        text-align: justify;
+        max-width: 50rem;
+        margin-bottom: 2rem;
+    };
 `;
 
 export const ProjectContainer = styled.div`
@@ -45,18 +77,19 @@ export const Project = styled.section`
 
     max-width: 85rem;
     width: 100%;
-    height: 25rem;
+    height: 27rem;
 
-    background-color: #191818;
-    padding: 2.5rem;
-    border-radius: .4rem;
+    padding: 3rem;
     margin-bottom: 4rem;
+    background-color: #191818;
 
     @media (max-width: 900px) {
         flex-direction: column;
         width: max-content;
         height: 45rem;
         padding: 0;
+        border: 0;
+        background-color: #191818;
     }; 
     @media (max-width: 360px) {
         width: 100%;
@@ -77,6 +110,7 @@ export const ProjectBanner = styled.div<IPojectBanner>`
     width: 36rem;
     height: 20.4rem;
 
+    transition: background-image .5s ease-in-out;
     cursor: pointer;
 
     &:hover {
@@ -102,24 +136,11 @@ export const ProjectDetails = styled.div`
 
     h1 {
         font-size: 3rem;
+        margin-bottom: 1rem;
     };
     p {
         font-size: 1.6rem;
         line-height: 3rem;
-    };
-    a {
-        color: #777;
-        font-size: 1.6rem;
-        text-decoration: none;
-        margin-right: 1rem;
-        transition: color .3s ease;
-
-        &:hover {
-            color: #444;
-        };
-    };
-    .MuiSvgIcon-root {
-        cursor: pointer;
     };
 
     @media (max-width: 900px) {
@@ -130,6 +151,28 @@ export const ProjectDetails = styled.div`
     @media (max-width: 360px) {
         width: 100%;
         padding-top: 0;
+    };
+`;
+
+export const ProjectLinks = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+        color: #777;
+        font-size: 1.6rem;
+        font-weight: 500;
+        text-decoration: none;
+        margin-right: 1rem;
+        transition: color .3s ease;
+
+        &:hover {
+            color: #444;
+        };
+    };
+    .MuiSvgIcon-root {
+        cursor: pointer;
     };
 `;
 
