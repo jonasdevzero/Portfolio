@@ -41,6 +41,16 @@ export const InfoContainer = styled.div`
         width: 50%;
         object-fit: cover;
     };
+
+    @media (max-width: 900px) {
+        flex-direction: column;
+        margin-top: 6rem;
+
+        img {
+            height: 50%;
+            width: 100%;
+        };
+    };
 `;
 
 export const InfoDetails = styled.div`
@@ -59,7 +69,12 @@ export const InfoDetails = styled.div`
         line-height: 2.3rem;
         text-align: justify;
         max-width: 50rem;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
+    };
+
+    @media (max-width: 900px) {
+        justify-content: center;
+        align-items: center;
     };
 `;
 
@@ -75,7 +90,7 @@ export const Project = styled.section`
     display: flex;
     align-items: center;
 
-    max-width: 85rem;
+    max-width: 95rem;
     width: 100%;
     height: 27rem;
 
@@ -130,6 +145,7 @@ export const ProjectDetails = styled.div`
     display: flex;
     flex-direction: column; 
     justify-content: space-between;
+    flex: 1;
 
     height: 20rem;
     padding: 2rem;
@@ -141,6 +157,7 @@ export const ProjectDetails = styled.div`
     p {
         font-size: 1.6rem;
         line-height: 3rem;
+        max-width: 50rem;
     };
 
     @media (max-width: 900px) {

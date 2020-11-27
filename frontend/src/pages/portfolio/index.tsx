@@ -79,16 +79,18 @@ function Portfolio() {
           <Inner>
 
             <InfoContainer>
-              <img src="/images/coding.jpeg" alt="" />
+              <img src="/images/coding.jpeg" alt="portfolio banner" />
 
               <InfoDetails>
-                <h1>My Projects</h1>
+                <div>
+                  <h1>My Projects</h1>
 
-                <p>
-                  This page contains all my projects that I have already put on the web,
-                  some of them are clones of big companies, others are bootcamps projects
-                  and more I will soon post more projects of my own.
+                  <p>
+                    This page contains all my projects that I have already put on the web,
+                    some of them are clones of big companies, others are bootcamps projects
+                    and more I will soon post more projects of my own.
                 </p>
+                </div>
 
                 <Button to='/contact'>Contact me</Button>
               </InfoDetails>
