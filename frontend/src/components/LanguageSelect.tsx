@@ -10,20 +10,30 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 
 interface LanguageProps {
     to?: string;
+    language?: string;
 }
 
-function LanguageSelect({ to }: LanguageProps) {
+function LanguageSelect({ to, language }: LanguageProps) {
     const router = useRouter()
     const [show, setShow] = useState(false)
 
     function handleClick() {
-        router.push(`https://jonasdevzero-pt.vercel.app${to}`)
+        router.push(to)
     }
 
     return (
         <>
             <Container onClick={() => setShow(!show)}>
-                <img src="/icons/eua-flag.svg" alt="eua flag" />
+                {
+                    language === 'en' ?
+                        (
+                            <img src="/icons/br-flag.svg" alt="eua flag" />
+                        )
+                        :
+                        (
+                            <img src="/icons/eua-flag.svg" alt="eua flag" />
+                        )
+                }
                 {show ?
                     <ArrowDropDownIcon />
                     :
@@ -32,8 +42,22 @@ function LanguageSelect({ to }: LanguageProps) {
             </Container>
 
             <DropUp show={show} onClick={handleClick}>
-                <img src="/icons/br-flag.svg" alt="br flag" />
-                pt-BR
+                {
+                    language === 'en' ?
+                        (
+                            <>
+                                <img src="/icons/eua-flag.svg" alt="eua flag" />
+                                en
+                            </>
+                        )
+                        :
+                        (
+                            <>
+                                <img src="/icons/br-flag.svg" alt="eua flag" />
+                                pt-Br
+                            </>
+                        )
+                }
             </DropUp>
         </>
     )

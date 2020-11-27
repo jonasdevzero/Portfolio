@@ -45,7 +45,7 @@ function Portfolio() {
       </Head>
 
       <div>
-        <Header local='portfolio' />
+        <Header local='portfolio' language='en' />
 
         <div>
           <h1>{project?.name}</h1>

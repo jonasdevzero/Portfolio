@@ -61,7 +61,7 @@ function About() {
       </Head>
 
       <Container>
-        <Header local="about" />
+        <Header local="about" language='en' />
         <Main>
           <Inner>
             <Content data-aos="fade-up">
@@ -156,7 +156,7 @@ function About() {
               </a>
         </KnowledgeDropUp>
 
-        <LanguageSelect to="/sobre" />
+        <LanguageSelect to="/br/sobre" />
       </Container>
     </div>
   )

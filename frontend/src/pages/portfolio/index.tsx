@@ -73,7 +73,7 @@ function Portfolio() {
       </Head>
 
       <Container>
-        <Header local='portfolio' />
+        <Header local='portfolio' language='en' />
 
         <Main>
           <Inner>
@@ -96,9 +96,9 @@ function Portfolio() {
               </InfoDetails>
             </InfoContainer>
 
-            <ProjectContainer>
+            <ProjectContainer data-aos="fade-up">
               {projects?.map(project => (
-                <Project key={project.id} data-aos="fade-up">
+                <Project key={project.id}>
                   <Link href={`/portfolio/projects/${project.id}`}>
                     <ProjectBanner image={project.banner_image} gif={project.banner_gif} />
                   </Link>
@@ -135,7 +135,7 @@ function Portfolio() {
 
         <Loading loading={loading} />
 
-        <LanguageSelect to='/portfolio' />
+        <LanguageSelect to='/br/portfolio' />
       </Container>
     </div >
   )

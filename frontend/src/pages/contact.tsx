@@ -12,11 +12,11 @@ function skills() {
   return (
     <div>
       <Head>
-        <title>Jonas - My skills</title>
+        <title>Jonas - Contact</title>
       </Head>
 
       <Container>
-        <Header local='contact' />
+        <Header local='contact' language='en' />
 
         <Content>
           <Inner>
@@ -24,7 +24,7 @@ function skills() {
           </Inner>
         </Content>
 
-        <LanguageSelect to='/contato' />
+        <LanguageSelect to='/br/contato' />
       </Container>
     </div>
   )
