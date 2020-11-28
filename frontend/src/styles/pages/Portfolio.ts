@@ -193,10 +193,22 @@ export const ProjectLinks = styled.div`
     };
 `;
 
-export const Pagination = styled.div`
+interface IPagination {
+    arrowBack?: string;
+    arrowFoward?: string;
+};
+export const Pagination = styled.div<IPagination>`
     display: flex;
+    align-items: center;
+    justify-content: center;
+
     background-color: #191818;
+    padding: 0 1rem;
     margin-top: 2rem;
+
+    .MuiSvgIcon-root {
+        cursor: pointer;
+    };
 `;
 
 interface IStyledLink {
