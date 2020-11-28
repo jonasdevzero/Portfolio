@@ -41,12 +41,12 @@ function Pagination({ pages, page }: IPagination) {
                 } else { // if page is not the first or the last      
                     if (i === 0 && page > 2) { // if the page is longer than two, show the link to page 1 in the first iteration
                         return (
-                            <>
-                                <Link key={i} href={`/portfolio?page=1`}>
+                            <div key={i}>
+                                <Link href={`/portfolio?page=1`}>
                                     <StyledLink selected={page ? page === i + 1 : 1 === i + 1}>1</StyledLink>
                                 </Link>
                                 <p>...</p>
-                            </>
+                            </div>
                         )
                     }
                     // if the page is greater than 1 and less than the total number of pages, show the link of the chosen page and a link on each side
@@ -60,12 +60,12 @@ function Pagination({ pages, page }: IPagination) {
                     // if the page is not the last two, show the link to the last page
                     if (page <= pages.length - 2 && i + 1 === pages.length) {
                         return (
-                            <>
+                            <div key={i}>
                                 <p>...</p>
-                                <Link key={i} href={`/portfolio?page=${i + 1}`}>
+                                <Link href={`/portfolio?page=${i + 1}`}>
                                     <StyledLink selected={page ? page === i + 1 : 1 === i + 1}>{pages.length}</StyledLink>
                                 </Link>
-                            </>
+                            </div>
                         )
                     }
                 }

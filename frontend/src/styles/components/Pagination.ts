@@ -9,8 +9,17 @@ export const Container = styled.div`
     padding: 0 1rem;
     margin-top: 2rem;
 
+    div {
+        display: flex;
+        align-items: center;
+    };
+
     .MuiSvgIcon-root {
         cursor: pointer;
+    };
+
+    @media (max-width: 320px) {
+        width: 100%;
     };
 `;
 
@@ -30,5 +39,9 @@ export const StyledLink = styled.a<IStyledLink>`
     };
     .selected {
         color: #F00;
+    };
+
+    @media (max-width: 320px) {
+        padding: 1rem;
     };
 `;
