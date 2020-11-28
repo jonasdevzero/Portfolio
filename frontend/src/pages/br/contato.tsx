@@ -6,9 +6,13 @@ import {
   Container,
   Content,
   Inner,
+  ContactContainer,
+  Info
 } from '../../styles/pages/Contact'
+import LinkedInIcon from '@material-ui/icons/LinkedIn'
+import GitHubIcon from '@material-ui/icons/GitHub'
 
-function skills() {
+function Contact() {
   return (
     <div>
       <Head>
@@ -20,14 +24,38 @@ function skills() {
 
         <Content>
           <Inner>
-            <h1>Contato, em breve...</h1>
+            <ContactContainer>
+              <img src="/images/contact.jpg" alt="image" />
+
+              <Info>
+                <h1>Contact</h1>
+
+                <p>
+                  Eu espero que você tenha gostado do meu portfolio, se você 
+                  estiver interessado em minhas habilidades ou quer apenas trocar um papo,
+                  só me chamar, ficarei feliz em repondê lo.
+                </p>
+
+                <div>
+                  <h2>Email -</h2> <a href="mailto:jonasdevzero@gmail.com">jonasdevzero@gmail.com</a>
+                </div>
+                <div>
+                  <a href="https://www.linkedin.com/in/jonasdevzero" rel="noopener noreferrer" target="_blank">
+                    <LinkedInIcon />
+                  </a>
+                  <a href="https://github.com/jonasdevzero" rel="noopener noreferrer" target="_blank">
+                    <GitHubIcon />
+                  </a>
+                </div>
+              </Info>
+            </ContactContainer>
           </Inner>
         </Content>
 
-        <LanguageSelect to='/contact' language='en' />
+        <LanguageSelect to='/contact' />
       </Container>
     </div>
   )
 }
 
-export default skills
+export default Contact
