@@ -64,7 +64,7 @@ function Header({ local, language }: IHeader) {
                         portfolio
                     </StyledLink>
                 </Link>
-                <Link href={language === 'br' ? '/contact' : '/br/contato'}>
+                <Link href={language === 'en' ? '/contact' : '/br/contato'}>
                     <StyledLink className={local}>
                         {language === 'en' ? 'Contact' : 'Contato'}
                     </StyledLink>
@@ -93,7 +93,7 @@ function Header({ local, language }: IHeader) {
                 </DropsideButton>
                 <DropsideButton
                     className={local}
-                    onClick={() => goTo(language === 'br' ? '/contact' : '/br/contato')}
+                    onClick={() => goTo(language === 'en' ? '/contact' : '/br/contato')}
                 >
                     {language === 'en' ? 'Contact' : 'Contato'}
                 </DropsideButton>
