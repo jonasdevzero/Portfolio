@@ -17,7 +17,7 @@ export default {
                     knowledge = await knowledgeRepository.find();
                     break;
                 default:
-                    knowledge = await knowledgeRepository.find({ language: String(language) });
+                    knowledge = await knowledgeRepository.find({ where: { language }, order: { id: 'ASC' } });
             };
 
             return res.status(200).json({ knowledge: KnowledgeView.renderMany(knowledge) });
