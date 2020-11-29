@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Aos from 'aos'
 import api from '../../services/api'
+import calculateAge from '../../helpers/calculateAge'
 
 import { Header, Button, LanguageSelect, Loading } from '../../components'
 
@@ -70,14 +71,14 @@ function Sobre() {
               <InfoContainer>
                 <Title>Jonas de Oliveira</Title>
                 <Text>
-                  Eu tenho {(2003 - new Date().getFullYear()).toString().split('-')[1]}{' '}
+                  Eu tenho {calculateAge('03/05/2003')}{' '}
                   anos de idade e amo programar. Eu descobri essa paixão depois de ver
                   um pouco desse maravilhoso mundo da programação e fazer meu  primeiro
                   "Hello World". Eu tenho estudado programação para web há alguns meses 
                   usando javascript e React.js para front end e Node.js para backend.
                 </Text>
                 <div>
-                  <Button to="/portfolio">Projetos</Button>
+                  <Button to="/br/portfolio">Projetos</Button>
                 </div>
               </InfoContainer>
             </Content>

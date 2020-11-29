@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Aos from 'aos'
 import api from '../services/api'
+import calculateAge from '../helpers/calculateAge'
 
 import { Header, Button, LanguageSelect, Loading } from '../components'
 
@@ -72,7 +73,7 @@ function About() {
               <InfoContainer>
                 <Title>Jonas de Oliveira</Title>
                 <Text>
-                    I'm {(2003 - new Date().getFullYear()).toString().split('-')[1]}{' '}
+                    I'm {calculateAge('03/05/2003')}{' '}
                     years old and I love coding. I discovered this passion after
                     seeing a little bit of this wonderful programming world and
                     making my first "hello world". I've been studying web
