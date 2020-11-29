@@ -44,7 +44,7 @@ export const InfoContainer = styled.div`
 
     @media (max-width: 900px) {
         flex-direction: column;
-        margin-top: 6rem;
+        height: max-content;
 
         img {
             height: 50%;

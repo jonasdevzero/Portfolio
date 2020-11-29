@@ -47,7 +47,7 @@ function LanguageSelect({ to, language }: LanguageProps) {
                         (
                             <>
                                 <img src="/icons/eua-flag.svg" alt="eua flag" />
-                                en
+                                eua
                             </>
                         )
                         :

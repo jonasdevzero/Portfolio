@@ -28,7 +28,7 @@ function Contact() {
               <img src="/images/contact.jpg" alt="image" />
 
               <Info>
-                <h1>Contact</h1>
+                <h1>Contato</h1>
 
                 <p>
                   Eu espero que você tenha gostado do meu portfolio, se você 
@@ -52,7 +52,7 @@ function Contact() {
           </Inner>
         </Content>
 
-        <LanguageSelect to='/contact' />
+        <LanguageSelect to='/contact' language='en' />
       </Container>
     </div>
   )

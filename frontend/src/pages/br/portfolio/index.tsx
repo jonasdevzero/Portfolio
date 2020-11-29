@@ -52,7 +52,7 @@ function Portfolio() {
     Aos.init({ duration: 800 })
     setLoading(true)
 
-    api.get(`/projects?language=en&limit=5&page=${page ? page : 1}`).then(({ data }) => {
+    api.get(`/projects?language=br&limit=5&page=${page ? page : 1}`).then(({ data }) => {
       setProjects(data.project)
 
       if (!pages.length) {
@@ -70,7 +70,7 @@ function Portfolio() {
       </Head>
 
       <Container>
-        <Header local='portfolio' language='en' />
+        <Header local='portfolio' />
 
         <Main>
           <Inner>
@@ -89,13 +89,13 @@ function Portfolio() {
                 </p>
                 </div>
 
-                <Button to='/contact'>Fale comigo</Button>
+                <Button to='/br/contato'>Fale comigo</Button>
               </InfoDetails>
             </InfoContainer>
 
-            <ProjectContainer>
+            <ProjectContainer data-aos="fade-up">
               {projects?.map(project => (
-                <Project key={project.id} data-aos="fade-up">
+                <Project key={project.id}>
                   <Link href={`/portfolio/projects/${project.id}`}>
                     <ProjectBanner image={project.banner_image} gif={project.banner_gif} />
                   </Link>

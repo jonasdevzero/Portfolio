@@ -51,7 +51,7 @@ function Portfolio() {
     Aos.init({ duration: 800 })
     setLoading(true)
 
-    api.get(`/projects?language=en&limit=2&page=${page ? page : 1}`).then(({ data }) => {
+    api.get(`/projects?language=en&limit=5&page=${page ? page : 1}`).then(({ data }) => {
       setProjects(data.project)
 
       if (!pages.length) {
