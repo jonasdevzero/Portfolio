@@ -2,19 +2,22 @@ import React, { useState, useEffect } from 'react'
 
 import {
     Container,
-    SlideItem,
-    DotsContainer,
+    Item,
+    Dots,
 } from '../styles/components/Slider'
+import ArrowForwardIcon from '@material-ui/icons/ArrowForwardIos'
+import ArrowBackIcon from '@material-ui/icons/ArrowBackIos'
 
 interface ISlider {
     children?: Array<React.ReactNode>
+    time?: number  
 }
 
-function Slider({ children }: ISlider) {
+function Slider({ children, time }: ISlider) {
     const [currentSlide, setCurrentSlide] = useState(0)
     const [stopTimer, setStopTimer] = useState(false)
 
-    function createSlider(item: React.ReactNode, i: number) {
+    function createItems(item: React.ReactNode, i: number) {
         let position: string
 
         if (i > currentSlide) {
@@ -30,7 +33,9 @@ function Slider({ children }: ISlider) {
         }
 
         return (
-            <SlideItem key={i} position={position}>{item}</SlideItem>
+            <Item key={i} position={position}>
+                {item}
+            </Item>
         )
     }
 
@@ -56,7 +61,7 @@ function Slider({ children }: ISlider) {
             if (stopTimer) return
 
             switchSlide('next') 
-        }, 5000)
+        }, time ? time : 5000)
 
         switch (state) {
             case 'enter':
@@ -74,24 +79,28 @@ function Slider({ children }: ISlider) {
             if (stopTimer) return
 
             switchSlide('next')
-        }, 5000)
+        }, time ? time : 5000)
 
         return () => clearInterval(timer)
     }, [currentSlide, stopTimer])
 
     return (
         <Container onMouseEnter={() => onHover('enter')} onMouseLeave={() => onHover('leave')}>
-            <button type='button' onClick={() => switchSlide('prev')}>&#10094;</button>
+            <button type='button' onClick={() => switchSlide('prev')}>
+                <ArrowBackIcon />
+            </button>
 
-            {children ? children.map(createSlider) : null}
+            {children ? children.map(createItems) : null}
 
-            <button type='button' onClick={() => switchSlide('next')}>&#10095;</button>
+            <button type='button' onClick={() => switchSlide('next')}>
+                <ArrowForwardIcon />
+            </button>
 
-            <DotsContainer>
+            <Dots>
                 {children?.map((_, i) => (
-                    <button key={i} onClick={() => setCurrentSlide(i)}>{i}</button>
+                    <span key={i} className={i === currentSlide && 'selected'} onClick={() => setCurrentSlide(i)}></span>
                 ))}
-            </DotsContainer>
+            </Dots>
         </Container>
     )
 }
