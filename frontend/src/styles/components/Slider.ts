@@ -66,7 +66,6 @@ export const Dots = styled.div`
         width: 1.5rem;
         height: 1.5rem;
         margin: 0 .7rem;
-        border: solid .1rem #333;
         border-radius: 50%;
         cursor: pointer;
 

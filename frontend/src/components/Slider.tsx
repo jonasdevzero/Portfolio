@@ -98,7 +98,7 @@ function Slider({ children, time }: ISlider) {
 
             <Dots>
                 {children?.map((_, i) => (
-                    <span key={i} className={i === currentSlide && 'selected'} onClick={() => setCurrentSlide(i)}></span>
+                    <span key={i} className={i === currentSlide ? 'selected' : ''} onClick={() => setCurrentSlide(i)}></span>
                 ))}
             </Dots>
         </Container>
