@@ -11,8 +11,8 @@ import {
   Inner,
   Info,
   Title,
-  Subtitle,
-  Text,
+  TextP,
+  TextG,
   Social
 } from '../../styles/pages/Home'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
@@ -27,8 +27,9 @@ function HomeBr() {
     <Wrapper>
       <Head>
         <meta name='robots' content='index/follow' />
-        <meta name='description' content='portfolio of a web developer' />
-        <title>Jonas - Home</title>
+        <meta name='description' content='portfolio moderno de um desenvolvedor web
+        que usa nextjs e nodejs para construir suas aplicações' />
+        <title>Portfolio de um desenvolvedor web</title>
       </Head>
 
       <Container>
@@ -37,18 +38,18 @@ function HomeBr() {
         <Content data-aos='fade'>
           <Inner>
             <Info >
-              <Subtitle>Olá,</Subtitle>
-              <Title>Eu sou Jonas</Title>
-              <Text>Um autodiata em programação para web.</Text>
+              <TextP>Olá,</TextP>
+              <TextG>Eu sou Jonas</TextG>
+              <Title>Um autodiata em programação para web.</Title>
 
               <Button to='/br/sobre' marginTop='3rem'>Saiba mais</Button>
             </Info>
 
             <Social>
-              <a href="https://www.linkedin.com/in/jonasdevzero" rel="noopener noreferrer" target="_blank">
+              <a href="https://www.linkedin.com/in/jonasdevzero" rel="noopener noreferrer external nofollow" target="_blank">
                 <LinkedInIcon />
               </a>
-              <a href="https://github.com/jonasdevzero" rel="noopener noreferrer" target="_blank">
+              <a href="https://github.com/jonasdevzero" rel="noopener noreferrer external nofollow" target="_blank">
                 <GitHubIcon />
               </a>
             </Social>

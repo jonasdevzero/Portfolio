@@ -62,7 +62,7 @@ export const Info = styled.div`
     };
 `;
 
-export const Title = styled.h1`
+export const TextG = styled.p`
     font-size: 8.5rem;
     font-weight: 700;
     width: 100%;
@@ -76,7 +76,7 @@ export const Title = styled.h1`
     };
 `;
 
-export const Subtitle = styled.h2`
+export const TextP = styled.p`
     font-size: 2.4rem;
     font-weight: 500;
     line-height: 2.8rem;
@@ -88,7 +88,7 @@ export const Subtitle = styled.h2`
     };
 `;
 
-export const Text = styled.p`
+export const Title = styled.h1`
     font-size: 2rem;
     letter-spacing: .1rem;
     font-weight: 400;

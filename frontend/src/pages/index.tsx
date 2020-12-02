@@ -11,8 +11,8 @@ import {
   Inner,
   Info,
   Title,
-  Subtitle,
-  Text,
+  TextG,
+  TextP,
   Social
 } from '../styles/pages/Home'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
@@ -27,8 +27,9 @@ export default function Home() {
     <Wrapper>
       <Head>
         <meta name='robots' content='index/follow' />
-        <meta name='description' content='portfolio of a web developer' />
-        <title>Jonas - Home</title>
+        <meta name='description' content='modern portfolio of a self-taught developer focused on the 
+        web that uses nextjs and nodejs to build your application' />
+        <title>Portfolio of a web developer</title>
       </Head>
 
       <Container>
@@ -36,19 +37,19 @@ export default function Home() {
 
         <Content data-aos='fade'>
           <Inner>
-            <Info >
-              <Subtitle>Hello,</Subtitle>
-              <Title>I'm Jonas</Title>
-              <Text>A self-taught web programming.</Text>
+            <Info>
+              <TextP>Hello,</TextP>
+              <TextG>I'm Jonas</TextG>
+              <Title>A self-taught web programming.</Title>
 
               <Button to='/about' marginTop='3rem'>Know more</Button>
             </Info>
 
             <Social>
-              <a href="https://www.linkedin.com/in/jonasdevzero" rel="noopener noreferrer" target="_blank">
+              <a href="https://www.linkedin.com/in/jonasdevzero" rel="noopener noreferrer external nofollow" target="_blank">
                 <LinkedInIcon />
               </a>
-              <a href="https://github.com/jonasdevzero" rel="noopener noreferrer" target="_blank">
+              <a href="https://github.com/jonasdevzero" rel="noopener noreferrer external nofollow" target="_blank">
                 <GitHubIcon />
               </a>
             </Social>
