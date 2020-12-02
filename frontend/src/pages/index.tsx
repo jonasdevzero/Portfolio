@@ -26,7 +26,6 @@ export default function Home() {
   return (
     <Wrapper>
       <Head>
-        <meta name='robots' content='index/follow' />
         <meta name='description' content='modern portfolio of a self-taught developer focused on the 
         web that uses nextjs and nodejs to build your application' />
         <title>Portfolio of a web developer</title>
