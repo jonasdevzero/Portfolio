@@ -44,7 +44,6 @@ function Portfolio() {
 
         const images: Array<{ url: string }> = []
         images.push({ url: data.project.banner_image })
-        images.push({ url: data.project.banner_gif })
         data.project.images.map((image: { path: string }) => images.push({ url: image.path }))
         setProjectImages(images)
 
@@ -54,6 +53,22 @@ function Portfolio() {
 
     Aos.init({ duration: 800 })
   }, [id])
+
+  function createMedias(image: IProjectImages, i: number) {
+    const findVideo = new RegExp('https?.*?\.mp4')
+
+    if (findVideo.test(image.url)) {
+      return (
+        <video key={i} width='100%' height='100%' autoPlay controls>
+          <source src={image.url} />
+        </video>
+      )
+    }
+
+    return (
+      <img key={i} src={image.url} alt="project image" />
+    )
+  }
 
   return (
     <div>
@@ -67,9 +82,7 @@ function Portfolio() {
         <Content>
           <SlideContainer>
             <Slider>
-              {projectImages?.map((image, i) => (
-                <img key={i} src={image.url} alt="project image" />
-              ))}
+              {projectImages?.map(createMedias)}
             </Slider>
           </SlideContainer>
 
