@@ -20,7 +20,7 @@ export const Container = styled.div`
         outline: none;
         cursor: pointer;
         transition: background-color .5s ease-in-out;
-        z-index: 10000;
+        z-index: 1;
 
         .MuiSvgIcon-root { 
             font-size: 3rem !important;
@@ -30,6 +30,10 @@ export const Container = styled.div`
         &:hover {
             background-color: rgba(0, 0, 0, .6);
         };
+
+        @media (max-width: 500px) {
+            padding: 0;
+        }
     };
 
 `;
@@ -41,7 +45,7 @@ export const Item = styled.div<IItem>`
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: max-content;
     left: ${({ position }) => position};
 
     transition: left .5s ease;
