@@ -72,7 +72,8 @@ function Portfolio() {
   return (
     <div>
       <Head>
-        <title>jonas - Project</title>
+        <meta name='description' content={project?.description} />
+        <title>{project?.name}</title>
       </Head>
 
       <Container>
@@ -91,8 +92,8 @@ function Portfolio() {
               <p>{project?.description}</p>
 
               <div>
-                <a href={project?.website_link} rel="noopener noreferrer" target="_blank">Website link</a>
-                <a href={project?.code_link} rel="noopener noreferrer" target="_blank">Source Code</a>
+                <a href={project?.website_link} rel="noopener noreferrer external nofollow" target="_blank">Website link</a>
+                <a href={project?.code_link} rel="noopener noreferrer external nofollow" target="_blank">Source Code</a>
               </div>
             </Info>
 
@@ -111,13 +112,11 @@ function Portfolio() {
               <p>{project?.acquirements}</p>
             </Info>
           </InfoContainer>
-
         </Content>
 
+        <Loading loading={loading} />
 
-      <Loading loading={loading} />
-
-      <LanguageSelect to={`/br/portfolio/projects/${Number(id) + 1}`} />
+        <LanguageSelect to={`/br/portfolio/projects/${Number(id) + 1}`} />
       </Container>
     </div >
   )

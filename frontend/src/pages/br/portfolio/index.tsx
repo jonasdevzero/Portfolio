@@ -66,7 +66,9 @@ function Portfolio() {
   return (
     <div>
       <Head>
-        <title>Jonas - Portfolio</title>
+        <meta name='description' content='ideias de projetos já feitos para exercitar 
+        o conhecimento de desenvolvimento na web' />
+        <title>Projetos de desenvolvimento web</title>
       </Head>
 
       <Container>
@@ -102,7 +104,7 @@ function Portfolio() {
 
                   <ProjectDetails>
                     <div>
-                      <h1>{project.name}</h1>
+                      <h2>{project.name}</h2>
                       <p>{project.description}</p>
                     </div>
 

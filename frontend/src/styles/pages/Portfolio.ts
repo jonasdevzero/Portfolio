@@ -150,7 +150,7 @@ export const ProjectDetails = styled.div`
     height: 20rem;
     padding: 2rem;
 
-    h1 {
+    h2 {
         font-size: 3rem;
         margin-bottom: 1rem;
     };

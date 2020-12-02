@@ -65,7 +65,9 @@ function Portfolio() {
   return (
     <div>
       <Head>
-        <title>Jonas - Portfolio</title>
+        <meta name='description' content='project ideas already made to exercise 
+        knowledge in web development.' />
+        <title>Web development projects</title>
       </Head>
 
       <Container>
@@ -75,7 +77,7 @@ function Portfolio() {
           <Inner>
 
             <InfoContainer>
-              <img src="/images/coding.jpeg" alt="portfolio banner" />
+              <img src="/images/coding.jpeg" alt="banner" />
 
               <InfoDetails>
                 <div>
@@ -85,7 +87,7 @@ function Portfolio() {
                     This page contains all my projects that I have already put on the web,
                     some of them are clones of big companies, others are bootcamps projects
                     and more I will soon post more projects of my own.
-                </p>
+                  </p>
                 </div>
 
                 <Button to='/contact'>Contact me</Button>
@@ -101,14 +103,14 @@ function Portfolio() {
 
                   <ProjectDetails>
                     <div>
-                      <h1>{project.name}</h1>
+                      <h2>{project.name}</h2>
                       <p>{project.description}</p>
                     </div>
 
                     <ProjectLinks>
                       <div>
-                        <a href={project.website_link} target='_blank' rel="noopener noreferrer">Website</a>
-                        <a href={project.code_link} target='_blank' rel="noopener noreferrer">Source Code</a>
+                        <a href={project.website_link} target='_blank' rel="noopener noreferrer external nofollow">Website</a>
+                        <a href={project.code_link} target='_blank' rel="noopener noreferrer external nofollow">Source Code</a>
                       </div>
                       <Link href={`/portfolio/projects/${project.id}`}>
                         <ArrowForwardIcon fontSize='large' />

@@ -73,7 +73,8 @@ function Portfolio() {
   return (
     <div>
       <Head>
-        <title>jonas - Project</title>
+        <meta name='description' content={project?.description} />
+        <title>{project?.name}</title>
       </Head>
 
       <Container>
