@@ -48,8 +48,6 @@ function About() {
     })
   }, [])
 
-  
-
   function onClickKnowledge(show: boolean, knowledge?: IKnowledge) {
     setShowKnowledge(show)
     if (knowledge) setSelectedKnowledge(knowledge)
@@ -58,7 +56,9 @@ function About() {
   return (
     <div>
       <Head>
-        <title>Jonas - About</title>
+        <meta name='description' content='these are the skills of a web developer that uses javascript 
+        and typescript in the frontend and backend' />
+        <title>Skills of a web developer</title>
       </Head>
 
       <Container>
@@ -93,7 +93,7 @@ function About() {
                     <Title>My Skills</Title>
                     <Text>
                       Here are my skills that i study and use the most
-                        </Text>
+                    </Text>
                   </KnowledgeDescription>
 
                   <KnowledgeWrapper>
@@ -150,7 +150,7 @@ function About() {
           <Text>{selectedKnowledge?.description}</Text>
           <a
             href={selectedKnowledge?.about_link}
-            rel="noopener noreferrer"
+            rel="noopener noreferrer external nofollow"
             target="_blank"
           >
             Know more

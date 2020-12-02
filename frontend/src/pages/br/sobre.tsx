@@ -56,7 +56,9 @@ function Sobre() {
   return (
     <div>
       <Head>
-        <title>Jonas - Sobre</title>
+        <meta name='description' content='Essas são as habilidades de um desnvolvedor que usa javascript e
+        typescript no frontend e no backend' />
+        <title>Habilidades de um desenvolvedor web</title>
       </Head>
 
       <Container>
@@ -147,7 +149,7 @@ function Sobre() {
           <Text>{selectedKnowledge?.description}</Text>
           <a
             href={selectedKnowledge?.about_link}
-            rel="noopener noreferrer"
+            rel="noopener noreferrer external nofollow"
             target="_blank"
           >
             Saiba mais
