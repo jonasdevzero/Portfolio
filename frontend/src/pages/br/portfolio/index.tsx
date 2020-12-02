@@ -96,7 +96,7 @@ function Portfolio() {
             <ProjectContainer data-aos="fade-up">
               {projects?.map(project => (
                 <Project key={project.id}>
-                  <Link href={`/portfolio/projects/${project.id}`}>
+                  <Link href={`/br/portfolio/projects/${project.id}`}>
                     <ProjectBanner image={project.banner_image} gif={project.banner_gif} />
                   </Link>
 
@@ -111,7 +111,7 @@ function Portfolio() {
                         <a href={project.website_link} target='_blank' rel="noopener noreferrer">Website</a>
                         <a href={project.code_link} target='_blank' rel="noopener noreferrer">Código fonte</a>
                       </div>
-                      <Link href={`/portfolio/projects/${project.id}`}>
+                      <Link href={`/br/portfolio/projects/${project.id}`}>
                         <ArrowForwardIcon fontSize='large' />
                       </Link>
                     </ProjectLinks>
