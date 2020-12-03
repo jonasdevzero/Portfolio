@@ -56,9 +56,8 @@ function About() {
   return (
     <div>
       <Head>
-        <meta name='description' content='these are the skills of a web developer that uses javascript 
-        and typescript in the frontend and backend' />
-        <title>Skills of a web developer</title>
+        <meta name='description' content='Information about jonasdevzero and his skills' />
+        <title>Jonasdevzero - Skills</title>
       </Head>
 
       <Container>
@@ -73,7 +72,7 @@ function About() {
               <InfoContainer>
                 <Title>Jonas de Oliveira</Title>
                 <Text>
-                    I'm {calculateAge('03/05/2003')}{' '}
+                  I'm {calculateAge('03/05/2003')}{' '}
                     years old and I love coding. I discovered this passion after
                     seeing a little bit of this wonderful programming world and
                     making my first "hello world". I've been studying web

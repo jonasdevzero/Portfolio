@@ -27,9 +27,8 @@ function HomeBr() {
     <Wrapper>
       <Head>
         <meta name='robots' content='index/follow' />
-        <meta name='description' content='portfolio moderno de um desenvolvedor web
-        que usa nextjs e nodejs para construir suas aplicações' />
-        <title>Portfolio de um desenvolvedor web</title>
+        <meta name='description' content='portfolio de jonasdevzero' />
+        <title>Jonasdevzero</title>
       </Head>
 
       <Container>

@@ -56,9 +56,8 @@ function Sobre() {
   return (
     <div>
       <Head>
-        <meta name='description' content='Essas são as habilidades de um desnvolvedor que usa javascript e
-        typescript no frontend e no backend' />
-        <title>Habilidades de um desenvolvedor web</title>
+        <meta name='description' content='Informações sobre jonasdevzero e suas habilidades' />
+        <title>Jonasdevzero - Habilidades</title>
       </Head>
 
       <Container>
@@ -76,7 +75,7 @@ function Sobre() {
                   Eu tenho {calculateAge('03/05/2003')}{' '}
                   anos de idade e amo programar. Eu descobri essa paixão depois de ver
                   um pouco desse maravilhoso mundo da programação e fazer meu  primeiro
-                  "Hello World". Eu tenho estudado programação para web há alguns meses 
+                  "Hello World". Eu tenho estudado programação para web há alguns meses
                   usando javascript e React.js para front end e Node.js para backend.
                 </Text>
                 <div>

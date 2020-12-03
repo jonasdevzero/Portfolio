@@ -26,9 +26,8 @@ export default function Home() {
   return (
     <Wrapper>
       <Head>
-        <meta name='description' content='modern portfolio of a self-taught developer focused on the 
-        web that uses nextjs and nodejs to build your application' />
-        <title>Portfolio of a web developer</title>
+        <meta name='description' content='jonasdevzero portfolio website' />
+        <title>Jonasdevzero</title>
       </Head>
 
       <Container>

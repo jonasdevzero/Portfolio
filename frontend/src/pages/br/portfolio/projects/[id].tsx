@@ -74,7 +74,7 @@ function Portfolio() {
     <div>
       <Head>
         <meta name='description' content={project?.description} />
-        <title>{project?.name}</title>
+        <title>jonasdevzero - {project?.name}</title>
       </Head>
 
       <Container>
@@ -99,17 +99,17 @@ function Portfolio() {
             </Info>
 
             <Info>
-              <h2>Objective</h2>
+              <h2>Objetivo</h2>
               <p>{project?.objective}</p>
             </Info>
 
             <Info>
-              <h2>Difficulties</h2>
+              <h2>Dificuldades</h2>
               <p>{project?.difficulties}</p>
             </Info>
 
             <Info>
-              <h2>Acquirements</h2>
+              <h2>Conhecimentos adquiridos</h2>
               <p>{project?.acquirements}</p>
             </Info>
           </InfoContainer>

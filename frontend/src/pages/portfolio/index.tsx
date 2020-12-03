@@ -65,9 +65,8 @@ function Portfolio() {
   return (
     <div>
       <Head>
-        <meta name='description' content='project ideas already made to exercise 
-        knowledge in web development.' />
-        <title>Web development projects</title>
+        <meta name='description' content='Projects of jonasdevzero' />
+        <title>Jonasdevzero - Projects</title>
       </Head>
 
       <Container>
@@ -121,7 +120,7 @@ function Portfolio() {
               ))}
             </ProjectContainer>
 
-              <Pagination pages={pages} page={page ? Number(page) : 1} />
+            <Pagination pages={pages} page={page ? Number(page) : 1} />
           </Inner>
         </Main>
 

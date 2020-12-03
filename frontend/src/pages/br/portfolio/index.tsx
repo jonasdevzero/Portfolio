@@ -66,9 +66,8 @@ function Portfolio() {
   return (
     <div>
       <Head>
-        <meta name='description' content='ideias de projetos já feitos para exercitar 
-        o conhecimento de desenvolvimento na web' />
-        <title>Projetos de desenvolvimento web</title>
+        <meta name='description' content='projetos de jonasdevzero' />
+        <title>Jonasdevzero - Projetos</title>
       </Head>
 
       <Container>

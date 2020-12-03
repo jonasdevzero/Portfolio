@@ -16,9 +16,8 @@ function Contact() {
   return (
     <div>
       <Head>
-        <meta name='description' content='contact of a web developer, building modern and responsive websites,
-        JavaScript code analysis, and much more' />
-        <title>Web developer</title>
+        <meta name='description' content='contact of jonasdevzero' />
+        <title>Jonasdevzero - Contact</title>
       </Head>
 
       <Container>
@@ -38,7 +37,7 @@ function Contact() {
                 </p>
 
                 <div>
-                  <h2>Email -</h2> 
+                  <h2>Email -</h2>
                   <a href="mailto:jonasdevzero@gmail.com" rel='noopener noreferrer external nofollow'>
                     jonasdevzero@gmail.com
                   </a>

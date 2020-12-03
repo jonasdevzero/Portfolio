@@ -16,9 +16,8 @@ function Contact() {
   return (
     <div>
       <Head>
-        <meta name='description' content='contato de um desenvolvedor web, construção de sites modernos e responsivos,
-        análises de códigos JavaScript, e muito mais' />
-        <title>Desenvolvedor web</title>
+        <meta name='description' content='contato de jonasdevzero' />
+        <title>Jonasdevzero - Contato</title>
       </Head>
 
       <Container>
@@ -33,13 +32,13 @@ function Contact() {
                 <h1>Contato</h1>
 
                 <p>
-                  Eu espero que você tenha gostado do meu portfolio, se você 
+                  Eu espero que você tenha gostado do meu portfolio, se você
                   estiver interessado em minhas habilidades ou quer apenas trocar um papo,
                   só me chamar, ficarei feliz em repondê lo.
                 </p>
 
                 <div>
-                  <h2>Email -</h2> 
+                  <h2>Email -</h2>
                   <a href="mailto:jonasdevzero@gmail.com" rel='noopener noreferrer external nofollow'>
                     jonasdevzero@gmail.com
                   </a>
