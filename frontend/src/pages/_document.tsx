@@ -35,6 +35,14 @@ export default class MyDocument extends Document {
         <Head>
           <meta charSet='utf-8' />
           <meta name='robots' content='index/follow' />
+          <meta property='og:title' content='jonasdevzero - Portfolio' />
+          <meta property='og:image' content='https://github.com/jonasdevzero/MediaHub/blob/master/projects/portfolio/home.PNG?raw=true' />
+          <meta property='og:description' content='Portfolio website of jonasdevzero' />
+          <meta property='og:url' content='https://jonasdevzero.vercel.app' />
+          <link 
+            rel='icon' type='image/png' 
+            href='https://static.thenounproject.com/png/300487-200.png' 
+          />
           <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
         </Head>
         <body>

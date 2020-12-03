@@ -58,7 +58,7 @@ function Portfolio() {
 
     if (findVideo.test(image.url)) {
       return (
-        <video key={i} width='100%' height='100%' autoPlay controls>
+        <video key={i} width='100%' height='100%' autoPlay controls loop>
           <source src={image.url} />
         </video>
       )
