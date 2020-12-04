@@ -4,17 +4,24 @@ import Aos from 'aos'
 import api from '../../services/api'
 import calculateAge from '../../helpers/calculateAge'
 
-import { Header, Button, LanguageSelect, Loading } from '../../components'
+import {
+  Header,
+  Button,
+  LanguageSelect,
+  Loading
+} from '../../components'
 
 import {
   Container,
   Main,
-  Inner,
-  Content,
-  ImageContainer,
-  InfoContainer,
   Title,
   Text,
+  StyledLink,
+  BoxContainer,
+  BoxInfo,
+} from '../../styles/pages/Global'
+
+import {
   KnowledgeContainer,
   KnowledgeType,
   KnowledgeDescription,
@@ -62,75 +69,71 @@ function Sobre() {
 
       <Container>
         <Header location="about" language='br' />
+
         <Main>
-          <Inner>
-            <Content data-aos="fade-up">
-              <ImageContainer>
-                <img src="/images/developer.png" />
-              </ImageContainer>
+          <BoxContainer data-aos="fade-up">
+            <img src="/images/developer.png" />
 
-              <InfoContainer>
-                <Title>Jonas de Oliveira</Title>
+            <BoxInfo>
+              <Title>Jonas de Oliveira</Title>
+              <Text>
+                Eu tenho {calculateAge('03/05/2003')}{' '}
+                anos de idade e amo programar. Eu descobri essa paixão depois de ver
+                um pouco desse maravilhoso mundo da programação e fazer meu  primeiro
+                "Hello World". Eu tenho estudado programação para web há alguns meses
+                usando javascript e React.js para front end e Node.js para backend.
+              </Text>
+              <div>
+                <Button to="/br/portfolio">Projetos</Button>
+              </div>
+            </BoxInfo>
+          </BoxContainer>
+
+          <KnowledgeContainer>
+
+            <KnowledgeType data-aos="fade-up">
+              <KnowledgeDescription>
+                <Title>Minhas Habilidades</Title>
                 <Text>
-                  Eu tenho {calculateAge('03/05/2003')}{' '}
-                  anos de idade e amo programar. Eu descobri essa paixão depois de ver
-                  um pouco desse maravilhoso mundo da programação e fazer meu  primeiro
-                  "Hello World". Eu tenho estudado programação para web há alguns meses
-                  usando javascript e React.js para front end e Node.js para backend.
+                  Aqui estão as ferramentas que eu mais uso e estudo.
                 </Text>
-                <div>
-                  <Button to="/br/portfolio">Projetos</Button>
-                </div>
-              </InfoContainer>
-            </Content>
+              </KnowledgeDescription>
 
-            <Content data-aos="fade-up">
-              <KnowledgeContainer>
-                <KnowledgeType>
-                  <KnowledgeDescription>
-                    <Title>Minhas Habilidades</Title>
-                    <Text>
-                      Aqui estão as ferramentas que eu mais uso e estudo.
-                    </Text>
-                  </KnowledgeDescription>
+              <KnowledgeWrapper>
+                {knowledge?.map((knowledge) =>
+                  knowledge.type === 'technology' ? (
+                    <Knowledge
+                      key={knowledge.id}
+                      onClick={() => onClickKnowledge(true, knowledge)}
+                    >
+                      <img src={knowledge.image_url} alt={knowledge.name} />
+                    </Knowledge>
+                  ) : null
+                )}
+              </KnowledgeWrapper>
+            </KnowledgeType>
 
-                  <KnowledgeWrapper>
-                    {knowledge?.map((knowledge) =>
-                      knowledge.type === 'technology' ? (
-                        <Knowledge
-                          key={knowledge.id}
-                          onClick={() => onClickKnowledge(true, knowledge)}
-                        >
-                          <img src={knowledge.image_url} alt={knowledge.name} />
-                        </Knowledge>
-                      ) : null
-                    )}
-                  </KnowledgeWrapper>
-                </KnowledgeType>
+            <KnowledgeType className="reverse" data-aos="fade-up">
+              <KnowledgeDescription>
+                <Title>Ferramentas</Title>
+                <Text>Essas são as ferramentas que eu uso para desenvolver.</Text>
+              </KnowledgeDescription>
 
-                <KnowledgeType className="reverse">
-                  <KnowledgeDescription>
-                    <Title>Ferramentas</Title>
-                    <Text>Essas são as ferramentas que eu uso para desenvolver.</Text>
-                  </KnowledgeDescription>
+              <KnowledgeWrapper>
+                {knowledge?.map((knowledge) =>
+                  knowledge.type === 'tool' ? (
+                    <Knowledge
+                      key={knowledge.id}
+                      onClick={() => onClickKnowledge(true, knowledge)}
+                    >
+                      <img src={knowledge.image_url} alt={knowledge.name} />
+                    </Knowledge>
+                  ) : null
+                )}
+              </KnowledgeWrapper>
+            </KnowledgeType>
 
-                  <KnowledgeWrapper>
-                    {knowledge?.map((knowledge) =>
-                      knowledge.type === 'tool' ? (
-                        <Knowledge
-                          key={knowledge.id}
-                          onClick={() => onClickKnowledge(true, knowledge)}
-                        >
-                          <img src={knowledge.image_url} alt={knowledge.name} />
-                        </Knowledge>
-                      ) : null
-                    )}
-                  </KnowledgeWrapper>
-                </KnowledgeType>
-
-              </KnowledgeContainer>
-            </Content>
-          </Inner>
+          </KnowledgeContainer>
         </Main>
 
         <Loading loading={loading} />

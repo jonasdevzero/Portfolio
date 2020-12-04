@@ -4,17 +4,24 @@ import Aos from 'aos'
 import api from '../services/api'
 import calculateAge from '../helpers/calculateAge'
 
-import { Header, Button, LanguageSelect, Loading } from '../components'
+import {
+  Header,
+  Button,
+  LanguageSelect,
+  Loading
+} from '../components'
 
 import {
   Container,
   Main,
-  Inner,
-  Content,
-  ImageContainer,
-  InfoContainer,
   Title,
   Text,
+  StyledLink,
+  BoxContainer,
+  BoxInfo,
+} from '../styles/pages/Global'
+
+import {
   KnowledgeContainer,
   KnowledgeType,
   KnowledgeDescription,
@@ -62,76 +69,72 @@ function About() {
 
       <Container>
         <Header location="about" language='en' />
+
         <Main>
-          <Inner>
-            <Content data-aos="fade-up">
-              <ImageContainer>
-                <img src="/images/developer.png" />
-              </ImageContainer>
+          <BoxContainer data-aos="fade-up">
+            <img src="/images/developer.png" />
 
-              <InfoContainer>
-                <Title>Jonas de Oliveira</Title>
+            <BoxInfo>
+              <Title>Jonas de Oliveira</Title>
+              <Text>
+                I'm {calculateAge('03/05/2003')}{' '}
+                years old and I love coding. I discovered this passion after
+                seeing a little bit of this wonderful programming world and
+                making my first "hello world". I've been studying web
+                development for a few months using JavaScript and ReactJS on
+                the front end and Node.js on the back end.
+              </Text>
+              <div>
+                <Button to="/portfolio">My Projects</Button>
+              </div>
+            </BoxInfo>
+          </BoxContainer>
+
+          <KnowledgeContainer>
+
+            <KnowledgeType data-aos='fade-up'>
+              <KnowledgeDescription>
+                <Title>My Skills</Title>
                 <Text>
-                  I'm {calculateAge('03/05/2003')}{' '}
-                    years old and I love coding. I discovered this passion after
-                    seeing a little bit of this wonderful programming world and
-                    making my first "hello world". I've been studying web
-                    development for a few months using JavaScript and ReactJS on
-                    the front end and Node.js on the back end.
-                  </Text>
-                <div>
-                  <Button to="/portfolio">My Projects</Button>
-                </div>
-              </InfoContainer>
-            </Content>
+                  Here are my skills that i study and use the most
+                </Text>
+              </KnowledgeDescription>
 
-            <Content data-aos="fade-up">
-              <KnowledgeContainer>
-                <KnowledgeType>
-                  <KnowledgeDescription>
-                    <Title>My Skills</Title>
-                    <Text>
-                      Here are my skills that i study and use the most
-                    </Text>
-                  </KnowledgeDescription>
+              <KnowledgeWrapper>
+                {knowledge?.map((knowledge) =>
+                  knowledge.type === 'technology' ? (
+                    <Knowledge
+                      key={knowledge.id}
+                      onClick={() => onClickKnowledge(true, knowledge)}
+                    >
+                      <img src={knowledge.image_url} alt={knowledge.name} />
+                    </Knowledge>
+                  ) : null
+                )}
+              </KnowledgeWrapper>
+            </KnowledgeType>
 
-                  <KnowledgeWrapper>
-                    {knowledge?.map((knowledge) =>
-                      knowledge.type === 'technology' ? (
-                        <Knowledge
-                          key={knowledge.id}
-                          onClick={() => onClickKnowledge(true, knowledge)}
-                        >
-                          <img src={knowledge.image_url} alt={knowledge.name} />
-                        </Knowledge>
-                      ) : null
-                    )}
-                  </KnowledgeWrapper>
-                </KnowledgeType>
+            <KnowledgeType className="reverse" data-aos='fade-up'>
+              <KnowledgeDescription>
+                <Title>Tools</Title>
+                <Text>These are the tools that I use to develop</Text>
+              </KnowledgeDescription>
 
-                <KnowledgeType className="reverse">
-                  <KnowledgeDescription>
-                    <Title>Tools</Title>
-                    <Text>These are the tools that I use to develop</Text>
-                  </KnowledgeDescription>
+              <KnowledgeWrapper>
+                {knowledge?.map((knowledge) =>
+                  knowledge.type === 'tool' ? (
+                    <Knowledge
+                      key={knowledge.id}
+                      onClick={() => onClickKnowledge(true, knowledge)}
+                    >
+                      <img src={knowledge.image_url} alt={knowledge.name} />
+                    </Knowledge>
+                  ) : null
+                )}
+              </KnowledgeWrapper>
+            </KnowledgeType>
 
-                  <KnowledgeWrapper>
-                    {knowledge?.map((knowledge) =>
-                      knowledge.type === 'tool' ? (
-                        <Knowledge
-                          key={knowledge.id}
-                          onClick={() => onClickKnowledge(true, knowledge)}
-                        >
-                          <img src={knowledge.image_url} alt={knowledge.name} />
-                        </Knowledge>
-                      ) : null
-                    )}
-                  </KnowledgeWrapper>
-                </KnowledgeType>
-
-              </KnowledgeContainer>
-            </Content>
-          </Inner>
+          </KnowledgeContainer>
         </Main>
 
         <Loading loading={loading} />
@@ -146,14 +149,16 @@ function About() {
             />
             <Title>{selectedKnowledge?.name}</Title>
           </div>
+
           <Text>{selectedKnowledge?.description}</Text>
-          <a
+
+          <StyledLink
             href={selectedKnowledge?.about_link}
             rel="noopener noreferrer external nofollow"
             target="_blank"
           >
             Know more
-              </a>
+          </StyledLink>
         </KnowledgeDropUp>
 
         <LanguageSelect location="/about" language='en' />

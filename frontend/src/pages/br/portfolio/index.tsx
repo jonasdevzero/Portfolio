@@ -5,14 +5,26 @@ import Link from 'next/link'
 import api from '../../../services/api'
 import Aos from 'aos'
 
-import { Header, LanguageSelect, Loading, Button, Pagination } from '../../../components'
+import {
+  Header,
+  LanguageSelect,
+  Loading,
+  Button,
+  Pagination
+} from '../../../components'
 
 import {
   Container,
   Main,
-  Inner,
-  InfoContainer,
-  InfoDetails,
+  Title,
+  Subtitle,
+  Text,
+  StyledLink,
+  BoxContainer,
+  BoxInfo,
+} from '../../../styles/pages/Global'
+
+import {
   ProjectContainer,
   Project,
   ProjectBanner,
@@ -74,55 +86,59 @@ function Portfolio() {
         <Header location='portfolio' language='br' />
 
         <Main>
-          <Inner>
 
-            <InfoContainer>
-              <img src="/images/coding.jpeg" alt="portfolio banner" />
+          <BoxContainer>
+            <img src="/images/coding.jpeg" alt="portfolio banner" />
 
-              <InfoDetails>
-                <div>
-                  <h1>Meus Projetos</h1>
+            <BoxInfo>
+              <div>
+                <Title>Meus Projetos</Title>
 
-                  <p>
-                    Esta página contém todos os meus projetos que coloquei na web,
-                    alguns são clones de grandes companhias, outros projetos de bootcamp
-                    e em breve colocarei projetos de minha autoria.
-                </p>
-                </div>
+                <Text>
+                  Esta página contém todos os meus projetos que coloquei na web,
+                  alguns são clones de grandes companhias, outros projetos de bootcamp
+                  e em breve colocarei projetos de minha autoria.
+                  </Text>
+              </div>
 
-                <Button to='/br/contato'>Fale comigo</Button>
-              </InfoDetails>
-            </InfoContainer>
+              <Button to='/br/contact'>Fale comigo</Button>
+            </BoxInfo>
+          </BoxContainer>
 
-            <ProjectContainer data-aos="fade-up">
-              {projects?.map(project => (
-                <Project key={project.id}>
-                  <Link href={`/br/portfolio/projects/${project.id}`}>
-                    <ProjectBanner image={project.banner_image} gif={project.banner_gif} />
-                  </Link>
+          <ProjectContainer data-aos="fade-up">
+            {projects?.map(project => (
+              <Project key={project.id}>
 
-                  <ProjectDetails>
+                <Link href={`/br/portfolio/projects/${project.id}`}>
+                  <ProjectBanner image={project.banner_image} gif={project.banner_gif} />
+                </Link>
+
+                <ProjectDetails>
+                  <div>
+                    <Subtitle>{project.name}</Subtitle>
+                    <Text>{project.description}</Text>
+                  </div>
+
+                  <ProjectLinks>
                     <div>
-                      <h2>{project.name}</h2>
-                      <p>{project.description}</p>
+                      <StyledLink href={project.website_link} target='_blank' rel="noopener noreferrer">
+                        Website
+                      </StyledLink>
+                      <StyledLink href={project.code_link} target='_blank' rel="noopener noreferrer">
+                        Código fonte
+                      </StyledLink>
                     </div>
+                    <Link href={`/br/portfolio/projects/${project.id}`}>
+                      <ArrowForwardIcon fontSize='large' />
+                    </Link>
+                  </ProjectLinks>
 
-                    <ProjectLinks>
-                      <div>
-                        <a href={project.website_link} target='_blank' rel="noopener noreferrer">Website</a>
-                        <a href={project.code_link} target='_blank' rel="noopener noreferrer">Código fonte</a>
-                      </div>
-                      <Link href={`/br/portfolio/projects/${project.id}`}>
-                        <ArrowForwardIcon fontSize='large' />
-                      </Link>
-                    </ProjectLinks>
-                  </ProjectDetails>
-                </Project>
-              ))}
-            </ProjectContainer>
+                </ProjectDetails>
+              </Project>
+            ))}
+          </ProjectContainer>
 
-            <Pagination pages={pages} page={page ? Number(page) : 1} />
-          </Inner>
+          <Pagination pages={pages} page={page ? Number(page) : 1} />
         </Main>
 
         <Loading loading={loading} />

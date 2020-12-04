@@ -1,15 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    height: 100%;
-
-    overflow: hidden;
-`;
-
 export const Content = styled.main`
     display: flex;
     align-items: center;
@@ -64,33 +54,4 @@ export const Info = styled.div`
     margin-top: 3rem;
     padding: 3rem;
     padding-top: 0;
-
-    h1 {
-        font-size: 3.8rem;
-    };
-    h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-    };
-    p {
-        font-size: 1.7rem;
-        line-height: 2.3rem;
-        text-align: justify;
-    };
-    div {
-        margin-top: 2rem;
-
-        a {
-            color: #777;
-            font-size: 1.6rem;
-            font-weight: 500;
-            text-decoration: none;
-            margin-right: 1rem;
-            transition: color .3s ease;
-
-            &:hover {
-                color: #444;
-            };
-        };
-    };
 `; 

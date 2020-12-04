@@ -2,11 +2,18 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Aos from 'aos'
 
-import { Header, Button, LanguageSelect } from '../../components'
+import {
+  Header,
+  Button,
+  LanguageSelect
+} from '../../components'
+
+import {
+  Container
+} from '../../styles/pages/Global'
 
 import {
   Wrapper,
-  Container,
   Content,
   Inner,
   Info,
@@ -41,7 +48,7 @@ function HomeBr() {
               <TextG>Eu sou Jonas</TextG>
               <Title>Um autodiata em programação para web.</Title>
 
-              <Button to='/br/sobre' marginTop='3rem'>Saiba mais</Button>
+              <Button to='/br/about' marginTop='3rem'>Saiba mais</Button>
             </Info>
 
             <Social>

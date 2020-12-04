@@ -4,10 +4,21 @@ import { useRouter } from 'next/router'
 import api from '../../../services/api'
 import Aos from 'aos'
 
-import { Header, Loading, Slider } from '../../../components'
+import {
+  Header,
+  Loading,
+  Slider
+} from '../../../components'
 
 import {
   Container,
+  Title,
+  Subtitle,
+  Text,
+  StyledLink,
+} from '../../../styles/pages/Global'
+
+import {
   Content,
   SlideContainer,
   InfoContainer,
@@ -24,7 +35,6 @@ interface IProject {
   code_link: string;
   website_link: string;
 }
-
 interface IProjectImages {
   url: string
 }
@@ -54,7 +64,7 @@ function Portfolio() {
     Aos.init({ duration: 800 })
   }, [id])
 
-  function createMedias(image: IProjectImages, i: number) {
+  function createImages(image: IProjectImages, i: number) {
     const findVideo = new RegExp('https?.*?\.mp4')
 
     if (findVideo.test(image.url)) {
@@ -83,34 +93,38 @@ function Portfolio() {
         <Content>
           <SlideContainer>
             <Slider>
-              {projectImages?.map(createMedias)}
+              {projectImages?.map(createImages)}
             </Slider>
           </SlideContainer>
 
           <InfoContainer data-aos='fade-up'>
             <Info>
-              <h1>{project?.name}</h1>
-              <p>{project?.description}</p>
+              <Title>{project?.name}</Title>
+              <Text>{project?.description}</Text>
 
               <div>
-                <a href={project?.website_link} rel="noopener noreferrer external nofollow" target="_blank">Website link</a>
-                <a href={project?.code_link} rel="noopener noreferrer external nofollow" target="_blank">Source Code</a>
+                <StyledLink href={project?.website_link} rel="noopener noreferrer external nofollow" target="_blank">
+                  Website link
+                </StyledLink>
+                <StyledLink href={project?.code_link} rel="noopener noreferrer external nofollow" target="_blank">
+                  Source Code
+                </StyledLink>
               </div>
             </Info>
 
             <Info>
-              <h2>Objective</h2>
-              <p>{project?.objective}</p>
+              <Subtitle>Objective</Subtitle>
+              <Text>{project?.objective}</Text>
             </Info>
 
             <Info>
-              <h2>Difficulties</h2>
-              <p>{project?.difficulties}</p>
+              <Subtitle>Difficulties</Subtitle>
+              <Text>{project?.difficulties}</Text>
             </Info>
 
             <Info>
-              <h2>Acquired knowledge</h2>
-              <p>{project?.acquirements}</p>
+              <Subtitle>Acquired knowledge</Subtitle>
+              <Text>{project?.acquirements}</Text>
             </Info>
           </InfoContainer>
         </Content>

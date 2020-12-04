@@ -123,4 +123,8 @@ export const Social = styled.div`
     .MuiSvgIcon-root:hover {
         color: rgba(255, 255, 255, .7);
     };
+
+    @media (max-height: 500px) {
+        display: none;
+    };
 `;

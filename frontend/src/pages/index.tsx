@@ -2,11 +2,18 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Aos from 'aos'
 
-import { Header, Button, LanguageSelect } from '../components'
+import {
+  Header,
+  Button,
+  LanguageSelect
+} from '../components'
+
+import {
+  Container,
+} from '../styles/pages/Global'
 
 import {
   Wrapper,
-  Container,
   Content,
   Inner,
   Info,
@@ -19,9 +26,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import GitHubIcon from '@material-ui/icons/GitHub'
 
 export default function Home() {
-  useEffect(() => {
-    Aos.init({ duration: 2000 })
-  }, [])
+  useEffect(() => Aos.init({ duration: 2000 }), [])
 
   return (
     <Wrapper>
