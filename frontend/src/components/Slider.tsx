@@ -40,7 +40,6 @@ function Slider({ children, time }: ISlider) {
             <Item
                 key={i}
                 position={position}
-                className={position}
             >
                 {item}
             </Item>

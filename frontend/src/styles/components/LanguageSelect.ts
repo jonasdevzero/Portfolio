@@ -14,7 +14,7 @@ export const Container = styled.div`
     background-color: #191818;
     border-radius: .3rem;
     cursor: pointer;
-    z-index: 99999;
+    z-index: 101;
 
     img {
         width: 2.5rem;
@@ -42,8 +42,7 @@ export const DropUp = styled.div`
     background-color: #191818;
     border-radius: .3rem;
     cursor: pointer;
-
-    
+    z-index: 101;
 `;
 
 export const DropUpItem = styled.div`
