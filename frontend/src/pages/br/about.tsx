@@ -61,7 +61,7 @@ function Sobre() {
       </Head>
 
       <Container>
-        <Header local="about" />
+        <Header local="about" language='br' />
         <Main>
           <Inner>
             <Content data-aos="fade-up">

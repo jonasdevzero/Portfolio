@@ -15,7 +15,7 @@ import CloseIcon from '@material-ui/icons/Close'
 
 interface IHeader {
     local?: string;
-    language?: 'en' | 'br';
+    language: 'en' | 'br';
 }
 
 function Header({ local, language }: IHeader) {
@@ -49,24 +49,40 @@ function Header({ local, language }: IHeader) {
     return (
         <Container className={scroll ? 'scroll' : ''}>
             <Navigation>
-                <Link href={language === 'en' ? '/' : '/br'}>
+
+                <Link href={language === 'en' ? '/' : `/${language}`}>
                     <StyledLink className={local}>
-                        {language === 'en' ? 'Home' : 'Início'}
+                        {
+                            language === 'en' ? 'Home' :
+                                language === 'br' ? 'Início' :
+                                    null
+                        }
                     </StyledLink>
                 </Link>
-                <Link href={language === 'en' ? '/about' : '/br/sobre'}>
+
+                <Link href={language === 'en' ? '/about' : `/${language}/about`}>
                     <StyledLink className={local}>
-                        {language === 'en' ? 'About' : 'Sobre'}
+                        {
+                            language === 'en' ? 'About' :
+                                language === 'br' ? 'Sobre' :
+                                    null
+                        }
                     </StyledLink>
                 </Link>
-                <Link href={language === 'en' ? '/portfolio' : '/br/portfolio'}>
+
+                <Link href={language === 'en' ? '/portfolio' : `/${language}/portfolio`}>
                     <StyledLink className={local}>
                         portfolio
                     </StyledLink>
                 </Link>
-                <Link href={language === 'en' ? '/contact' : '/br/contato'}>
+
+                <Link href={language === 'en' ? '/contact' : `/${language}/contact`}>
                     <StyledLink className={local}>
-                        {language === 'en' ? 'Contact' : 'Contato'}
+                        {
+                            language === 'en' ? 'Contact' :
+                                language === 'br' ? 'Contato' :
+                                    null
+                        }
                     </StyledLink>
                 </Link>
                 <div className='header-animation'></div>
@@ -75,27 +91,39 @@ function Header({ local, language }: IHeader) {
             <Dropside show={showDropside}>
                 <DropsideButton
                     className={local}
-                    onClick={() => goTo(language === 'en' ? '/' : '/br')}
+                    onClick={() => goTo(language === 'en' ? '/' : `/${language}`)}
                 >
-                    {language === 'en' ? 'Home' : 'Início'}
+                    {
+                        language === 'en' ? 'Home' :
+                            language === 'br' ? 'Início' :
+                                null
+                    }
                 </DropsideButton>
                 <DropsideButton
                     className={local}
-                    onClick={() => goTo(language === 'en' ? '/about' : '/br/sobre')}
+                    onClick={() => goTo(language === 'en' ? '/about' : `/${language}/about`)}
                 >
-                    {language === 'en' ? 'About' : 'Sobre'}
+                    {
+                        language === 'en' ? 'About' :
+                            language === 'br' ? 'Sobre' :
+                                null
+                    }
                 </DropsideButton>
                 <DropsideButton
                     className={local}
-                    onClick={() => goTo(language === 'en' ? '/portfolio' : '/br/portfolio')}
+                    onClick={() => goTo(language === 'en' ? '/portfolio' : `/${language}/portfolio`)}
                 >
                     portfolio
                 </DropsideButton>
                 <DropsideButton
                     className={local}
-                    onClick={() => goTo(language === 'en' ? '/contact' : '/br/contato')}
+                    onClick={() => goTo(language === 'en' ? '/contact' : `/${language}/contact`)}
                 >
-                    {language === 'en' ? 'Contact' : 'Contato'}
+                    {
+                        language === 'en' ? 'Contact' :
+                            language === 'br' ? 'Contato' :
+                                null
+                    }
                 </DropsideButton>
 
                 <div className="dropside-animation"></div>

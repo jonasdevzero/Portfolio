@@ -21,7 +21,7 @@ function Contact() {
       </Head>
 
       <Container>
-        <Header local='contact' />
+        <Header local='contact' language='br' />
 
         <Content>
           <Inner>

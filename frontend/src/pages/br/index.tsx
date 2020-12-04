@@ -32,7 +32,7 @@ function HomeBr() {
       </Head>
 
       <Container>
-        <Header local='home' />
+        <Header local='home' language='br' />
 
         <Content data-aos='fade'>
           <Inner>

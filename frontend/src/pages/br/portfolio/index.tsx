@@ -71,7 +71,7 @@ function Portfolio() {
       </Head>
 
       <Container>
-        <Header local='portfolio' />
+        <Header local='portfolio' language='br' />
 
         <Main>
           <Inner>

@@ -78,7 +78,7 @@ function Portfolio() {
       </Head>
 
       <Container>
-        <Header local='portfolio' language='en' />
+        <Header local='portfolio' language='br' />
 
         <Content>
           <SlideContainer>
