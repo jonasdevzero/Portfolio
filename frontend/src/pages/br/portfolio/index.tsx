@@ -105,9 +105,9 @@ function Portfolio() {
             </BoxInfo>
           </BoxContainer>
 
-          <ProjectContainer data-aos="fade-up">
+          <ProjectContainer>
             {projects?.map(project => (
-              <Project key={project.id}>
+              <Project key={project.id} data-aos="fade-up">
 
                 <Link href={`/br/portfolio/projects/${project.id}`}>
                   <ProjectBanner image={project.banner_image} gif={project.banner_gif} />
