@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import api from '../../../services/api'
-import { Header, Loading, LanguageSelect, Slider } from '../../../components'
 import Aos from 'aos'
+
+import { Header, Loading, Slider } from '../../../components'
 
 import {
   Container,
@@ -77,7 +78,7 @@ function Portfolio() {
       </Head>
 
       <Container>
-        <Header local='portfolio' language='en' />
+        <Header location='portfolio' language='en' />
 
         <Content>
           <SlideContainer>
@@ -115,8 +116,6 @@ function Portfolio() {
         </Content>
 
         <Loading loading={loading} />
-
-        <LanguageSelect to={`/br/portfolio/projects/${Number(id) + 1}`} />
       </Container>
     </div >
   )

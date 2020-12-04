@@ -70,7 +70,7 @@ function Portfolio() {
       </Head>
 
       <Container>
-        <Header local='portfolio' language='en' />
+        <Header location='portfolio' language='en' />
 
         <Main>
           <Inner>
@@ -126,7 +126,7 @@ function Portfolio() {
 
         <Loading loading={loading} />
 
-        <LanguageSelect to='/br/portfolio' />
+        <LanguageSelect location='/portfolio' language='en' />
       </Container>
     </div >
   )

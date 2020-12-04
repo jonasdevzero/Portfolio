@@ -31,7 +31,7 @@ export default function Home() {
       </Head>
 
       <Container>
-        <Header local='home' language='en' />
+        <Header location='home' language='en' />
 
         <Content data-aos='fade'>
           <Inner>
@@ -54,7 +54,7 @@ export default function Home() {
           </Inner>
         </Content>
 
-        <LanguageSelect to='/br' />
+        <LanguageSelect location='/' language='en' />
       </Container>
     </Wrapper>
   )

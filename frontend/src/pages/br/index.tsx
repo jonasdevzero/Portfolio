@@ -32,7 +32,7 @@ function HomeBr() {
       </Head>
 
       <Container>
-        <Header local='home' language='br' />
+        <Header location='home' language='br' />
 
         <Content data-aos='fade'>
           <Inner>
@@ -55,7 +55,7 @@ function HomeBr() {
           </Inner>
         </Content>
 
-        <LanguageSelect to='/' language='en' />
+        <LanguageSelect location='/' language='br' />
       </Container>
     </Wrapper>
   );

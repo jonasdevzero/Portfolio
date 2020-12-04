@@ -14,11 +14,11 @@ import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
 
 interface IHeader {
-    local?: string;
+    location?: string;
     language: 'en' | 'br';
 }
 
-function Header({ local, language }: IHeader) {
+function Header({ location, language }: IHeader) {
     const [showDropside, setShowDropside] = useState(false)
     const [scroll, setScroll] = useState(false)
     const router = useRouter()
@@ -51,7 +51,7 @@ function Header({ local, language }: IHeader) {
             <Navigation>
 
                 <Link href={language === 'en' ? '/' : `/${language}`}>
-                    <StyledLink className={local}>
+                    <StyledLink className={location}>
                         {
                             language === 'en' ? 'Home' :
                                 language === 'br' ? 'Início' :
@@ -61,7 +61,7 @@ function Header({ local, language }: IHeader) {
                 </Link>
 
                 <Link href={language === 'en' ? '/about' : `/${language}/about`}>
-                    <StyledLink className={local}>
+                    <StyledLink className={location}>
                         {
                             language === 'en' ? 'About' :
                                 language === 'br' ? 'Sobre' :
@@ -71,13 +71,13 @@ function Header({ local, language }: IHeader) {
                 </Link>
 
                 <Link href={language === 'en' ? '/portfolio' : `/${language}/portfolio`}>
-                    <StyledLink className={local}>
+                    <StyledLink className={location}>
                         portfolio
                     </StyledLink>
                 </Link>
 
                 <Link href={language === 'en' ? '/contact' : `/${language}/contact`}>
-                    <StyledLink className={local}>
+                    <StyledLink className={location}>
                         {
                             language === 'en' ? 'Contact' :
                                 language === 'br' ? 'Contato' :
@@ -90,7 +90,7 @@ function Header({ local, language }: IHeader) {
 
             <Dropside show={showDropside}>
                 <DropsideButton
-                    className={local}
+                    className={location}
                     onClick={() => goTo(language === 'en' ? '/' : `/${language}`)}
                 >
                     {
@@ -100,7 +100,7 @@ function Header({ local, language }: IHeader) {
                     }
                 </DropsideButton>
                 <DropsideButton
-                    className={local}
+                    className={location}
                     onClick={() => goTo(language === 'en' ? '/about' : `/${language}/about`)}
                 >
                     {
@@ -110,13 +110,13 @@ function Header({ local, language }: IHeader) {
                     }
                 </DropsideButton>
                 <DropsideButton
-                    className={local}
+                    className={location}
                     onClick={() => goTo(language === 'en' ? '/portfolio' : `/${language}/portfolio`)}
                 >
                     portfolio
                 </DropsideButton>
                 <DropsideButton
-                    className={local}
+                    className={location}
                     onClick={() => goTo(language === 'en' ? '/contact' : `/${language}/contact`)}
                 >
                     {

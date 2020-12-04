@@ -1,63 +1,41 @@
 import React, { useState } from 'react'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 import {
     Container,
     DropUp,
+    DropUpItem
 } from '../styles/components/LanguageSelect'
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 
 interface LanguageProps {
-    to?: string;
-    language?: string;
+    location: string;
+    language: 'en' | 'br';
 }
 
-function LanguageSelect({ to, language }: LanguageProps) {
-    const router = useRouter()
-    const [show, setShow] = useState(false)
+const languages = ['en', 'br']
 
-    function handleClick() {
-        router.push(to)
-    }
+function LanguageSelect({ location, language }: LanguageProps) {
+    const [show, setShow] = useState(false)
 
     return (
         <>
             <Container onClick={() => setShow(!show)}>
-                {
-                    language === 'en' ?
-                        (
-                            <img src="/icons/br-flag.svg" alt="eua flag" />
-                        )
-                        :
-                        (
-                            <img src="/icons/eua-flag.svg" alt="eua flag" />
-                        )
-                }
-                {show ?
-                    <ArrowDropDownIcon />
-                    :
-                    <ArrowDropUpIcon />
-                }
+                <img src={`/icons/${language}-flag.svg`} alt={`current language: ${language}`} />
+
+                {show ? (<ArrowDropDownIcon />) : (<ArrowDropUpIcon />)}
             </Container>
 
-            <DropUp show={show} onClick={handleClick}>
-                {
-                    language === 'en' ?
-                        (
-                            <>
-                                <img src="/icons/eua-flag.svg" alt="eua flag" />
-                                eua
-                            </>
-                        )
-                        :
-                        (
-                            <>
-                                <img src="/icons/br-flag.svg" alt="eua flag" />
-                                pt-Br
-                            </>
-                        )
-                }
+            <DropUp show={show}>
+                {languages.map((l, i) => l !== language ? (
+                    <Link key={i} href={l === 'en' ? `${location}` : `/${l}${location}`}>
+                        <DropUpItem>
+                            <img src={`/icons/${l}-flag.svg`} alt={`language option ${l}`} />
+                            {l}
+                        </DropUpItem>
+                    </Link>
+                ) : null)}
             </DropUp>
         </>
     )

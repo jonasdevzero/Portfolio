@@ -21,7 +21,7 @@ function Contact() {
       </Head>
 
       <Container>
-        <Header local='contact' language='en' />
+        <Header location='contact' language='en' />
 
         <Content>
           <Inner>
@@ -55,7 +55,7 @@ function Contact() {
           </Inner>
         </Content>
 
-        <LanguageSelect to='/br/contato' />
+        <LanguageSelect location='/contact' language='en' />
       </Container>
     </div>
   )

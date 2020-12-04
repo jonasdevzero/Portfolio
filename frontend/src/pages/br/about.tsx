@@ -61,7 +61,7 @@ function Sobre() {
       </Head>
 
       <Container>
-        <Header local="about" language='br' />
+        <Header location="about" language='br' />
         <Main>
           <Inner>
             <Content data-aos="fade-up">
@@ -155,7 +155,7 @@ function Sobre() {
               </a>
         </KnowledgeDropUp>
 
-        <LanguageSelect to="/about" language='en' />
+        <LanguageSelect location="/about" language='br' />
       </Container>
     </div>
   )

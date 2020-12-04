@@ -14,6 +14,7 @@ export const Container = styled.div`
     background-color: #191818;
     border-radius: .3rem;
     cursor: pointer;
+    z-index: 99999;
 
     img {
         width: 2.5rem;
@@ -27,6 +28,7 @@ export const Container = styled.div`
 
 export const DropUp = styled.div`
     display: ${({ show }: { show: boolean }) => show ? 'flex' : 'none'};
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
@@ -35,14 +37,22 @@ export const DropUp = styled.div`
     right: 2rem;
 
     width: 7rem;
-    height: 3rem;
+    padding: .5rem 0;
 
     background-color: #191818;
     border-radius: .3rem;
     cursor: pointer;
 
+    
+`;
+
+export const DropUpItem = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     img {
         width: 2.5rem;
-        margin-right: .5rem;
+        margin-right: 1rem;
     };
-`;
+`;  

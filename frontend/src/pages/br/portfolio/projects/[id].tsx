@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import api from '../../../../services/api'
 import Aos from 'aos'
 
-import { Header, Loading, LanguageSelect, Slider } from '../../../../components'
+import { Header, Loading, Slider } from '../../../../components'
 
 import {
   Container,
@@ -78,7 +78,7 @@ function Portfolio() {
       </Head>
 
       <Container>
-        <Header local='portfolio' language='br' />
+        <Header location='portfolio' language='br' />
 
         <Content>
           <SlideContainer>
@@ -118,8 +118,6 @@ function Portfolio() {
 
 
         <Loading loading={loading} />
-
-        <LanguageSelect to={`/portfolio/projects/${Number(id) - 1}`} language='en' />
       </Container>
     </div>
   )
