@@ -9,33 +9,38 @@ export const Container = styled.div`
     align-items: center;
     position: relative;
     overflow: hidden;
-
+ 
     button {
-        width: 10%;
-        height: 100%;
         background-color: transparent;
-        padding: 1rem;
+        padding: 2rem;
+        margin: 1rem;
 
         border: none;
         outline: none;
         cursor: pointer;
         transition: background-color .5s ease-in-out;
-        z-index: 1;
+        z-index: 2;
 
         .MuiSvgIcon-root { 
             font-size: 3rem !important;
             color: #FFF;
         };
 
-        &:hover {
-            background-color: rgba(0, 0, 0, .6);
-        };
-
         @media (max-width: 500px) {
             padding: 0;
         }
     };
+`;
 
+export const DraggableBox = styled.div`
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+
+    &:active {
+        cursor: grabbing !important;
+    };
 `;
 
 interface IItem {
@@ -60,6 +65,7 @@ export const Dots = styled.div`
     align-items: center;
     justify-content: center;
     padding: 1rem 0;
+    z-index: 2;
 
 
     span {

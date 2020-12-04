@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import {
     Container,
+    DraggableBox,
     Item,
     Dots,
 } from '../styles/components/Slider'
@@ -10,12 +11,14 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBackIos'
 
 interface ISlider {
     children?: Array<React.ReactNode>
-    time?: number  
+    time?: number
 }
 
 function Slider({ children, time }: ISlider) {
     const [currentSlide, setCurrentSlide] = useState(0)
     const [stopTimer, setStopTimer] = useState(false)
+
+    const [slideStart, setSlideStart] = useState(0)
 
     function createItems(item: React.ReactNode, i: number) {
         let position: string
@@ -26,6 +29,7 @@ function Slider({ children, time }: ISlider) {
             } else {
                 position = `${(currentSlide - i) * -100}%`
             }
+
         } else if (i < currentSlide) {
             position = `-${(currentSlide - i) * 100}%`
         } else {
@@ -33,7 +37,11 @@ function Slider({ children, time }: ISlider) {
         }
 
         return (
-            <Item key={i} position={position}>
+            <Item
+                key={i}
+                position={position}
+                className={position}
+            >
                 {item}
             </Item>
         )
@@ -57,10 +65,10 @@ function Slider({ children, time }: ISlider) {
     }
 
     function onHover(state: 'enter' | 'leave') {
-        const hoverTimer = () => setTimeout(() => { 
+        const hoverTimer = () => setTimeout(() => {
             if (stopTimer) return
 
-            switchSlide('next') 
+            switchSlide('next')
         }, time ? time : 5000)
 
         switch (state) {
@@ -71,6 +79,20 @@ function Slider({ children, time }: ISlider) {
                 setStopTimer(false)
                 hoverTimer()
                 break
+        }
+    }
+    function onDrag(e: React.DragEvent<HTMLDivElement>) {
+        if (e.clientX < slideStart) {
+            switchSlide('next')
+        } else if (e.clientX > slideStart) {
+            switchSlide('prev')
+        }
+    }
+    function onTouch(e: React.TouchEvent<HTMLDivElement>) {
+        if (e.changedTouches[0].clientX < slideStart) {
+            switchSlide('next')
+        } else if (e.changedTouches[0].clientX > slideStart) {
+            switchSlide('prev')
         }
     }
 
@@ -85,10 +107,22 @@ function Slider({ children, time }: ISlider) {
     }, [currentSlide, stopTimer])
 
     return (
-        <Container onMouseEnter={() => onHover('enter')} onMouseLeave={() => onHover('leave')}>
+        <Container
+            onMouseEnter={() => onHover('enter')}
+            onMouseLeave={() => onHover('leave')}
+        >
             <button type='button' onClick={() => switchSlide('prev')}>
                 <ArrowBackIcon />
             </button>
+
+            <DraggableBox
+                onDragStartCapture={e => setSlideStart(e.clientX)}
+                onDragEndCapture={onDrag}
+
+                onTouchStartCapture={e => setSlideStart(e.changedTouches[0].clientX)}
+                onTouchEndCapture={onTouch}
+                draggable
+            />
 
             {children ? children.map(createItems) : null}
 
