@@ -148,14 +148,16 @@ function Sobre() {
             />
             <Title>{selectedKnowledge?.name}</Title>
           </div>
+
           <Text>{selectedKnowledge?.description}</Text>
-          <a
+
+          <StyledLink
             href={selectedKnowledge?.about_link}
             rel="noopener noreferrer external nofollow"
             target="_blank"
           >
             Saiba mais
-              </a>
+          </StyledLink>
         </KnowledgeDropUp>
 
         <LanguageSelect location="/about" language='br' />

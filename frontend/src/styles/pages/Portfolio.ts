@@ -56,6 +56,7 @@ export const ProjectBanner = styled.div<IPojectBanner>`
     };
 
     @media (max-width: 900px) {
+        background-image: url(${({ image }) => image}) !important;
         border-radius: 0 0 .4rem .4rem;
     };
     @media (max-width: 360px) {

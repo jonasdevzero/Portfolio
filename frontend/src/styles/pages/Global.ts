@@ -29,12 +29,16 @@ export const Subtitle = styled.h2`
     margin-bottom: 1rem;
 `;
 
-export const Text = styled.p`
+interface IText {
+    maxWidth?: string;
+}
+export const Text = styled.p<IText>`
     font-size: 1.7rem;
     line-height: 2.3rem;
     text-align: justify;
-    max-width: 50rem;
+    max-width: ${({ maxWidth }) => maxWidth ? maxWidth : '50rem'};
     margin-bottom: 2.5rem;
+    overflow-wrap: break-word;
 `;
 
 export const StyledLink = styled.a`

@@ -173,6 +173,7 @@ export const KnowledgeDropUp = styled.div`
         padding-bottom: 0;
         top: -100%;
         transition: top .5s ease;
+        margin-top: 6rem;
 
         p {
             margin-bottom: 0;
