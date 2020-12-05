@@ -35,6 +35,9 @@ export const Container = styled.div`
 export const DraggableBox = styled.div`
     width: 100%;
     height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
 
     z-index: 1;
 

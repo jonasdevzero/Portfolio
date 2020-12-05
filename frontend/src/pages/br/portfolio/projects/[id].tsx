@@ -45,6 +45,7 @@ function Portfolio() {
 
   const [project, setProject] = useState<IProject>()
   const [projectImages, setProjectImages] = useState<IProjectImages[]>()
+  const [projectVideo, setProjectVideo] = useState('')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -52,33 +53,23 @@ function Portfolio() {
       api.get(`/projects/${id}`).then(({ data }) => {
         setProject(data.project)
 
+        const findVideo = new RegExp('https?.*?\.mp4')
         const images: Array<{ url: string }> = []
         images.push({ url: data.project.banner_image })
-        data.project.images.map((image: { path: string }) => images.push({ url: image.path }))
-        setProjectImages(images)
 
+        data.project.images.map((image: { path: string }) => {
+          if (!findVideo.test(image.path)) {
+            images.push({ url: image.path })
+          } else {
+            setProjectVideo(image.path)
+          }
+        })
+
+        setProjectImages(images)
         setLoading(false)
       })
     }
-
-    Aos.init({ duration: 800 })
   }, [id])
-
-  function createImages(image: IProjectImages, i: number) {
-    const findVideo = new RegExp('https?.*?\.mp4')
-
-    if (findVideo.test(image.url)) {
-      return (
-        <video key={i} width='100%' height='100%' autoPlay controls loop>
-          <source src={image.url} />
-        </video>
-      )
-    }
-
-    return (
-      <img key={i} src={image.url} alt="project image" />
-    )
-  }
 
   return (
     <div>
@@ -93,7 +84,9 @@ function Portfolio() {
         <Content>
           <SlideContainer>
             <Slider>
-              {projectImages?.map(createImages)}
+              {projectImages?.map((image, i) => (
+                <img key={i} src={image.url} alt={`${project?.name} image`} />
+              ))}
             </Slider>
           </SlideContainer>
 
@@ -114,22 +107,27 @@ function Portfolio() {
 
             <Info>
               <Subtitle>Objetivo</Subtitle>
-              <Text>{project?.objective}</Text>
+              <Text maxWidth='none'>{project?.objective}</Text>
             </Info>
 
             <Info>
               <Subtitle>Dificuldades</Subtitle>
-              <Text>{project?.difficulties}</Text>
+              <Text maxWidth='none'>{project?.difficulties}</Text>
             </Info>
 
             <Info>
               <Subtitle>Conhecimentos adquiridos</Subtitle>
-              <Text>{project?.acquirements}</Text>
+              <Text maxWidth='none'>{project?.acquirements}</Text>
             </Info>
+
+            {projectVideo ? (
+              <Info>
+                <video src={projectVideo} controls loop></video>
+              </Info>
+            ) : null}
           </InfoContainer>
 
         </Content>
-
 
         <Loading loading={loading} />
       </Container>

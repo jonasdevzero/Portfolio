@@ -52,6 +52,11 @@ export const SlideContainer = styled.div`
 export const Info = styled.div`
     width: 100%;
     margin-top: 3rem;
-    padding: 3rem;
+    padding: 3rem 4rem;
     padding-top: 0;
+
+    video {
+        width: 100%;
+        object-fit: contain;
+    }
 `; 
