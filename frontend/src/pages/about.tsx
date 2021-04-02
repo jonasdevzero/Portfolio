@@ -52,7 +52,7 @@ function About() {
     api.get('/knowledge?language=en').then(({ data }) => {
       setKnowledge(data.knowledge)
       setLoading(false)
-    })
+    }).catch(error => console.error(error))
   }, [])
 
   function onClickKnowledge(show: boolean, knowledge?: IKnowledge) {

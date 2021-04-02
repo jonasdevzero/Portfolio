@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export default axios.create({
-    baseURL: 'https://portfolio-devzero.herokuapp.com',
+    baseURL: 'http://localhost:3001',
 })
